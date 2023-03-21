@@ -11,5 +11,6 @@ Rails.application.routes.draw do
 
   root to: "static_pages#landing_page"  
   devise_for :users
+  get "static_pages/kitUI"
 
 end
