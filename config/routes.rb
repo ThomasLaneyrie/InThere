@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-
   root to: "static_pages#landing_page"  
+  get "static_pages/kitUI"
+
   devise_for :users
   resources :users, only: [:show, :destroy]
   resources :products
@@ -17,5 +14,4 @@ Rails.application.routes.draw do
   # Routes relatives aux carts
   get 'carts/:id', to: 'carts#show', as: 'panier'
   resources :carts, only: [:show]
-
 end
