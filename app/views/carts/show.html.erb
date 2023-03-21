@@ -1,0 +1,10 @@
+<h1>show du panier<h1>
+
+<ul>
+  <% @cart.product_carts.each do |product_cart| %>
+    <%= render partial: "product_cart", object: product_cart %>
+  <% end %>
+</ul>
+
+<p>Coût total du panier : <%= @cart.sub_total %>€</p>
+<%= link_to "Payer le panier" %>

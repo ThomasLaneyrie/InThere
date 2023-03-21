@@ -59,14 +59,3 @@
         </div>
       </div>
     </div>
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p> 
-
-<h1>Salut sur notre landing page de badass</h1>
-<% if user_signed_in? %>
-  <p>Statut : "Connecté" -> <%= link_to "Deconnexion", destroy_user_session_path, method: :delete %></p>
-  <p>Numéro de ton panier : <%= current_user.carts.last.id %> -> <%= link_to "Accéder au panier", cart_path(current_user.carts.last.id) %></p>
-<% else %>
-  <p>Statut : "Déconnecté" -> <%= link_to "Connexion", new_user_session_path %></p>
-<% end %>
