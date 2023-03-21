@@ -54,3 +54,11 @@ a.nav-link{
 
 /* Couleur orange : #c34e17   /   couleur verte : #49c317
 Police de caractère : FreeMono, monospace */
+
+.col-sm-6{
+  color: #c34e17;
+  text-shadow:
+  0 0 10px #ffffff62,
+  0 0 42px #c34e17;
+  font-family: 'Tilt Neon', cursive;
+}
