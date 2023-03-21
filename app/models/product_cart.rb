@@ -19,4 +19,10 @@ class ProductCart < ApplicationRecord
     end
     redirect_to panier_path(@line_cart.cart)
   end
+
+
+  # Calcul du total de la product_cart, le reste dans le modele cart
+  def total_price
+    self.quantity * self.product.price
+  end  
 end
