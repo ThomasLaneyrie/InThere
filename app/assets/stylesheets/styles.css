@@ -52,5 +52,62 @@ a.nav-link{
   background-color: #c34e17;
 }
 
+.btn-primary1 {
+  background: color #030303;
+  border:1px solid #49c317 !important;
+}
+
+.btn-primary2 {
+  background: color #030303;
+  border:1px solid #c34e17 !important;
+}
+
+.btn-primary3 {
+  background: color #030303;
+  border:1px solid #343633 !important;
+}
+
+.btn-outline-1 {
+  background: color #030303;
+  border:1px solid #49c317 !important;
+}
+
+.btn-outline-2 {
+  background: color #030303;
+  border:1px solid #c34e17 !important;
+}
+
+.btn-outline-3 {
+  background: color #030303;
+  border:1px solid #343633 !important;
+}
+
+.btn-outline-4 {
+  background: color #030303;
+  border:1px solid #fafbf9 !important;
+}
+
+.alert-success {
+  border:2px solid #49c317 !important;
+}
+
+.alert-info {
+  border:2px solid #c34e17 !important;
+}
+
+.bg-primary {
+  background: color #030303;
+  border:1px solid #fafbf9 !important;
+}
+
+.bg-secondary {
+  border:1px solid #c34e17 !important;
+}
+
+.bg-success {
+  border:1px solid #49c317 !important;
+}
+
+
 /* Couleur orange : #c34e17   /   couleur verte : #49c317
 Police de caractère : FreeMono, monospace */
