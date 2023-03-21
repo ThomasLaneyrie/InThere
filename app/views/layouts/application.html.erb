@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <% flash.each do |name, msg| %>                                                        
+      <div class="alert alert-<%=name%>" role="alert"> <%= msg %> </div>      
+    <% end %> 
     <%= yield %>
   </body>
 </html>

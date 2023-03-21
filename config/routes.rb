@@ -12,6 +12,5 @@ Rails.application.routes.draw do
   get 'product_carts/:id/reduce' => "product_carts#reduce_quantity", as: "product_cart_reduce"
 
   # Routes relatives aux carts
-  get 'carts/:id', to: 'carts#show', as: 'panier'
   resources :carts, only: [:show]
 end

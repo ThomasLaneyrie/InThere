@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
       return true
     else
       flash[:danger] = "Impossible d'accéder à ce panier, redirection vers votre panier"
-      redirect_to panier_path(@current_cart.id)
+      redirect_to cart_path(@current_cart.id)
     end
   end
 
@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
       return true
     else
       flash[:danger] = "Impossible d'accéder à un ancien panier, redirection vers votre panier actuel"
-      redirect_to panier_path(@current_cart.id)
+      redirect_to cart_path(@current_cart.id)
     end
   end
 
