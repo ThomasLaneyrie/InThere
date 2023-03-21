@@ -43,5 +43,14 @@ a.nav-link{
 .bss-component {
   color: #eee8e5;
 }
+
+.card-header-color {
+  background-color: #030303 !important;
+}
+
+.card-body {
+  background-color: #c34e17;
+}
+
 /* Couleur orange : #c34e17   /   couleur verte : #49c317
 Police de caractère : FreeMono, monospace */
