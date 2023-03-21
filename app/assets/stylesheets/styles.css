@@ -7,15 +7,43 @@
 .neonText {
   color: #fff;
   text-shadow:
-      0 0 7px #fff,
-      0 0 10px #fff,
-      0 0 21px #fff,
-      0 0 42px #0fa,
-      0 0 82px #0fa,
-      0 0 92px #0fa,
-      0 0 102px #0fa,
-      0 0 151px #0fa;
+  0 0 10px #fff,
+  0 0 10px #fff,
+  0 0 42px #49c317,
+  0 0 82px #49c317,
+  0 0 92px #49c317,
+  0 0 102px #49c317,
+  0 0 151px #49c317;
+  font-family: FreeMono, monospace
+}
+
+
+a.nav-link{
+  color: #49c317;
+  text-shadow:
+  0 0 10px #fff,
+  0 0 42px #49c317,
+  0 0 82px #49c317,
+  0 0 92px #49c317,
+  0 0 102px #49c317,
+  0 0 151px #49c317;
+  font-family: FreeMono, monospace;
+}
+
+.row {
+  font-family: FreeMono, monospace;
+}
+
+.bs-component {
+  color: #c34e17;
+  text-shadow:
+  0 0 10px #fff,
+  0 0 42px #c34e17,
+  0 0 82px #c34e17,
+  0 0 92px #c34e17,
+  0 0 102px #c34e17,
+  0 0 151px #c34e17;
 }
 
 /* Couleur orange : #c34e17   /   couleur verte : #49c317
-Police de caractère : Lastica */
+Police de caractère : FreeMono, monospace */
