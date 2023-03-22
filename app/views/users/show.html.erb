@@ -1,24 +1,37 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
-<div class="container">
-  <div class="row border border-danger">
-    <div class="col-4 border border-success", style="height:200px"> 
-      <div class="row"> Photos de profil à ajouter en Active Storage </div>
-      <div class="row"> Photos de profil à ajouter en Active Storage </div>
-    </div>
-    <div class="col-8 border border-secondary align-items-around">
-      <p class="border">Prénom : <%= @user.first_name%> </p>
-      <p class="border">Nom : <%= @user.last_name%> </p>
-      <p>votre email : <%= @user.email%> </p>
-      <div class="actions border">
-        <%= button_to "Modifier mes informations utilisateurs ou ma photo de profil", class:"btn btn-outline4 btn-lg mt-2 w-100" %>
-      </div>
-    </div>
-
+<div class="container text-center">
+  <h3 class="bs-component">Mes informations</h3>
+<hr>
   <div class="row">
-    <div class="col text-center">Vos commandes passées 
+    <div class="col-4", style="height:220px"> 
+      <div class="row"> <img src="https://www.art-deco-stickers.fr/968-tm_large_default/sticker-mural-chaton.jpg" class="img-pop-left card-img-top" style="max-width:200px; aspect-ratio: 1 / 1;" /> </div>
+    </div>
+    <div class="col-8 d-flex flex-column justify-content-center align-items-start text-pop-delayed-08s">
+      <p>Prénom : <%= @user.first_name%> </p>
+      <p>Nom : <%= @user.last_name%> </p>
+      <p>Email : <%= @user.email%> </p>
+      <%= link_to "Modifier mon profil", edit_user_path(@user.id) %>
+      <%= link_to "Modifier mon mot de passe",  edit_user_registration_path %>
+    </div>
+  </div>
+  <hr class="text-pop-delayed-08s">
+</div>
 
+<br><br><br>
+
+<div class="container text-pop-delayed-16s">
+  <div class="row ">
+    <div class="col text-center">
+      <h3 class="bs-component">Vos commandes passées</h3>
+     <hr>
+      <% @user.orders.each do |order| %>
+        <div class="row">
+          <div class="col">Commande N°<br> <%= order.id %> </div>
+          <div class="col">Date de la commande<br> <%= order.created_at.strftime("%d-%m-%Y") %></div>
+          <div class="col">Montant total<br> <%= order.cart.sub_total %> €</div>
+          <div class="col"> <%= link_to "Accéder à votre commande #{order.id}", order_path(order.id) %> </div>
+        </div>
+        <hr>
+      <% end %>
     </div>
   </div>
 </div>
