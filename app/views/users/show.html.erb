@@ -1,2 +1,24 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+<div class="container">
+  <div class="row border border-danger">
+    <div class="col-4 border border-success", style="height:200px"> 
+      <div class="row"> Photos de profil à ajouter en Active Storage </div>
+      <div class="row"> Photos de profil à ajouter en Active Storage </div>
+    </div>
+    <div class="col-8 border border-secondary align-items-around">
+      <p class="border">Prénom : <%= @user.first_name%> </p>
+      <p class="border">Nom : <%= @user.last_name%> </p>
+      <p>votre email : <%= @user.email%> </p>
+      <div class="actions border">
+        <%= button_to "Modifier mes informations utilisateurs ou ma photo de profil", class:"btn btn-outline4 btn-lg mt-2 w-100" %>
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="col text-center">Vos commandes passées 
+
+    </div>
+  </div>
+</div>
