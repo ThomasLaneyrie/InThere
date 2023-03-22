@@ -108,4 +108,17 @@ Police de caractère : FreeMono, monospace */
   --bs-btn-disabled-border-color: #375a7f;
 }
 
+.fs-5 col{
+  display: flex;
+  justify-content: center;
+  background-color: #000000;
+  border-radius: 10px;
+  flex-direction: column;
+  color: #c34e17;
+  text-shadow:
+  0 0 10px #ffffff62,
+  0 0 42px #c34e17;
+  font-family: 'Poppins', sans-serif;
+}
+
 
