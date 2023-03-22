@@ -7,4 +7,8 @@
 </ul>
 
 <p>Coût total du panier : <%= @cart.sub_total %>€</p>
-<%= link_to "Payer le panier" %>
+
+<%= button_to "Passer commande", cart_checkout_create_path(@cart.id, total: @cart.sub_total), class: "btn btn-primary", remote: true %> 
+
+
+<% link_to "Adresse puis passer commande",  %>

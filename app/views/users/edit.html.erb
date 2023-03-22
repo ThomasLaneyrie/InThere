@@ -1,2 +1,10 @@
 <h1>Users#edit</h1>
 <p>Find me in app/views/users/edit.html.erb</p>
+<div class="container-fluid d-flex flex-column align-items-center mt-5", style="max-width:1000px">
+  <%= form_with model: @event do |f| %>
+    <div class="form-group">
+      <%= f.text_field :title, placeholder: "Titre", class: 'form-control', minlength: 5 %>
+      <%= f.text_area :description, placeholder: "Description", class: 'form-control',minlength: 5, maxlength:140  %>
+    </div>
+  <% end %>
+</div>
