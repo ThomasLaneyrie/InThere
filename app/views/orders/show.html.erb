@@ -1,0 +1,38 @@
+<!-- Page Header Start -->
+<div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 200px">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Shopping Cart</h1>
+    </div>
+</div>
+
+<!-- Page Header End -->
+<% products_cart = @current_cart.product_carts %>
+
+<!-- Cart Start -->
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5">
+            <div class="col-lg-8 table-responsive mb-5">
+            <table class="table table-bordered text-center mb-0">
+                <thead class="bg-secondary text-dark">
+                    <tr>
+                        <th>Products</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+
+                <% @cart.product_carts.sort.each do |product_cart| %>
+                    <%= render partial: "carts/product_cart", object: product_cart %>
+                <% end %>
+            </table>
+        </div>
+            <%= render partial: "carts/total_cart_to_pay", object: @cart %>
+    </div>
+</div>
+<!-- Cart End -->
+
+
+    
+    
