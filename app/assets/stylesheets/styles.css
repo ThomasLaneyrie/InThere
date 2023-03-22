@@ -31,7 +31,7 @@ a.nav-link{
 }
 
 .row {
-  font-family: FreeMono, monospace;
+  font-family: 'Poppins', sans-serif;
 }
 
 .bs-component {
@@ -67,9 +67,14 @@ a.nav-link{
   border:1px solid #343633 !important;
 }
 
+.btn-primary4 {
+  background: color #030303;
+  border:0px solid #f8faf9 !important;
+}
+
 .btn-outline-1 {
   background: color #030303;
-  border:1px solid #49c317 !important;
+  border:px solid #49c317 !important;
 }
 
 .btn-outline-2 {
@@ -97,7 +102,7 @@ a.nav-link{
 
 .bg-primary {
   background: color #030303;
-  border:1px solid #fafbf9 !important;
+  border:0px solid #49c317 !important;
 }
 
 .bg-secondary {
@@ -144,7 +149,7 @@ Police de caractère : FreeMono, monospace */
   border-radius: 10px;
 }
 
-.btn-primary2 {
+.btn-primary4 {
   font-family: 'Poppins', sans-serif;
   position: relative;
   display: flex;
