@@ -3,6 +3,9 @@ class CheckoutController < ApplicationController
     @total = params[:total].to_d                                                 
     @session = Stripe::Checkout::Session.create(                                     
       payment_method_types: ['card'],
+      shipping_address_collection: {
+        allowed_countries: ['FR'],
+        },
       line_items: [
         {
           price_data: {

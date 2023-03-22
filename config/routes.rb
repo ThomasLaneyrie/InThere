@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get "static_pages/kitUI"
 
   devise_for :users
-  resources :users, only: [:show,:edit, :update, :destroy]
+  resources :users
   resources :products
 
   # Routes relatives aux product_carts
@@ -19,4 +19,6 @@ Rails.application.routes.draw do
       get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
     end
   end
+
+  resources :orders, only: [:create, :index, :show]
 end
