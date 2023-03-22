@@ -1,10 +1,7 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p> 
-
 <center>
 <br>
 <% if user_signed_in? %>
-<span class="badge rounded-pill bg-success">Vous êtes connecté"</span>
+<span class="badge rounded-pill bg-success">Vous êtes connecté</span>
 <% else %>
 <span class="badge rounded-pill bg-success">"Vous n'êtes pas encore inscrit"</span>
 <% end %>
@@ -21,11 +18,14 @@
 
   <div class="row">
     <div class="col-sm-3"></div>
-    <div class="col-sm-6"><br><br><br><br><br><br><h1>RESTEZ TOUJOURS CONNECTÉS</h1><br><br><button type="button" class="btn btn-primary4 btn-lg" style="
-    margin-bottom: 100px;
-">COMMENCER L'EXPÉRIENCE</button><br></div>
-    <div class="col-sm-3"></div>
+      <div class="col-sm-6"><br><br><br><br><br><br><h1>RESTEZ TOUJOURS CONNECTÉS</h1><br><br>
+        <button type="button" class="btn btn-primary4 btn-lg" style="margin-bottom: 100px;"><%= link_to "COMMENCER L'EXPÉRIENCE", products_path%></button><br></div>
+          <div class="col-sm-3">
+          </div>
+      </div>
+    </div>
   </div>
+
   <br>
   <br>
   <br>
@@ -33,5 +33,7 @@
 </body>
 
 <%= render 'layouts/footer' %>
+
+
 
 

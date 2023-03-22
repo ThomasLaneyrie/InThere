@@ -28,17 +28,17 @@ orders = []
 users = []
 
 
-category_title_create = ["Ordinateurs", "Téléphones", "Accessoires"]
-images_chat=["https://zoosante.fr/wp-content/uploads/2020/02/collier-anti-puces-chat-300x300.jpg", 
-	"https://letourno.com/wp-content/uploads/2021/02/Nourriture-pour-chat-500x500.jpg",
-	"https://www.art-deco-stickers.fr/968-tm_large_default/sticker-mural-chaton.jpg", 
-	"https://www.monchatestroi.fr/wp-content/uploads/2016/03/Amiti%C3%A9-chien-chat-Chien-qui-l%C3%A8che-un-chat.jpg", 
-	"https://mycrazystuff.com/16610-thickbox/criniere-de-lion-pour-chat.jpg", 
-	"https://www.catedogshop.com/wp-content/uploads/2020/10/jouet-balle-cataire-catnip-herbe-chat-chaton-7-300x300.jpg", 
-	"https://img.le-dictionnaire.com/chat.jpg", 
-	"https://www.ifop.com/wp-content/uploads/2020/07/chiens-et-chats-300x300.jpeg",
-	"https://cdn.shopify.com/s/files/1/0053/2289/9530/products/coussin-chat-rayures-canape_2000x.jpg?v=1652907836",  
-	"https://jardinjasmin.com/wp-content/uploads/2017/01/87729-B-500x500.png"]
+category_title_create = ["earbuds", "drones", "telephones", "montres"]
+images_chat=["https://m.media-amazon.com/images/I/61TXDYujoQL._AC_UL320_.jpg", 
+	"https://m.media-amazon.com/images/I/51RKBYPavSL._AC_UL320_.jpg",
+	"https://m.media-amazon.com/images/I/51P0D-ZgyVL._AC_UL320_.jpg", 
+	"https://https://m.media-amazon.com/images/I/61PlEd+bbBL._AC_UL320_.jpg", 
+	"https://images-eu.ssl-images-amazon.com/images/I/712v3RNGS9L._AC_UL600_SR600,400_.jpg", 
+	"https://images-eu.ssl-images-amazon.com/images/I/81f09IHHjnL._AC_UL600_SR600,400_.jpg", 
+	"https://images-eu.ssl-images-amazon.com/images/I/71m5wk1Fi3L._AC_UL600_SR600,400_.jpg", 
+	"https://images-eu.ssl-images-amazon.com/images/I/51sV-rg4KqL._AC_UL600_SR600,400_.jpg",
+	"https://images-eu.ssl-images-amazon.com/images/I/712v3RNGS9L._AC_UL600_SR600,400_.jpg",  
+	"https://images-eu.ssl-images-amazon.com/images/I/81f09IHHjnL._AC_UL600_SR600,400_.jpg"]
 
 #seeding des users "creation des users"
 User.create(email:"admininthere@yopmail.com", password:"123456", is_admin: true)
