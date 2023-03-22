@@ -1,7 +1,24 @@
-<h1>Salut sur notre landing page de badass</h1>
+<%= render 'layouts/navbar' %>
+<br>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p> 
+
 <% if user_signed_in? %>
   <p>Statut : "Connecté" -> <%= link_to "Deconnexion", destroy_user_session_path, method: :delete %></p>
   <p>Numéro de ton panier : <%= current_user.carts.last.id %> -> <%= link_to "Accéder au panier", cart_path(current_user.carts.last.id) %></p>
 <% else %>
   <p>Statut : "Déconnecté" -> <%= link_to "Connexion", new_user_session_path %></p>
 <% end %>
+
+<body>
+<br>
+<br>
+<br>
+  <div class="container text-center">
+  <div class="row">
+    <div class="col-sm-6"><br><br><br><br><br><br><h1>RESTEZ TOUJOURS CONNECTÉS</h1><br><br><button type="button" class="btn btn-primary2 btn-lg">COMMENCER L'EXPÉRIENCE</button><br></div>
+    <div class="col-sm-5"><img src="https://i.postimg.cc/MZLLbjrn/panier.pngcol-sm-4"></div>
+  </div>
+
+</body>
+
