@@ -15,7 +15,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Tilt+Neon&display=swap" rel="stylesheet">
     
   </head>
-  <%= render partial: 'layouts/navbar' %>
+
+  <%= render 'layouts/navbar' %>
+
   <body>
     <% flash.each do |name, msg| %>                                                        
       <div class="alert alert-<%=name%>" role="alert"> <%= msg %> </div>      
