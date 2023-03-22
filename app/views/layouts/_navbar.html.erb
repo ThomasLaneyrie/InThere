@@ -11,11 +11,11 @@
         <li class="nav-item">
           <a class="nav-link" href="../help/">IN THERE</a>
         <li class="nav-item">
-          <a class="nav-link" href="../help/">ACCUEIL</a>
+          <a class="nav-link" href="../help/">Accueil</a>
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="themes">CATEGORIES</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="themes">Categories</a>
           <div class="dropdown-menu" aria-labelledby="themes">
             <a class="dropdown-item" href="../default/">Default</a>
             <div class="dropdown-divider"></div>
@@ -26,12 +26,22 @@
         </li>
       </ul>
       <ul class="navbar-nav ms-md-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="../help/">CONNEXION</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../help/">DECONNEXION</a>
-        </li>
+        <% if @current_user == nil %>
+            <%= link_to "Log in", new_user_session_path, class: "nav-item nav-link" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "nav-item nav-link" %>
+        <% else %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="themes">Mon compte</a>
+            <div class="dropdown-menu" aria-labelledby="themes">
+                <%= link_to "Consulter mon profil",user_path(current_user.id), class:"dropdown-item" %>
+                <%= link_to "Mon panier", cart_path(@current_cart.id), class:"dropdown-item" %>
+                <%= link_to "Editer mes informations", edit_user_path(@current_user.id), class:"dropdown-item" %> 
+                <%= link_to "Modifier mon mot de passe", edit_user_registration_path, class:"dropdown-item" %> 
+            </div>
+          </li>
+          <%= link_to "Log out", destroy_user_session_path, class: "nav-item nav-link" %>
+
+        <%end%>
       </ul>
     </div>
   </div>
