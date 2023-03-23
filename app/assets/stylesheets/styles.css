@@ -182,3 +182,40 @@ Police de caractère : FreeMono, monospace */
   0 0 42px #c34e17;
   font-family: 'Poppins', sans-serif;
 }
+
+@keyframes pop-left {
+  from { 
+    opacity: 0;
+    transform: translateX(-300px);
+  }                                                                                    
+  to {
+    opacity:1;
+     transform: translateX(0px); 
+  }             
+
+}
+.img-pop-left{
+  animation: pop-left 0.8s ease-out;        
+}
+
+
+@keyframes pop-delayed {
+  0% {                                                        
+    opacity: 0;
+  }
+  50% { 
+    opacity: 0;
+  }                                                                                    
+  to {
+    opacity:1;
+  }             
+
+}
+.text-pop-delayed-08s{
+  animation: pop-delayed 1.6s ease-out;        
+}
+
+.text-pop-delayed-16s{
+  animation: pop-delayed 2.4s ease-out;        
+}
+
