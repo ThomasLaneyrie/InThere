@@ -28,22 +28,206 @@ a.nav-link{
   0 0 102px #49c317,
   0 0 151px #49c317;
   font-family: FreeMono, monospace;
+  display : flex;
+  align-items: center;
+}
+
+.logo {
+  padding-right: 10px;
+  padding-top:5px ;
 }
 
 .row {
-  font-family: FreeMono, monospace;
+  font-family: 'Poppins', sans-serif;
 }
 
 .bs-component {
   color: #c34e17;
   text-shadow:
-  0 0 10px #fff,
-  0 0 42px #c34e17,
-  0 0 82px #c34e17,
-  0 0 92px #c34e17,
-  0 0 102px #c34e17,
-  0 0 151px #c34e17;
+  0 0 23px #c34e17;
 }
+
+.bss-component {
+  color: #eee8e5;
+}
+
+.card-header-color {
+  background-color: #030303 !important;
+}
+
+.card-body {
+  background-color: #000000;
+}
+
+.btn-primary1 {
+  background: color #030303;
+  border:1px solid #49c317 !important;
+}
+
+.btn-primary2 {
+  background: color #030303;
+  border:1px solid #c34e17 !important;
+}
+
+.btn-primary3 {
+  background: color #030303;
+  border:1px solid #343633 !important;
+}
+
+.btn-primary4 {
+  background: color #030303;
+  border:0px solid #f8faf9 !important;
+}
+
+.btn-outline-1 {
+  background: color #030303;
+  border:px solid #49c317 !important;
+}
+
+.btn-outline-2 {
+  background: color #030303;
+  border:1px solid #c34e17 !important;
+}
+
+.btn-outline-3 {
+  background: color #030303;
+  border:1px solid #343633 !important;
+}
+
+.btn-outline-4 {
+  background: color #030303;
+  border:1px solid #fafbf9 !important;
+}
+
+.alert-success {
+  border:2px solid #49c317 !important;
+}
+
+.alert-info {
+  border:2px solid #c34e17 !important;
+}
+
+.bg-primary {
+  background: color #030303;
+  border:0px solid #49c317 !important;
+}
+
+.bg-secondary {
+  border:1px solid #c34e17 !important;
+}
+
+.bg-success {
+  border:1px solid #49c317 !important;
+}
+
 
 /* Couleur orange : #c34e17   /   couleur verte : #49c317
 Police de caractère : FreeMono, monospace */
+
+.col-sm-6{
+  background-image: url("https://i.postimg.cc/vTLbkBwp/test3.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #141414;
+  border-radius: 10px;
+  display: center;
+  flex-direction: column;
+  color: #c34e17;
+  text-shadow:
+  0 0 10px #ffffff62,
+  0 0 42px #c34e17;
+  font-family: 'Tilt Neon', cursive;
+}
+
+.col-sm-5{
+  display: flex;
+  justify-content: center;
+  background-color: #000000;
+  border-radius: 10px;
+  flex-direction: column;
+  color: #c34e17;
+  text-shadow:
+  0 0 10px #ffffff62,
+  0 0 42px #c34e17;
+  font-family: 'Poppins', sans-serif;
+}
+
+.col-sm-5 img {
+  border-radius: 10px;
+}
+
+.btn-primary4 {
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  --bs-btn-color: #49c317;
+  --bs-btn-bg: #c34e17;
+  --bs-btn-border-color: #375a7f;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: #c34e17;
+  --bs-btn-hover-border-color: #2c4866;
+  --bs-btn-focus-shadow-rgb: 85, 115, 146;
+  --bs-btn-active-color: #fdfdfd;
+  --bs-btn-active-bg: #2c4866;
+  --bs-btn-active-border-color: #29445f;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fcfcfc;
+  --bs-btn-disabled-bg: #375a7f;
+  --bs-btn-disabled-border-color: #375a7f;
+}
+
+.fs-5 col{
+  display: flex;
+  justify-content: center;
+  background-color: #000000;
+  border-radius: 10px;
+  flex-direction: column;
+  color: #c34e17;
+  text-shadow:
+  0 0 10px #ffffff62,
+  0 0 42px #c34e17;
+  font-family: 'Poppins', sans-serif;
+}
+
+@keyframes pop-left {
+  from { 
+    opacity: 0;
+    transform: translateX(-300px);
+  }                                                                                    
+  to {
+    opacity:1;
+     transform: translateX(0px); 
+  }             
+
+}
+.img-pop-left{
+  animation: pop-left 0.8s ease-out;        
+}
+
+
+@keyframes pop-delayed {
+  0% {                                                        
+    opacity: 0;
+  }
+  50% { 
+    opacity: 0;
+  }                                                                                    
+  to {
+    opacity:1;
+  }             
+
+}
+.text-pop-delayed-08s{
+  animation: pop-delayed 1.6s ease-out;        
+}
+
+.text-pop-delayed-16s{
+  animation: pop-delayed 2.4s ease-out;        
+}
+
+.items-section {
+  max-width: 1200px; /* la largeur maximale souhaitée */
+  margin: 0 auto; /* centrer la section horizontalement */
+}
+

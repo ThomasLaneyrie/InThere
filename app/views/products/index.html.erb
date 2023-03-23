@@ -1,14 +1,44 @@
-<p style="color: green"><%= notice %></p>
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<br>
+<br>
+  <head>
+  <center>
+	<div class="container my-5">
+			<div class="row">
+			<div class="col"><a href="https://zupimages.net/viewer.php?id=23/12/xmqz.png"><img src="https://zupimages.net/up/23/12/xmqz.png" alt="" /></a>
+			<div class="col"></div><span>EARBUDS</span></div>
+			<div class="col"><a href="https://zupimages.net/viewer.php?id=23/12/mluq.png"><img src="https://zupimages.net/up/23/12/mluq.png" alt="" /></a>
+			<div class="col"></div><span>MONTRES</span></div>
+			<div class="col"><a href="https://zupimages.net/viewer.php?id=23/12/0xih.png"><img src="https://zupimages.net/up/23/12/0xih.png" alt="" /></a>
+			<div class="col"></div><span>AUDIO</span></div>
+			<div class="col"><a href="https://zupimages.net/viewer.php?id=23/12/6iju.png"><img src="https://zupimages.net/up/23/12/6iju.png" alt="" /></a>
+			<div class="col"></div><span>DRONES</span></div>
+		</div>
+	</div>
+	</div>
+
+	</center>
+
+  </head>
+  <body>
+  <div class="row">
+  <div class="bs-component">
+  <br>
+  <br>
+<center>
+<br>
+
+<h2>NOS BONS PLANS DU MOMENT</h2>
+<br>
 
 <h1>Products</h1>
+<br>
 
-<div id="products">
-  <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
-  <% end %>
-</div>
+<section class="items-section">
+<div class="row">
 
-<%= link_to "New product", new_product_path %>
+<%= render @products %>
+
+</section>

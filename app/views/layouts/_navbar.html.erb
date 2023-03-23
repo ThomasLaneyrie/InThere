@@ -1,0 +1,48 @@
+<div class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to "IN THERE", root_path, class: "nav-link" %>
+        <li class="nav-item">
+        <%= link_to "Accueil", products_path, class: "nav-link" %>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="themes">Categories</a>
+          <div class="dropdown-menu" aria-labelledby="themes">
+            <a class="dropdown-item" href="../default/">EARBUDS</a>
+            <a class="dropdown-item" href="../cerulean/">MONTRES</a>
+            <a class="dropdown-item" href="../cosmo/">AUDIO</a>
+            <a class="dropdown-item" href="../cyborg/">DRONES</a>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-md-auto">
+        <% if @current_user == nil %>
+            <%= link_to "Se Connecter", new_user_session_path, class: "nav-item nav-link" %>
+            <%= link_to "S'inscrire", new_user_registration_path, class: "nav-item nav-link" %>
+        <% else %>
+        <div class="logo">
+        <%= link_to(image_tag("https://zupimages.net/up/23/12/x5be.png", style: 'width: 24px; height: 24px'), cart_path(@current_cart.id)) %>
+        </div>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="themes">Mon compte</a>
+            <div class="dropdown-menu" aria-labelledby="themes">
+                <%= link_to "Consulter mon profil",user_path(current_user.id), class:"dropdown-item" %>
+              <%= link_to "Mon panier", cart_path(@current_cart.id), class:"dropdown-item" %>
+                <%= link_to "Editer mes informations", edit_user_path(@current_user.id), class:"dropdown-item" %> 
+                <%= link_to "Modifier mon mot de passe", edit_user_registration_path, class:"dropdown-item" %>
+            </div>
+          </li>
+          <%= link_to "Log out", destroy_user_session_path, class: "nav-item nav-link" %>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+</div>

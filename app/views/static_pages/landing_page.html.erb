@@ -1,9 +1,37 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p> 
-
-<h1>Salut sur notre landing page de badass</h1>
+<center>
+<br>
 <% if user_signed_in? %>
-  <%= link_to "Deconnexion", destroy_user_session_path, method: :delete %> 
+<span class="badge rounded-pill bg-success">Vous êtes connecté</span>
 <% else %>
-  <%= link_to "Connexion", new_user_session_path %>
+<span class="badge rounded-pill bg-success">"Vous n'êtes pas encore inscrit"</span>
 <% end %>
+</center>
+
+
+
+<body>
+
+<br>
+<br>
+<br>
+  <div class="container text-center">
+
+  <div class="row">
+    <div class="col-sm-3"></div>
+      <div class="col-sm-6"><br><br><br><br><br><br><h1>RESTEZ TOUJOURS CONNECTÉS</h1><br><br>
+        <button type="button" class="btn btn-primary4 btn-lg" style="margin-bottom: 100px;"><%= link_to "COMMENCER L'EXPÉRIENCE", products_path%></button><br></div>
+          <div class="col-sm-3">
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+</body>
+
+
+
+
