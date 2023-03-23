@@ -21,4 +21,10 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [:create, :index, :show]
+
+  #active storage
+  resources :users, only: [:show] do
+  resources :avatars, only: [:create]
+  end
+  
 end
