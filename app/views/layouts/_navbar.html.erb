@@ -25,8 +25,8 @@
       </ul>
       <ul class="navbar-nav ms-md-auto">
         <% if @current_user == nil %>
-            <%= link_to "Log in", new_user_session_path, class: "nav-item nav-link" %>
-            <%= link_to "Sign up", new_user_registration_path, class: "nav-item nav-link" %>
+            <%= link_to "Se Connecter", new_user_session_path, class: "nav-item nav-link" %>
+            <%= link_to "S'inscrire", new_user_registration_path, class: "nav-item nav-link" %>
         <% else %>
         <div class="logo">
         <%= link_to(image_tag("https://zupimages.net/up/23/12/x5be.png", style: 'width: 24px; height: 24px'), cart_path(@current_cart.id)) %>

@@ -56,7 +56,7 @@ a.nav-link{
 }
 
 .card-body {
-  background-color: #c34e17;
+  background-color: #000000;
 }
 
 .btn-primary1 {
@@ -225,3 +225,4 @@ Police de caractère : FreeMono, monospace */
 .text-pop-delayed-16s{
   animation: pop-delayed 2.4s ease-out;        
 }
+
