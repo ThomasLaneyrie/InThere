@@ -28,6 +28,13 @@ a.nav-link{
   0 0 102px #49c317,
   0 0 151px #49c317;
   font-family: FreeMono, monospace;
+  display : flex;
+  align-items: center;
+}
+
+.logo {
+  padding-right: 10px;
+  padding-top:5px ;
 }
 
 .row {
