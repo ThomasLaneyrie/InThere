@@ -10,6 +10,7 @@
         </div>
         <input type="text" class="form-control form-control-sm bg-black text-center text-white" value=<%=product_cart.quantity%>>
         <div class="input-group-btn">
+        
           <%= link_to "+", product_cart_add_path(product_cart.id), class: "btn btn-sm btn-primary btn-minus"%>
           </button>
         </div>
@@ -24,3 +25,4 @@
     </td>
   </tr>
 </tbody>
+

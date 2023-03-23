@@ -25,9 +25,10 @@
                         </tr>
                     </thead>
 
-                    <div id="all_product_carts">
-                        <%= render @cart.product_carts %>
-                    </div>
+                    <% @cart.product_carts.sort.each do |product_cart| %>
+                        <%= render "product_carts/product_cart", product_cart: product_cart %>
+                    <% end %>
+
 
 
                 </table>

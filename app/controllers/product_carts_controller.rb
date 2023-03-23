@@ -11,11 +11,7 @@ class ProductCartsController < ApplicationController
     @product_cart = ProductCart.find(params[:id])
     @product_cart.quantity += 1
     @product_cart.save
-    # redirect_to cart_path(@product_cart.cart)
-    respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.replace("product_cart_#{product_cart.id}")
-    }
-    end
+    redirect_to cart_path(@product_cart.cart)
   end
 
   def reduce_quantity
@@ -26,7 +22,6 @@ class ProductCartsController < ApplicationController
     end
     redirect_to cart_path(@product_cart.cart)
   end
-end
 
   def create
     chosen_product = Product.find(params[:product_id])
