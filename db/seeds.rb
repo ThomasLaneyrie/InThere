@@ -71,20 +71,18 @@ end
   end
 
 #seeding des Products
-  i = 0
-  nb_product.times do |x|
+   nb_product.times do |x|
     product = Product.create(
       title: Faker::Creature::Animal.name,
       description: Faker::Lorem.words(number: 4, exclude_words: 'error'),
       price: rand(1..20),
-      image_url: images_produits[i],
+      image_url: images_produits.sample,
 			top_sell: false,
       category: Category.all.sample
       )
     products << product
     puts "Seeding product nb#{x}"
-    i = i + 1
-  end
+    end
 
 #seeding des carts "paniers"
 
