@@ -29,7 +29,7 @@ users = []
 
 
 category_title_create = ["earbuds", "drones", "telephones", "montres"]
-images_chat=["https://m.media-amazon.com/images/I/61TXDYujoQL._AC_UL320_.jpg", 
+images_produits=["https://m.media-amazon.com/images/I/61TXDYujoQL._AC_UL320_.jpg", 
 	"https://m.media-amazon.com/images/I/51RKBYPavSL._AC_UL320_.jpg",
 	"https://m.media-amazon.com/images/I/51P0D-ZgyVL._AC_UL320_.jpg", 
 	"https://https://m.media-amazon.com/images/I/61PlEd+bbBL._AC_UL320_.jpg", 
@@ -77,7 +77,8 @@ end
       title: Faker::Creature::Animal.name,
       description: Faker::Lorem.words(number: 4, exclude_words: 'error'),
       price: rand(1..20),
-      image_url: images_chat[i],
+      image_url: images_produits[i],
+			top_sell: false,
       category: Category.all.sample
       )
     products << product
