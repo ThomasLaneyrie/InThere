@@ -6,11 +6,11 @@
       <% if @user.avatar.attached? %>
         <%= image_tag @user.avatar, alt: 'avatar', style: 'width: 200px; height: 200px;' %>
       <% else %>
-        <img src="/empty-profile.png" alt="photo de profil">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/020/647/381/small/empty-face-icon-avatar-with-mustache-illustration-vector.jpg" alt="photo de profil">
       <%end%>
 
-    </div>
-    <div class="col-8 d-flex flex-column justify-content-center align-items-start text-pop-delayed-08s">
+</div>
+  <div class="col-8 d-flex flex-column justify-content-center align-items-start text-pop-delayed-08s">
       <p>Prénom : <%= @user.first_name%> </p>
       <p>Nom : <%= @user.last_name%> </p>
       <p>Email : <%= @user.email%> </p>
@@ -29,14 +29,13 @@
       <h3 class="bs-component">Changer mon avatar</h3>
         <hr>
         <br>
-         <%= form_tag user_avatars_path(@user), multipart: true do %>
+        <%= form_tag user_avatars_path(@user), multipart: true do %>
         <%= file_field_tag :avatar %>
         <%= submit_tag "mettre à jour" %>
       <% end %>
     </div>
   </div>
 </div>
-
 
 <br><br><br>
 
