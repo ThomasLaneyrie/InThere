@@ -14,7 +14,7 @@ Order.destroy_all
 ProductCart.destroy_all
 
 nb_cart = 10
-nb_product = 10     # Laisser 10 car une image prévue par Product ! 
+nb_product = 20     # Laisser 10 car une image prévue par Product ! 
 nb_category = 3     # Laisser 3 car une category prévue par category !  
 nb_product_cart = 20
 nb_order = 10
@@ -32,7 +32,7 @@ category_title_create = ["earbuds", "drones", "telephones", "montres"]
 images_produits=["https://m.media-amazon.com/images/I/61TXDYujoQL._AC_UL320_.jpg", 
 	"https://m.media-amazon.com/images/I/51RKBYPavSL._AC_UL320_.jpg",
 	"https://m.media-amazon.com/images/I/51P0D-ZgyVL._AC_UL320_.jpg", 
-	"https://https://m.media-amazon.com/images/I/61PlEd+bbBL._AC_UL320_.jpg", 
+	"https://m.media-amazon.com/images/I/61PlEd+bbBL._AC_UL320_.jpg", 
 	"https://images-eu.ssl-images-amazon.com/images/I/712v3RNGS9L._AC_UL600_SR600,400_.jpg", 
 	"https://images-eu.ssl-images-amazon.com/images/I/81f09IHHjnL._AC_UL600_SR600,400_.jpg", 
 	"https://images-eu.ssl-images-amazon.com/images/I/71m5wk1Fi3L._AC_UL600_SR600,400_.jpg", 

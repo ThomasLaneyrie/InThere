@@ -226,3 +226,8 @@ Police de caractère : FreeMono, monospace */
   animation: pop-delayed 2.4s ease-out;        
 }
 
+.items-section {
+  max-width: 1200px; /* la largeur maximale souhaitée */
+  margin: 0 auto; /* centrer la section horizontalement */
+}
+
