@@ -34,11 +34,11 @@ class CheckoutController < ApplicationController
        @cart.order_id = @order.id
        @cart.save 
        @cart = Cart.create(user_id: current_user.id)
-       redirect_to order_path(@order.id)
        flash[:success] = "Le payement a été réalisé avec succès !"
+       redirect_to order_path(@order.id)
     else
       redirect_to panier_path(@cart.id)
-      flash[:danger] = "Ton payement est bien passé mais il y a un problème pour enregistrer ta participation. Contactez-nous"
+      flash[:info] = "Ton payement est bien passé mais il y a un problème pour enregistrer ta participation. Contactez-nous"
     end
   end
 

@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     if (current_user.orders.include?Order.find(params[:id])) == true
       return true
     else
-      flash[:danger] = "Impossible de consulter cette commande"
+      flash[:info] = "Impossible de consulter cette commande"
       redirect_to root_path
     end
   end
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     if Cart.find(params[:id]).user == current_user
       return true
     else
-      flash[:danger] = "Impossible d'accéder à ce panier, redirection vers votre panier"
+      flash[:info] = "Impossible d'accéder à ce panier, redirection vers votre panier"
       redirect_to cart_path(@current_cart.id)
     end
   end
@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
     if @current_cart == current_user.carts.find(params[:id])
       return true
     else
-      flash[:danger] = "Impossible d'accéder à un ancien panier, redirection vers votre panier actuel"
+      flash[:info] = "Impossible d'accéder à un ancien panier, redirection vers votre panier actuel"
       redirect_to cart_path(@current_cart.id)
     end
   end
