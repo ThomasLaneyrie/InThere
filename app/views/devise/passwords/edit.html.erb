@@ -6,14 +6,14 @@
       <%= render "devise/shared/error_messages", resource: resource %>
       <%= f.hidden_field :reset_password_token %>
 
-      <div class="form-label mt-4">
+      <div class="form-label mt-3">
         <%= f.label :password, "Nouveau mot de passe" %><br />
         <% if @minimum_password_length %>
         <% end %>
         <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder:"#{@minimum_password_length} caractères mini", class:"form-control"%>
       </div>
 
-      <div class="form-label mt-4">
+      <div class="form-label mt-3">
         <%= f.label :password_confirmation, "Confirmer votre nouveau mot de passe" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"#{@minimum_password_length} caractères mini", class:"form-control"%>
       </div>
