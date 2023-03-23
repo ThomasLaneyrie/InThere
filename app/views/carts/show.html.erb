@@ -25,11 +25,10 @@
                         </tr>
                     </thead>
 
-                    <% @cart.product_carts.sort.each do |product_cart| %>
-                        <div id="all_product_carts">
-                            <%= render partial: "product_cart", object: product_cart %>
-                        </div>
-                    <% end %>
+                    <div id="all_product_carts">
+                        <%= render @cart.product_carts %>
+                    </div>
+
 
                 </table>
             </div>

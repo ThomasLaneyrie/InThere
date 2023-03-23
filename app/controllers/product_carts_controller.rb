@@ -4,17 +4,17 @@ class ProductCartsController < ApplicationController
     @product_cart = ProductCart.find(params[:id])
     @product_cart.destroy
     redirect_to cart_path(@product_cart.cart)
+
   end
 
   def add_quantity
     @product_cart = ProductCart.find(params[:id])
     @product_cart.quantity += 1
-    # @product_cart.save
+    @product_cart.save
     # redirect_to cart_path(@product_cart.cart)
     respond_to do |format|
-      if @product_cart.save
-        format.turbo_stream { render turbo_stream: turbo_stream.update('all_product_carts', @product_cart) }
-      end 
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("product_cart_#{product_cart.id}")
+    }
     end
   end
 
