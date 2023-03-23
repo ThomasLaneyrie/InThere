@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
 
   # POST /products or /products.json
   def create
+    product_params["category_id"] = product_params["category_id"].to_i
     @product = Product.new(product_params)
 
     respond_to do |format|

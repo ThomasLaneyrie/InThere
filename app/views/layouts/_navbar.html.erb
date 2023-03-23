@@ -26,8 +26,8 @@
       </ul>
       <ul class="navbar-nav ms-md-auto">
         <% if @current_user == nil %>
-            <%= link_to "Log in", new_user_session_path, class: "nav-item nav-link" %>
-            <%= link_to "Sign up", new_user_registration_path, class: "nav-item nav-link" %>
+            <%= link_to "Se Connecter", new_user_session_path, class: "nav-item nav-link" %>
+            <%= link_to "S'inscrire", new_user_registration_path, class: "nav-item nav-link" %>
         <% else %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="themes">Mon compte</a>

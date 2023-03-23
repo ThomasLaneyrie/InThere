@@ -5,17 +5,21 @@
 <br>
   <head>
   <center>
-  <div class="row">
-  <div class="col"><a href="https://zupimages.net/viewer.php?id=23/12/xmqz.png"><img src="https://zupimages.net/up/23/12/xmqz.png" alt="" /><</a>
-  <div class="col"></div><span>EARBUDS</span></div>
-  <div class="col"><a href="https://zupimages.net/viewer.php?id=23/12/mluq.png"><img src="https://zupimages.net/up/23/12/mluq.png" alt="" /></a>
-  <div class="col"></div><span>MONTRES</span></div>
-  <div class="col"><a href="https://zupimages.net/viewer.php?id=23/12/0xih.png"><img src="https://zupimages.net/up/23/12/0xih.png" alt="" /></a>
-  <div class="col"></div><span>AUDIO</span></div>
-  <div class="col"><a href="https://zupimages.net/viewer.php?id=23/12/6iju.png"><img src="https://zupimages.net/up/23/12/6iju.png" alt="" /></a>
-  <div class="col"></div><span>DRONES</span></div>
-</div>
-</center>
+	<div class="container my-5">
+			<div class="row">
+			<div class="col"><a href="https://zupimages.net/viewer.php?id=23/12/xmqz.png"><img src="https://zupimages.net/up/23/12/xmqz.png" alt="" /></a>
+			<div class="col"></div><span>EARBUDS</span></div>
+			<div class="col"><a href="https://zupimages.net/viewer.php?id=23/12/mluq.png"><img src="https://zupimages.net/up/23/12/mluq.png" alt="" /></a>
+			<div class="col"></div><span>MONTRES</span></div>
+			<div class="col"><a href="https://zupimages.net/viewer.php?id=23/12/0xih.png"><img src="https://zupimages.net/up/23/12/0xih.png" alt="" /></a>
+			<div class="col"></div><span>AUDIO</span></div>
+			<div class="col"><a href="https://zupimages.net/viewer.php?id=23/12/6iju.png"><img src="https://zupimages.net/up/23/12/6iju.png" alt="" /></a>
+			<div class="col"></div><span>DRONES</span></div>
+		</div>
+	</div>
+	</div>
+
+	</center>
 
   </head>
   <body>
@@ -24,26 +28,45 @@
   <br>
   <br>
 <center>
+<br>
+
 <h2>NOS BONS PLANS DU MOMENT</h2>
 <br>
+<% @products.each do |product| %>
+
+<h1>Products</h1>
 <br>
 
 
-
-</center>
-
-
-
-
-<!--
 <div id="products">
-  <% @products.each do |product| %>
-    <%= render product %>
+	
+    <strong>Title:</strong>
+    <%= product.title %>
+
+
+    <strong>Description:</strong>
+    <%= product.description %>
+
+
+    <strong>Price:</strong>
+    <%= product.price %>
+
+    <strong>Image url:</strong>
+    
+		
+		<%= button_to "Add to cart", product_carts_path(:product_id => product.id), class:"btn btn-primary shadow-0 me-1" %></button>
+
+</div>
+
+
     <p>
       <%= link_to "Show this product", product %>
     </p>
   <% end %>
 </div>
--->
+
+
+
+
 
 
