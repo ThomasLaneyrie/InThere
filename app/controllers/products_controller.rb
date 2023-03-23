@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
   end
   # show of each Category
   def category
+    @category = Category.find(params[:id])
+    @products = Category.find(params[:id]).products
   end 
 
   # GET /products/1 or /products/1.json

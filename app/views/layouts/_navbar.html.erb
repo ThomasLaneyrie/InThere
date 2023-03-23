@@ -16,11 +16,9 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="themes">Categories</a>
           <div class="dropdown-menu" aria-labelledby="themes">
-          <%= link_to "Categories", class: "dropdown-item" %>
-          <%for i in 1 ..(Category.count) do %>
-            <%= link_to Category.find(i).title, class: "dropdown-item" %>
-          <% end %>
-            
+          <% Category.all.each do |category| %>
+            <%= link_to category.title, product_category_path(category.id), class: "dropdown-item" %>
+          <% end %>            
           </div>
         </li>
       </ul>

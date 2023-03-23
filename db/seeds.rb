@@ -13,9 +13,16 @@ Cart.destroy_all
 Order.destroy_all
 ProductCart.destroy_all
 
+
+category_title_create = ["Earbuds", "Montres", "Audio", "Drones"]
+category_link = ["https://zupimages.net/up/23/12/xmqz.png", 
+	"https://zupimages.net/up/23/12/mluq.png", 
+	"https://zupimages.net/up/23/12/0xih.png", 
+	"https://zupimages.net/up/23/12/6iju.png"]
+
 nb_cart = 10
 nb_product = 20     # Laisser 10 car une image prévue par Product ! 
-nb_category = 3     # Laisser 3 car une category prévue par category !  
+nb_category = category_title_create.count     # Laisser 3 car une category prévue par category !  
 nb_product_cart = 20
 nb_order = 10
 nb_user = 10
@@ -28,7 +35,6 @@ orders = []
 users = []
 
 
-category_title_create = ["earbuds", "drones", "telephones", "montres"]
 images_produits=["https://m.media-amazon.com/images/I/61TXDYujoQL._AC_UL320_.jpg", 
 	"https://m.media-amazon.com/images/I/51RKBYPavSL._AC_UL320_.jpg",
 	"https://m.media-amazon.com/images/I/51P0D-ZgyVL._AC_UL320_.jpg", 
@@ -63,7 +69,8 @@ end
   i = 0
 	nb_category.times do |x|
 		category = Category.create(
-		title: category_title_create[i]
+		title: category_title_create[i],
+		link: category_link[i]
 		)
 		categories << category
     puts "Seeding category nb#{x}"
