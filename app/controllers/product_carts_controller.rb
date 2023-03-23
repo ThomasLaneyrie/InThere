@@ -38,7 +38,6 @@ class ProductCartsController < ApplicationController
       @product_cart.product = chosen_product
     end
       @product_cart.save
-      redirect_to products_path
   end
 
 end
