@@ -38,11 +38,7 @@
 
 <section class="items-section">
 <div class="row">
-<% @products.sort.each do |product| %>
-  
 
-  <%= render "product", product: product %>
+<%= render @products %>
 
-<% end %>
-</div>
 </section>

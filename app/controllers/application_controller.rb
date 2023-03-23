@@ -11,6 +11,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def is_current_user?
+    if current_user == User.find(params[:id])
+      return true
+    else
+      flash[:danger] = "Impossible de consulter un profil qui n'est pas le sien"
+      redirect_to root_path
+    end
+  end
+
   def is_your_order?
     if (current_user.orders.include?Order.find(params[:id])) == true
       return true
