@@ -1,6 +1,8 @@
-<body style="background-color:black">
-  <h1>Merci pour votre achats</h1>
-  <p>Vous trouverez ci-dessous le détail de votre commande </p>
+<center>
+<body>
+  <h2 style="color: #c34e17;">Toute l'équipe In There vous remercie pour votre achats</h3>
+  <img src="https://media.discordapp.net/attachments/1087307861207564318/1088494079324721202/image.png" style="width: 150px; height: 150px;">
+  <p style="color: #c34e17;"><strong>Vous trouverez ci-dessous le détail de votre commande </strong></p>
     <div class="container-fluid pt-5">
       <div class="row px-xl-5">
           <div class="col-lg-12 table-responsive mb-5">
@@ -12,7 +14,6 @@
                           <th>Prix</th>
                           <th>Quantité</th>
                           <th>Total</th>
-                          <th>Image</th>
                       </tr>
                   </thead>
 
@@ -23,9 +24,6 @@
                           <td class="align-middle"><%= product_cart.product.price %> €</td>
                           <td class="align-middle"><%=product_cart.quantity%></td>
                           <td class="align-middle"><%= product_cart.total_price %> €</td>
-                          <td>
-                          <img src=<%= product_cart.product.image_url %> class="card-img-top" style="max-width:100px; aspect-ratio: 1 / 1;" />
-                          </td>
                       </tr>
                       </tbody>
                   <% end %>
@@ -35,12 +33,7 @@
       </div>
   </div>
 </body>
+</center>
 
 
-  <h1 style="color: #c34e17;">Bienvenue chez InThere !</h1>
-  <img style="width:100px" src="https://media.discordapp.net/attachments/1087307861207564318/1088494079324721202/image.png" alt="logo_InThere">.
-
-  <p style="color: #c34e17;">Votre adresse de connexion : @user.email<br></p>
-  <p style="color: #c34e17;">Lien pour accéder au site : 
-    <a style="color: #c34e17" href="https://inthere.herokuapp.com/">InThere</a>
-  </p>
+  
