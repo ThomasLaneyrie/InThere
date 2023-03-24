@@ -14,8 +14,9 @@ gem 'faker'
 # Ajout gem pour Rspec
 group :development, :test do
   gem 'rspec-rails'
+  gem "factory_bot_rails", "~> 6.2"
+  gem 'rails-controller-testing'
 end
-
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
@@ -84,3 +85,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+

@@ -1,44 +1,35 @@
-<!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-<br>
-<br>
-  <head>
+<body>
+	<br><br>
   <center>
 	<div class="container my-5">
 			<div class="row">
-			<div class="col"><a href="https://zupimages.net/viewer.php?id=23/12/xmqz.png"><img src="https://zupimages.net/up/23/12/xmqz.png" alt="" /></a>
-			<div class="col"></div><span>EARBUDS</span></div>
-			<div class="col"><a href="https://zupimages.net/viewer.php?id=23/12/mluq.png"><img src="https://zupimages.net/up/23/12/mluq.png" alt="" /></a>
-			<div class="col"></div><span>MONTRES</span></div>
-			<div class="col"><a href="https://zupimages.net/viewer.php?id=23/12/0xih.png"><img src="https://zupimages.net/up/23/12/0xih.png" alt="" /></a>
-			<div class="col"></div><span>AUDIO</span></div>
-			<div class="col"><a href="https://zupimages.net/viewer.php?id=23/12/6iju.png"><img src="https://zupimages.net/up/23/12/6iju.png" alt="" /></a>
-			<div class="col"></div><span>DRONES</span></div>
+			<% Category.all.each do |category| %>
+				<div class="col">
+				  <%= link_to product_category_path(category.id) do %>
+					<%= image_tag(category.link) %>
+					<div class="col"></div>
+					<span><%= category.title.upcase %></span>
+				  <% end %>
+				</div>
+			  <% end %>
+			</div>
 		</div>
 	</div>
-	</div>
-
 	</center>
-
-  </head>
-  <body>
-  <div class="row">
-  <div class="bs-component">
-  <br>
-  <br>
-<center>
-<br>
-
-<h2>NOS BONS PLANS DU MOMENT</h2>
-<br>
-
-<h1>Products</h1>
-<br>
-
-<section class="items-section">
-<div class="row">
-
-<%= render @products %>
-
-</section>
+  <br><br><br>
+	<center>
+		<div class="row">
+			<div class="bs-component">
+				<h2>NOS BONS PLANS DU MOMENT</h2>
+				<br><br><br>
+				<section class="items-section">
+					<div class="row">
+						<% Product.all.where(top_sell:true).sort.each do |product| %>
+							<%= render product %>
+						<% end %>
+					</div>
+				</section>
+			</div>
+		</div>
+	</center>
+</body>

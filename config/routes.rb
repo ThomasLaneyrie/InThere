@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users
-  resources :products
+  resources :products, param: "title"
+  # Routes relatives aux product_category
+  get 'product/category/:id', to: 'products#category', as: 'product_category'
 
   # Routes relatives aux product_carts
   resources :product_carts, only: [:create, :destroy]

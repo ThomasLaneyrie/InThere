@@ -1,17 +1,20 @@
 <!-- Page Header Start -->
+<section class="items-section">
 <div class="container-fluid bg-secondary mb-5">
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 200px">
         <h1 class="font-weight-semi-bold text-uppercase mb-3">Votre commande du <%= @order.created_at.strftime("%d-%m-%Y") %></h1>
         <h4 class="font-weight-semi-bold text-uppercase mb-3">Numéro de référence de votre commande: <%= @order.id %></h4>
     </div>
 </div>
+</section>                
 
 <!-- Page Header End -->
 <% products_cart = @current_cart.product_carts %>
 
 <!-- Cart Start -->
-<div class="container-fluid pt-5">
-    <div class="row px-xl-5">
+<section class="items-section">
+<div class="container-fluid">
+    <div class="row">
         <div class="col-lg-12 table-responsive mb-5">
             <table class="table table-bordered text-center mb-0">
 
@@ -38,7 +41,7 @@
                     </tr>
                     </tbody>
                 <% end %>
-                
+</section>                
             </table>
         </div>
     </div>

@@ -34,7 +34,15 @@ a.nav-link{
 
 .logo {
   padding-right: 10px;
-  padding-top:5px ;
+  color: #49c317;
+  font-family: 'Poppins', sans-serif;
+  font-size:14px;
+  display:flex;
+  align-items:center;
+}
+
+.logo:hover {
+  color: var(--bs-nav-link-hover-color);
 }
 
 .row {
@@ -229,5 +237,10 @@ Police de caractère : FreeMono, monospace */
 .items-section {
   max-width: 1200px; /* la largeur maximale souhaitée */
   margin: 0 auto; /* centrer la section horizontalement */
+}
+
+.col-lg-12.style {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
