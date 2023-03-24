@@ -231,3 +231,8 @@ Police de caractère : FreeMono, monospace */
   margin: 0 auto; /* centrer la section horizontalement */
 }
 
+.col-lg-12.style {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
