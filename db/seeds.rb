@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# User.destroy_all
+User.destroy_all
 Category.destroy_all
 Product.destroy_all
 Cart.destroy_all
@@ -24,8 +24,8 @@ nb_cart = 10
 nb_product = 20     
 nb_category = category_title_create.count     
 nb_product_cart = 20
-# nb_order = 10
-# nb_user = 10
+nb_order = 2
+nb_user = 2
 
 carts = []
 products = []
@@ -47,23 +47,23 @@ images_produits=["https://m.media-amazon.com/images/I/61TXDYujoQL._AC_UL320_.jpg
 	"https://images-eu.ssl-images-amazon.com/images/I/81f09IHHjnL._AC_UL600_SR600,400_.jpg"]
 
 #seeding des users "creation des users"
-# User.create(email:"admininthere@yopmail.com", password:"123456", is_admin: true)
+User.create(email:"admininthere@yopmail.com", password:"123456", is_admin: true)
 
-# nb_user.times do |x|
-# 	user = User.create(
-# 		email: Faker::Internet.email,
-# 		password: "password",
-# 		first_name: Faker::Books::Dune.planet,
-# 		last_name: Faker::Books::Dune.city,
-# 		address: Faker::Address.street_address,
-# 		city: Faker::Address.city,
-# 		zip_code: Faker::Address.zip_code,
-# 		is_admin: false,
-#     alert_on: false
-# 		)
-# 		users << user
-#  	puts "Seeding user nb#{x}"
-# end
+nb_user.times do |x|
+	user = User.create(
+		email: Faker::Internet.email,
+		password: "password",
+		first_name: Faker::Books::Dune.planet,
+		last_name: Faker::Books::Dune.city,
+		address: Faker::Address.street_address,
+		city: Faker::Address.city,
+		zip_code: Faker::Address.zip_code,
+		is_admin: false,
+    alert_on: false
+		)
+		users << user
+ 	puts "Seeding user nb#{x}"
+end
 
 #seeding d'une catégorie
   i = 0
@@ -103,17 +103,17 @@ images_produits=["https://m.media-amazon.com/images/I/61TXDYujoQL._AC_UL320_.jpg
 
 #seeding des orders "commandes aprés panier"
 
-	# i = 0
-	# nb_order.times do |x|
-	# 	order = Order.create(
-	# 		stripe_id: "stripe_id_random",
-	# 		user_id: users[rand(0..nb_user-1)].id,
-	# 		cart: carts[i]
-	# 	)
-	# 	orders << order
-	# 	puts "Seeding order nb#{x}"
-	# 	i = i + 1
-	# end
+	i = 0
+	nb_order.times do |x|
+		order = Order.create(
+			stripe_id: "stripe_id_random",
+			user_id: users[rand(0..nb_user-1)].id,
+			cart: carts[i]
+		)
+		orders << order
+		puts "Seeding order nb#{x}"
+		i = i + 1
+	end
 	
 #seeding des product_carts "table de jointure"
 
