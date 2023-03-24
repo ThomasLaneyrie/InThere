@@ -84,8 +84,8 @@ end
       description: Faker::Lorem.words(number: 4, exclude_words: 'error'),
       price: rand(1..20),
       image_url: images_produits.sample,
-			top_sell: false,
-      category: Category.all.sample
+		  category: Category.all.sample,
+			top_sell: rand(0..1),
       )
     products << product
     puts "Seeding product nb#{x}"
