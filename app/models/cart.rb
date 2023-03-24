@@ -13,4 +13,12 @@ class Cart < ApplicationRecord
     end
     return sum
   end
+
+  def number_products
+    number = 0
+    self.product_carts.each do |product_cart|
+      number += product_cart.quantity
+    end
+    return number
+  end
 end
