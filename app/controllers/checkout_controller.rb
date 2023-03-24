@@ -37,8 +37,8 @@ class CheckoutController < ApplicationController
        flash[:success] = "Le payement a été réalisé avec succès !"
        redirect_to order_path(@order.id)
     else
-      redirect_to panier_path(@cart.id)
-      flash[:info] = "Ton payement est bien passé mais il y a un problème pour enregistrer ta participation. Contactez-nous"
+      redirect_to cart_path(@cart.id)
+      flash[:info] = "Ton payement est bien passé mais il y a un problème pour enregistrer ta commande. Contactez-nous"
     end
   end
 
