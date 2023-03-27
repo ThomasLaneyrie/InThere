@@ -13,11 +13,11 @@
         <%= link_to "Accueil", products_path, class: "nav-link" %>
         </li>
 
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" data-turbo-disabled="true">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="themes-nav-categories">Categories</a>
           <div class="dropdown-menu" aria-labelledby="themes">
           <% Category.all.each do |category| %>
-            <%= link_to category.title, product_category_path(category.id), class: "dropdown-item" %>
+            <%= link_to category.title, product_category_path(category.id), class: "dropdown-item", data: { turbo_disabled: true } %>
           <% end %>            
           </div>
         </li>
