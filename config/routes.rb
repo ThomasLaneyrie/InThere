@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
   # Routes relatives aux product_carts
   resources :product_carts, only: [:create, :destroy]
-  get 'product_carts/:id/add' => "product_carts#add_quantity", as: "product_cart_add"
-  get 'product_carts/:id/reduce' => "product_carts#reduce_quantity", as: "product_cart_reduce"
+  post 'product_carts/:id/add' => "product_carts#add_quantity", as: "product_cart_add"
+  post 'product_carts/:id/reduce' => "product_carts#reduce_quantity", as: "product_cart_reduce"
 
   # Routes relatives aux carts et au payement Stripe
   resources :carts, only: [:show] do

@@ -32,6 +32,7 @@
                     <% @cart.product_carts.sort.each do |product_cart| %>
                         <%= render "product_carts/product_cart", product_cart: product_cart %>
                     <% end %>
+
                 </table>
             </div>
             <%= render partial: "total_cart_to_pay", object: @cart %>
