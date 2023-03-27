@@ -1,6 +1,13 @@
 <body>
 	<br><br>
   <center>
+
+  <%= render "products/search_form" %>
+
+  <%= sort_link(@q, :description, 'description', default_order: :desc) %>
+
+
+
 	<div class="container my-5">
 			<div class="row">
 			<% Category.all.each do |category| %>
@@ -31,5 +38,20 @@
 				</section>
 			</div>
 		</div>
+		<div class="row">
+		<div class="bs-component">
+		<br><br><br>
+			<h2>TOUS LES PRODUITS</h2>
+			<br><br><br>
+			<section class="items-section">
+				<div class="row">
+					<% Product.all.where(top_sell:false).sort.each do |product| %>
+						<%= render product %>
+					<% end %>
+				</div>
+			</section>
+		</div>
+	</div>
 	</center>
+	
 </body>
