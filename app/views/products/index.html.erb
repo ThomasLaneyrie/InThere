@@ -2,12 +2,6 @@
 	<br><br>
   <center>
 
-  <%= render "products/search_form" %>
-
-  <%= sort_link(@q, :description, 'description', default_order: :desc) %>
-
-
-
 	<div class="container my-5">
 			<div class="row">
 			<% Category.all.each do |category| %>

@@ -1,0 +1,14 @@
+			<br><br><br>
+			<section class="items-section">
+			<%= render "search/form" %>
+			<br><br><br>
+			<h3 class= "text-center" ><%= pluralize(@products2.count, "Resultat(s) trouvé(s)") %> </h3>
+			<br><br><br>
+				<div class="row">
+				<% @products2.each do |product| %>
+					<%= render product %>
+				<% end %>
+				</div>
+			</section>
+		</div>
+	</div>

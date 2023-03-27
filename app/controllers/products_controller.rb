@@ -3,8 +3,7 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true)
+    @products = Product.all
   end
   # show of each Category
   def category
