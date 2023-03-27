@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
   before_action :initialize_cart
+  before_action :set_q
+
+  def set_q
+    @q = Product.ransack(params[:q])
+  end
 
   def initialize_cart
     if current_user != nil
