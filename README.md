@@ -34,22 +34,22 @@ Le site reprend toutes les fonctionnalités nécessaires pour offrir à l’util
 
     Connexion à son compte administrateur et accés à des champs que seul lui pourra voir, et ainsi procéder à des modifications d'informations, produits, catégories de produits et utilisateurs. Rajouter des produits, des catégories et supprimer des utilisateurs. (attention si commentaires et likes implémentés rajouter des actions)
 
-### 3)	Notre objectif :
+### 5)	Notre objectif :
 
 Proposer une expérience utilisateur simple avec une navigation fluide, non polluée par le marketing intrusif.
 Mettre en avant une sélection de produits ciblés, choisit par nos soins, pour éviter le côté « usine à gaz » de certains sites de E-commerce.
 
-### 4)	Design :
+### 6)	Design :
 
 Nous avons choisi de partir sur un fond noir et de partir sur deux couleurs principales, le vert et l’orange avec un effet néon, afin de rappeler certains univers cyberpunks tant apprécié dans l’univers « nerds et geek ». 
 De plus, nous avons décidé d’avoir des pages simples, sans trop d’éléments, afin de rester dans une ligne directrice de sobriété pour que l’utilisateur ne se sente pas submergé d’informations.
 
 
-### 5)	La TEAM :
+### 7)	La TEAM :
 
 ![L’équipe est composée de 4 personnes : Andréa, Samuel, Thomas et Yann.](https://zupimages.net/up/23/12/np8o.png "La team")
 
-### 6)	Les liens :
+### 8)	Les liens :
 
 Le résumé complet avec en plus les descriptions des bases de données, le schéma Lucid chart qui nous à permis de coder ensuite les bases, une copie du kit ui décidé et des frames prévue qui nous ont guidé pour la création de l'environnement graphique codé en HTML et CSS.
 
