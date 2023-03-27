@@ -1,7 +1,6 @@
 <div class="navbar navbar-expand-lg navbar-dark bg-primary" data-turbo="false">
   <div class="container">
-    <a class="navbar-brand" href="#">
-    </a>
+    <a class="navbar-brand" ></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,13 +13,13 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="themes-nav-categories">Categories</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="themes-nav-categories">Categories</a>
           <div class="dropdown-menu" aria-labelledby="themes">
           <% Category.all.each do |category| %>
             <%= link_to category.title, product_category_path(category.id), class: "dropdown-item" %>
           <% end %>            
           </div>
-        </li>
+        
       </ul>
       <ul class="navbar-nav ms-md-auto">
         <% if @current_user == nil %>
@@ -33,7 +32,7 @@
         </div>
       
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="themes-account">Mon compte</a>
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="themes-account">Mon compte</a>
             <div class="dropdown-menu" aria-labelledby="themes">
                 <%= link_to "Consulter mon profil",user_path(current_user.id), class:"dropdown-item" %>
               <%= link_to "Mon panier", cart_path(@current_cart.id), class:"dropdown-item" %>
@@ -41,6 +40,8 @@
                 <%= link_to "Modifier mon mot de passe", edit_user_registration_path, class:"dropdown-item" %>
             </div>
           </li>
+          </ul>
+
           <%= link_to "Log out", destroy_user_session_path, class: "nav-item nav-link" %>
         <%end%>
       </ul>
