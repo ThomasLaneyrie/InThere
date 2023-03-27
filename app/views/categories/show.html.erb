@@ -1,0 +1,9 @@
+<div class="bs-component text-center">
+  <h1><%= @category.title %></h1> 
+  <br>
+</div>
+
+<section class="items-section">
+    <div class="row">
+    <%= render @category.products %>
+</section>
