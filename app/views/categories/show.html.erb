@@ -3,12 +3,11 @@
   <br>
 </div>
 
-<%= params['q'] %>
 
 <div class="container-fluid text-center">
   <div class="row">
     <div class="col-2 d-flex flex-column align-items-center border"> 
-        <%= search_form_for @q_filter, url: category_path(@category.id) do |f| %>    
+        <%= search_form_for @q_filter, url: category_path(@category.id), data: {controller: "search", action: "input->search#submit"} do |f| %>    
           <ul>   
             <h2>Couleur</h2>                                    
             <% Product.where(category: @category).where.not(color:nil).each do |product| %> 
@@ -36,14 +35,20 @@
             </li>                                             
             <% end %>    
           </ul>
-
-          <h2>Prix</h2>
-            <p>Prix mini <%= f.text_field :price_gteq %></p>
-            <p>Prix maxi <%= f.text_field :price_lteq %></p><br>    
-            <%= f.submit "Search", class:"btn btn-primary1" %> <br><br>
         <% end %>
-        <%= link_to "Supprimer les filtres", category_path(@category.id), class:"btn btn-outline4" %>
+
+        <%= search_form_for @q_filter, url: category_path(@category.id) do |f| %>    
+            <h2>Prix</h2>
+            <p>Prix mini : <%= f.number_field :price_gteq, style:"width:150px" %> €</p>
+            <p>Prix maxi : <%= f.number_field :price_lteq, style:"width:150px"  %> €</p> 
+            <%= f.submit "Filter les prix", class:"btn btn-primary1" %> <br><br>
+        <% end %>
+        <%= link_to "Supprimer les filtres", category_path(@category.id), class:"btn btn-outline4" %><br>
+
     </div>
+
+
+
 
 
     <div class="col-10 border">
