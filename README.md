@@ -3,6 +3,8 @@ IN THERE : TECH SHOPPING
 
 Ceci est un résumé de la présentation, la version complète se trouve en pdf dans un lien accessible en bas du readme.
 
+![On a transpiré, on a appris, nos claviers ont mouru ]
+
 ### 1)	Présentation : 
 
 In There est un site de E-commerce dédié aux produits Hi-tech connectés. Il vise prioritairement un public de passionnés par les dernières technologies, mais est bien évidemment ouvert à tous les curieux des objets connectés.
