@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   has_many :carts, through: :product_carts
 
   def self.ransackable_attributes(auth_object = nil)
-    ["category_id", "created_at", "description", "id", "image_url", "price", "title", "top_sell", "color", "brand", "updated_at"]
+    ["description", "price", "title", "color", "brand"]
   end
 
   def to_param
