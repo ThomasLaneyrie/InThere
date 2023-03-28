@@ -1,0 +1,13 @@
+<tbody class="align-middle">
+  <tr>
+    <td class="align-middle"><%= product.title %></td>
+    <td class="align-middle"><%= product.price %></td>
+    <td class="align-middle">
+      <%= link_to "Editer", edit_admin_product_path(product.id) %>
+    </td>
+    <td class="align-middle">
+      <%= button_to 'Supprimer', {controller: 'admin/products', action: 'destroy', id: product.id}, method: :delete %> 
+    </td>
+  </tr>
+</tbody>
+

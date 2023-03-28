@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
 
   root to: "static_pages#landing_page"  
   get "static_pages/kitUI"
@@ -6,6 +7,12 @@ Rails.application.routes.draw do
   # Routes relatives aux users
   devise_for :users, :controllers => {omniauth_callbacks: 'users/omniauth_callbacks'}
   resources :users
+
+  # Routes relatives aux administrateurs
+  namespace :admin do
+    root to: "static_pages#dashboard"
+    resources :products, only: [:new, :create, :edit, :update, :destroy]
+  end
 
   # Routes relatives aux produits
   resources :products, param: "title"
@@ -39,3 +46,4 @@ Rails.application.routes.draw do
   get 'search', to: "search#index"
   
 end
+
