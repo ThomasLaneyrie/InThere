@@ -82,7 +82,7 @@
                     <div class="tab-pane fade" id="tab-pane-3">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4 class="mb-4">"n de commentaires" pour </h4>
+                                <h4 class="mb-4">"n de commentaires" pour <%= @product.title.capitalize %> </h4>
                                 <div class="media mb-4">
                                     <img src="" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                                     <div class="media-body">
@@ -99,7 +99,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <h4 class="mb-4">laisse un Commentaire ?</h4>
+                                <h4 class="mb-4">Dis nous, Qu'est- ce que tu penses ?</h4>
                                 <small>Ton email ne sera pas affiché. Ces champs sont necessaires *</small>
                                 <div class="d-flex my-3">
                                     <p class="mb-0 mr-2">ta note:  * :</p>
@@ -113,7 +113,7 @@
                                 </div>
                                 <form>
                                     <div class="form-group">
-                                        <label for="message"> Dis nous, Qu'est- ce que tu penses ? *</label>
+                                        <label for="message"> Commentaire *</label>
                                         <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
                                     </div>
                                     <div class="form-group">
