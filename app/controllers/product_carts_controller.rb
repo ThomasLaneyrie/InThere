@@ -14,7 +14,10 @@ class ProductCartsController < ApplicationController
     @product_cart.quantity += 1
     respond_to do |format| 
       if @product_cart.save 
-        format.turbo_stream { render turbo_stream: turbo_stream.replace("product_cart_#{@product_cart.id}", @product_cart) } 
+        format.turbo_stream do 
+          render turbo_stream: [turbo_stream.update("number_products_cart", @current_cart.number_products), 
+                                turbo_stream.replace("product_cart_#{@product_cart.id}", @product_cart)]
+        end
       end 
     end
   end
@@ -44,8 +47,12 @@ class ProductCartsController < ApplicationController
       @product_cart.cart = current_cart
       @product_cart.product = chosen_product
     end
-      @product_cart.save
-      redirect_to products_path
+    
+    respond_to do |format|
+      if @product_cart.save 
+        format.turbo_stream { render turbo_stream: turbo_stream.update("number_products_cart", @current_cart.number_products) } 
+      end 
+    end
   end
 
 end

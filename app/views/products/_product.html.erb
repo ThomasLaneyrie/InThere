@@ -5,12 +5,11 @@
       <h5 class="card-title"> <%= product.title %></h5>
       <p class="card-text"> <%= product.price %> € </p>
       <div class="container2">
-      <div class="d-flex align-items-end justify-content-center pt-3 px-0 pb-0 mt-auto">
-        <%= button_to "Acheter", product_carts_path(:product_id => product.id), class:"btn btn-outline" %></button>
-        <%= button_to "infos", product_path(product), class:"btn btn-outline", style: "margin-left: 10px" %>
+        <div class="d-flex align-items-end justify-content-center pt-3 px-0 pb-0 mt-auto">
+          <%= button_to "Acheter", product_carts_path(:product_id => product.id), class:"btn btn-outline" %></button>
+          <%= link_to "infos", product_path(product), class:"btn btn-outline", style: "margin-left: 10px" %>
         </div>
-        </div>
-
+      </div>
     </div>
   </div>
 </div>
