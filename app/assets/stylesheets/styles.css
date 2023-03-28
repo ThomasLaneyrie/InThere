@@ -17,6 +17,9 @@
   font-family: FreeMono, monospace
 }
 
+.top-nav-bar{
+  height: 60px;
+}
 
 a.nav-link{
   color: #49c317;
