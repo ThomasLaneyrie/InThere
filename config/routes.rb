@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
 
+  # Routes relatives aux administrateurs
+  namespace :admin do
+    root "static_pages#dashboard"
+  end
+
   # Routes relatives aux produits
   resources :products, param: "title"
 
@@ -39,3 +44,4 @@ Rails.application.routes.draw do
   get 'search', to: "search#index"
   
 end
+

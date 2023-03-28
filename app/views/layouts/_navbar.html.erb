@@ -30,7 +30,9 @@
           <%= link_to(image_tag("https://zupimages.net/up/23/12/x5be.png", alt:"panier", style: 'width: 24px; height: 24px'), cart_path(@current_cart.id)) %>
           <%= @current_cart.number_products %>
         </div>
-      
+        <% if current_user.is_admin == true %>
+          <div><%= link_to "Espace admin", admin_root_path, class: "nav-item nav-link" %></div>
+        <% end %>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="themes-account">Mon compte</a>
             <div class="dropdown-menu" aria-labelledby="themes">
