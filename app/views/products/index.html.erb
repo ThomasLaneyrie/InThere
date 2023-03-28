@@ -6,7 +6,7 @@
 			<div class="row">
 			<% Category.all.each do |category| %>
 				<div class="col">
-				  <%= link_to product_category_path(category.id) do %>
+				  <%= link_to category_path(category.id) do %>
 					<%= image_tag(category.link) %>
 					<div class="col"></div>
 					<span><%= category.title.upcase %></span>
