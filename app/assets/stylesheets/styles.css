@@ -107,6 +107,12 @@ a.nav-link{
   border:1px solid #fafbf9 !important;
 }
 
+.btn-outline-5 {
+  background: color #03030300;
+  border:1px solid #80ff00 !important;
+  position: absolute;
+}
+
 .alert-success {
   border:2px solid #49c317 !important;
 }
@@ -251,4 +257,5 @@ background-color: #000000;
 
 .container2 {
   position: relative;
+  align-items: stretch;
   }

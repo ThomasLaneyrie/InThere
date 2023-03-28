@@ -15,10 +15,10 @@ ProductCart.destroy_all
 
 
 category_title_create = ["Earbuds", "Montres", "Audio", "Drones"]
-category_link = ["https://zupimages.net/up/23/12/xmqz.png", 
-	"https://zupimages.net/up/23/12/mluq.png", 
-	"https://zupimages.net/up/23/12/0xih.png", 
-	"https://zupimages.net/up/23/12/6iju.png"]
+category_link = ["https://i.postimg.cc/MGQfMm5v/cat4earbuds.png", 
+	"https://i.postimg.cc/XYWzDsG0/cat3.png", 
+	"https://i.postimg.cc/nL0Y2k7T/cat2.png", 
+	"https://i.postimg.cc/9f4vHrpd/cat1.png"]
 
 nb_cart = 10
 nb_product = 20     
