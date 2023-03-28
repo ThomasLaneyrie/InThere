@@ -5,3 +5,4 @@ class CategoriesController < ApplicationController
     @products = @q_filter.result(distinct: true)           
   end
 end
+
