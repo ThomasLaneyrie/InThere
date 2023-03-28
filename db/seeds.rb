@@ -35,16 +35,23 @@ orders = []
 users = []
 
 
-images_produits=["https://m.media-amazon.com/images/I/61TXDYujoQL._AC_UL320_.jpg", 
-	"https://m.media-amazon.com/images/I/51RKBYPavSL._AC_UL320_.jpg",
-	"https://m.media-amazon.com/images/I/51P0D-ZgyVL._AC_UL320_.jpg", 
-	"https://m.media-amazon.com/images/I/61PlEd+bbBL._AC_UL320_.jpg", 
-	"https://images-eu.ssl-images-amazon.com/images/I/712v3RNGS9L._AC_UL600_SR600,400_.jpg", 
-	"https://images-eu.ssl-images-amazon.com/images/I/81f09IHHjnL._AC_UL600_SR600,400_.jpg", 
-	"https://images-eu.ssl-images-amazon.com/images/I/71m5wk1Fi3L._AC_UL600_SR600,400_.jpg", 
-	"https://images-eu.ssl-images-amazon.com/images/I/51sV-rg4KqL._AC_UL600_SR600,400_.jpg",
-	"https://images-eu.ssl-images-amazon.com/images/I/712v3RNGS9L._AC_UL600_SR600,400_.jpg",  
-	"https://images-eu.ssl-images-amazon.com/images/I/81f09IHHjnL._AC_UL600_SR600,400_.jpg"]
+images_produits=["https://i.postimg.cc/HkXY6zxb/700-x-470-drone-4.jpg",
+"https://i.postimg.cc/3NG8zF1M/700-x-470-drone-3.jpg",
+"https://i.postimg.cc/DZJnbPtW/700-x-470-drone-2.jpg",
+"https://i.postimg.cc/JnkCh4kZ/700-x-470-drone-1.jpg",
+"https://i.postimg.cc/xCCqpmBY/700-x-470-enceintes1.jpg",
+"https://i.postimg.cc/L5g52pHb/700-x-470-enceintes2.jpg",
+"https://i.postimg.cc/xTHGPrK5/700-x-470-enceintes3.jpg",
+"https://i.postimg.cc/438p3Xgf/700-x-470-enceintes4.jpg",
+"https://i.postimg.cc/V6YXf5TH/700-x-470-watch1.jpg",
+"https://i.postimg.cc/ncsBcyRZ/700-x-470-watch2.jpg",
+"https://i.postimg.cc/nrNsDLRx/700-x-470-watch3.jpg",
+"https://i.postimg.cc/nLnX7gkX/700-x-470-watch4.jpg",
+"https://i.postimg.cc/90hKFPVH/700-x-470-earbud-1.jpg",
+"https://i.postimg.cc/HsWvZkkz/700-x-470-earbud-2.jpg",
+"https://i.postimg.cc/DZd569VR/700-x-470-earbud-3.jpg",
+"https://i.postimg.cc/MTxmn9c5/700-x-470-earbud-4.jpg",
+]
 
 #seeding des users "creation des users"
 User.create(email:"admininthere@yopmail.com", password:"123456", is_admin: true)
