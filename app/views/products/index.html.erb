@@ -8,7 +8,8 @@
 				  <%= link_to category_path(category.id) do %>
 					<%= image_tag(category.link) %>
 					<div class="col"></div>
-					<span><%= category.title.upcase %></span>
+					<br>
+					<span style="font-weight: bold;"><%= category.title.upcase %></span>
 				  <% end %>
 				  </div>
 			  <% end %>
@@ -23,7 +24,6 @@
 				<h2>NOS BONS PLANS DU MOMENT</h2>
 				<br>
 				<section class="items-section">
-				<%= render "search/form" %>
 				<br>
 					<div class="row">
 						<% Product.all.where(top_sell:true).sort.each do |product| %>
@@ -40,7 +40,7 @@
 			<br><br>
 			<section class="items-section">
 			<%= render "search/form" %>
-			<br>
+			<br><br>
 				<div class="row">
 				<% Product.all.where(top_sell:false).sort.each do |product| %>
 					<%= render product %>

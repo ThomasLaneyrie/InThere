@@ -17,6 +17,9 @@
   font-family: FreeMono, monospace
 }
 
+.top-nav-bar{
+  height: 50px;
+}
 
 a.nav-link{
   color: #49c317;
@@ -105,6 +108,12 @@ a.nav-link{
 .btn-outline-4 {
   background: color #030303;
   border:1px solid #fafbf9 !important;
+}
+
+.btn-outline-5 {
+  background: color #03030300;
+  border:1px solid #80ff00 !important;
+  position: absolute;
 }
 
 .alert-success {
@@ -235,7 +244,7 @@ Police de caractère : FreeMono, monospace */
 }
 
 .items-section {
-  max-width: 1200px; /* la largeur maximale souhaitée */
+  max-width: 1000px; /* la largeur maximale souhaitée */
   margin: 0 auto; /* centrer la section horizontalement */
 }
 
@@ -248,3 +257,8 @@ Police de caractère : FreeMono, monospace */
 background-color: #000000;
 }
 
+
+.container2 {
+  position: relative;
+  align-items: stretch;
+  }

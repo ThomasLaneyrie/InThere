@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
 
   root to: "static_pages#landing_page"  
   get "static_pages/kitUI"
