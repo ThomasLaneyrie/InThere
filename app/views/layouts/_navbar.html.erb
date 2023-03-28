@@ -23,6 +23,9 @@
       </ul>
       <ul class="navbar-nav ms-md-auto">
         <% if @current_user == nil %>
+        <div class= "logo">
+        <%= button_to(image_tag("https://media.discordapp.net/attachments/1062665418621333504/1090248251833327676/AATXAJyinelXJOqRuDKmXAlUqielit-PXp4REWcRIQs900-c-k-c0xffffffff-no-rj-mo.png?width=673&height=673", alt:"panier", style: 'width: 24px; height: 24px; '), user_google_oauth2_omniauth_authorize_path, data: { turbo: false }, class: "button is-info button_nav", style: "background-color: transparent; border: none;") %>
+            </div>
             <%= link_to "Se Connecter", new_user_session_path, class: "nav-item nav-link" %>
             <%= link_to "S'inscrire", new_user_registration_path, class: "nav-item nav-link" %>
         <% else %>
