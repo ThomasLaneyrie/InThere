@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "static_pages/kitUI"
 
   # Routes relatives aux users
-  devise_for :users
+  devise_for :users, :controllers => {omniauth_callbacks: 'users/omniauth_callbacks'}
   resources :users
 
   # Routes relatives aux produits
