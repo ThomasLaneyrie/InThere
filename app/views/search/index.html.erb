@@ -2,11 +2,11 @@
 	<div class="container my-5">
 		<div class="row">
 			<div class="bs-component">
-  			<section class="items-section">
   				<br>
     		<h3 class= "text-center" ><%= pluralize(@products2.count, "Resultat(s) trouvé(s)") %> </h3>
-				<%= render "search/form" %>
-
+				<br>
+					<%= render "search/form" %>
+						<br>
 			<section class="items-section">
 				<div class="row">
 			<% @products2.each do |product| %>

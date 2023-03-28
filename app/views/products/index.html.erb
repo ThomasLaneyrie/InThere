@@ -1,6 +1,5 @@
 <body>
 	<br><br>
-  <center>
 
 	<div class="container my-5">
 			<div class="row">
@@ -17,7 +16,7 @@
 			</div>
 		</div>
 	</div>
-	</center>
+
 <br><br>
 	<center>
 		<div class="row">
@@ -43,7 +42,7 @@
 			<%= render "search/form" %>
 			<br><br>
 				<div class="row">
-				<% Product.all.where(top_sell:false).sort.each do |product| %>
+				<% Product.all.sort.each do |product| %>
 					<%= render product %>
 					<% end %>
 				</div>
