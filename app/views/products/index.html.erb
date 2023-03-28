@@ -11,19 +11,21 @@
 					<div class="col"></div>
 					<span><%= category.title.upcase %></span>
 				  <% end %>
-				</div>
+				  </div>
 			  <% end %>
 			</div>
 		</div>
 	</div>
 	</center>
-  <br><br><br>
+<br><br>
 	<center>
 		<div class="row">
 			<div class="bs-component">
 				<h2>NOS BONS PLANS DU MOMENT</h2>
-				<br><br><br>
+				<br>
 				<section class="items-section">
+				<%= render "search/form" %>
+				<br>
 					<div class="row">
 						<% Product.all.where(top_sell:true).sort.each do |product| %>
 							<%= render product %>
@@ -36,11 +38,13 @@
 		<div class="bs-component">
 		<br><br><br>
 			<h2>TOUS LES PRODUITS</h2>
-			<br><br><br>
+			<br><br>
 			<section class="items-section">
+			<%= render "search/form" %>
+			<br>
 				<div class="row">
-					<% Product.all.where(top_sell:false).sort.each do |product| %>
-						<%= render product %>
+				<% Product.all.where(top_sell:false).sort.each do |product| %>
+					<%= render product %>
 					<% end %>
 				</div>
 			</section>

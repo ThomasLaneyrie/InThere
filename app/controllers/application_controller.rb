@@ -52,4 +52,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def check_if_admin
+    @user = User.find(current_user.id)
+    unless @user.is_admin == true
+      redirect_to root_path
+      flash[:info] = "Vous ne pouvez pas accéder à cette page, n'étant pas administrateur, désolé !"
+    end
+  end
+  
+
 end
