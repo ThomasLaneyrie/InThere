@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   # Routes relatives aux administrateurs
   namespace :admin do
-    root "static_pages#dashboard"
+    root to: "static_pages#dashboard"
+    resources :products, only: [:new, :create, :edit, :update, :destroy]
   end
 
   # Routes relatives aux produits
