@@ -3,7 +3,59 @@
   <br>
 </div>
 
-<section class="items-section">
-    <div class="row">
-    <%= render @category.products %>
-</section>
+<div class="container-fluid text-center">
+  <div class="row">
+    <div class="col-2 d-flex flex-column align-items-center border"> 
+        <%= search_form_for @q_filter, url: category_path(@category.id) do |f| %>    
+          <ul>   
+            <h2>Couleur</h2>                                    
+            <% Product.where(category: @category).where.not(color:nil).each do |product| %> 
+              <li style="list-style-type:none">
+                <% if params['q']['color_eq_any'] != nil && params['q']['color_eq_any'].include?(product.color)  %>
+                  <%= check_box_tag('q[color_eq_any][]', product.color, true) %>              
+                <% else %> 
+                  <%= check_box_tag('q[color_eq_any][]', product.color, false) %>                
+                <% end %>
+                <%= product.color %>
+              </li>                                              
+            <% end %>  
+          </ul>
+
+          <ul>  
+            <h2>Marque</h2>
+            <% Product.where(category: @category).where.not(brand:nil).each do |product| %> 
+            <li style="list-style-type:none">
+                <% if params['q']['brand_eq_any'] != nil && params['q']['brand_eq_any'].include?(product.brand)  %>
+                  <%= check_box_tag('q[brand_eq_any][]', product.brand, true) %>               
+                <% else %> 
+                  <%= check_box_tag('q[brand_eq_any][]', product.brand, false) %>               
+                <% end %>      
+                <%= product.brand %> 
+            </li>                                             
+            <% end %>    
+              <%= f.submit "Search" %> 
+            <% end %>
+          </ul>
+
+      <h2>Prix</h2>
+      <%= search_form_for @q_filter, url: category_path(@category.id) do |f| %>     
+        <%= f.label :title_cont %>               
+        <%= f.search_field :title_cont %>  
+      <% end %>
+
+    </div>
+
+
+    <div class="col-10 border">
+      <section class="items-section">
+          <div class="row">
+          <%= render @products %>
+      </section>
+    </div>
+  </div>
+</div>
+
+
+
+
+

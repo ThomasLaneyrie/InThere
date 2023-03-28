@@ -86,6 +86,8 @@ end
       image_url: images_produits.sample,
 		  category: Category.all.sample,
 			top_sell: rand(0..1),
+			color: Faker::Color.color_name,
+			brand: Faker::Company.name
       )
     products << product
     puts "Seeding product nb#{x}"
