@@ -235,7 +235,7 @@ Police de caractère : FreeMono, monospace */
 }
 
 .items-section {
-  max-width: 1200px; /* la largeur maximale souhaitée */
+  max-width: 1000px; /* la largeur maximale souhaitée */
   margin: 0 auto; /* centrer la section horizontalement */
 }
 
@@ -248,3 +248,7 @@ Police de caractère : FreeMono, monospace */
 background-color: #000000;
 }
 
+
+.container2 {
+  position: relative;
+  }
