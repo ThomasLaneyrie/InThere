@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
     @product = Product.find_by(title: params[:title])
     @comment = Comment.new
     @comments = @product.comments
+    @average_note = @product.average_note
   end
 
   # GET /products/new

@@ -7,9 +7,12 @@
         <div class="card-body">
         <div class="bs-component">
           <h1 class="card-title"><%= @product.title.capitalize %></h1>
+          <h5 class="card-text">  Note :<%=  @average_note %></h5>
           </div>
-          <p class="card-text"><%= @product.description %></p>
+          
           <h5 class="card-text"> Prix TTC: <%= @product.price %></h5>
+          
+         
           <%= button_to "Ajouter au panier", product_carts_path(:product_id => @product.id), class:"btn btn-outline4 btn-lg position-absolute bottom-0 start-0 mb-3 ml-3" %>
         </div>
       </div>
@@ -19,20 +22,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <% if @current_user != nil %>
   <% if @current_user.is_admin == true %>

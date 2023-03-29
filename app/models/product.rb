@@ -11,4 +11,8 @@ class Product < ApplicationRecord
   def to_param
     title
   end
+  
+  def average_note
+    comments.average(:note).to_f.round(1)
+  end
 end
