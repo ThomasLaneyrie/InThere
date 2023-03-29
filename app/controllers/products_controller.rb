@@ -17,7 +17,6 @@ class ProductsController < ApplicationController
     @product = Product.find_by(title: params[:title])
     @comment = Comment.new
     @comments = @product.comments
-    product_is_in_one_of_your_wishlist?(@product)
   end
 
   # GET /products/new
