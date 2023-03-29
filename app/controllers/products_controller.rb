@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     @products = Product.all
+
   end
   # show of each Category
   def category
@@ -16,6 +17,7 @@ class ProductsController < ApplicationController
     @product = Product.find_by(title: params[:title])
     @comment = Comment.new
     @comments = @product.comments
+    product_is_in_one_of_your_wishlist?(@product)
   end
 
   # GET /products/new

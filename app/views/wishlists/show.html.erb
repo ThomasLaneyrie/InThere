@@ -1,0 +1,5 @@
+<h1>Ma Wishlist</h1>
+<%= @wishlist.title %>
+<% @wishlist.product_wishlists.each do |product_wishlist| %>
+  <%= render product_wishlist.product %>
+<% end %>
