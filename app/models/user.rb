@@ -23,4 +23,13 @@ class User < ApplicationRecord
     end
   end
 
+  def ordered_products
+    Product.joins(product_carts: { cart: :order })
+           .where(orders: { user_id: self.id })
+  end
+
+  def has_ordered_product?(product)
+    ordered_products.include?(product)
+  end
+
 end

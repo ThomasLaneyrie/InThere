@@ -11,7 +11,7 @@
           <h1 class="card-title"><%= @product.title.capitalize %></h1>
           </div>
           <h5 class="card-text"> Prix TTC: <%= @product.price %></h5>
-          <%= button_to "Ajouter au panier", product_carts_path(@product.id), class:"btn btn-outline4 btn-lg position-absolute bottom-0 start-0 mb-3 ml-3" %>
+          <%= button_to "Ajouter au panier", product_carts_path(:product_id => @product.id), class:"btn btn-outline4 btn-lg position-absolute bottom-0 start-0 mb-3 ml-3" %>
         </div>
       </div>
       <div class="col-md-5">
@@ -99,16 +99,9 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <% if current_user %>
-                                <h4 class="mb-4">Dis nous, Qu'est- ce que tu penses ?</h4>
-                                <small>Ton email ne sera pas affiché </small>
-                                <div class="d-flex my-3">
-                                    <div class="text-primary">
-                                    </div>
-                                </div>                               
-                                <%= render partial: 'comments/form' %>
-                                <% else %>
-                               
+
+                                <% if current_user.nil? %>
+
                                 <div class="half-width">
                                 <h4 class="mb-4"> Un commentaire?, Par ici: </h4>
                                 <ul class="navbar-nav me-auto">
@@ -125,7 +118,19 @@
                                   </div>
                                 </ul>
                               </div>
-                                       
+
+                              <% elsif current_user.has_ordered_product?(@product) %>
+
+                                <h4 class="mb-4">Dis nous, Qu'est- ce que tu penses ?</h4>
+                                <small>Ton email ne sera pas affiché </small>
+                                <div class="d-flex my-3">
+                                    <div class="text-primary">
+                                    </div>
+                                </div>                               
+                                <%= render partial: 'comments/form' %>
+
+                                <% else %>
+                                <h4 class="mb-4"> Seulement les achats vérifiés peuvent commenter</h4>
                                 <% end %>
                     
                             
