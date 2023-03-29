@@ -19,14 +19,7 @@ class WishlistsController < ApplicationController
     end
     @ProductWishlist = ProductWishlist.create(wishlist:@wishlist, product:chosen_product)
     flash[:success] = "Ajouté à votre wishlist avec succès"
-
-    # redirect_to products_path
-    respond_to do |format| 
-      format.turbo_stream do 
-        render turbo_stream: [turbo_stream.replace("wishlist_product")]
-      end
-    end
+    redirect_back(fallback_location: root_path)
   end
 end
-
 
