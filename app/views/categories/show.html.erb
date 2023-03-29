@@ -9,47 +9,47 @@
           <h3>Couleurs</h3>   
           <%= search_form_for @q_filter, url: category_path(@category.id), data: {controller: "search", action: "input->search#submit"} do |f| %>                       
               <% Product.where(category: @category).where.not(color:nil).each do |product| %> 
-                <div class="row justify-content:space-between">
-                  <div class="col text-start">
+                <div class="row justify-content:space-between ">
+                  <div class="col text-start form-check">
                     <% if params['q'] != nil && params['q']['color_eq_any'] != nil && params['q']['color_eq_any'].include?(product.color)  %>
-                      <%= check_box_tag('q[color_eq_any][]', product.color, true) %>              
+                      <%= check_box_tag('q[color_eq_any][]', product.color, true, class:"form-check-input") %>              
                     <% else %> 
-                      <%= check_box_tag('q[color_eq_any][]', product.color, false) %>                
+                      <%= check_box_tag('q[color_eq_any][]', product.color, false, class:"form-check-input") %>                
                     <% end %>
                     <%= product.color %>
                   </div>
                   <div class="col text-end"><%= Product.where(category: @category).where(color: product.color).count %></div>
                 </div>                                              
               <% end %>  
-            <br>
+            <br><hr>
 
             <h3>Marques</h3>
             <% Product.where(category: @category).where.not(brand:nil).each do |product| %> 
               <div class="row justify-content:space-between">
-                <div class="col text-start w-auto">
+                <div class="col text-start form-check">
                   <% if params['q'] != nil && params['q']['brand_eq_any'] != nil && params['q']['brand_eq_any'].include?(product.brand)  %>
-                    <%= check_box_tag('q[brand_eq_any][]', product.brand, true) %>               
+                    <%= check_box_tag('q[brand_eq_any][]', product.brand, true, class:"form-check-input") %>               
                   <% else %> 
-                    <%= check_box_tag('q[brand_eq_any][]', product.brand, false) %>               
+                    <%= check_box_tag('q[brand_eq_any][]', product.brand, false, class:"form-check-input") %>               
                   <% end %>      
                   <%= product.brand %> 
                 </div>
                 <div class="col text-end"><%= Product.where(category: @category).where(color: product.color).count %></div>
               </div>                                          
             <% end %>    
-            <br>
+            <br><hr>
           <% end %>
 
           <h3>Prix</h3>
   
             <%= search_form_for @q_filter, url: category_path(@category.id) do |f| %>    
-            <div class="row align-items-end">  
+            <div class="row align-items-end ">  
               <div class="col text-start">Min(€)<br> <%= f.number_field :price_gteq, style:"max-width:90px", class:"form-control" %></div>
               <div class="col text-start">Max(€)<br> <%= f.number_field :price_lteq, style:"max-width:90px", class:"form-control"  %></div> 
               <div class="col"><%= f.submit "Filter les prix", class:"btn btn-primary4" %></div>  
             </div><br><br>
             <% end %>
-          
+         
           <div>   
             <%= link_to "Supprimer les filtres", category_path(@category.id), class:"btn btn-outline4" %><br>
           </div>
