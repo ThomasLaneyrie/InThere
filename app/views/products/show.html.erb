@@ -1,24 +1,24 @@
 <%= javascript_include_tag "main", "data-turbo-track": "reload", defer: true %>
 
-<div class="container-fluid py-5">
-  <div class="card mx-auto position" style="max-width: 800px;">
-    <div class="row">
-      <div class="col-md-7">
-        <div class="card-body">
-        <div class="bs-component">
-          <h1 class="card-title"><%= @product.title.capitalize %></h1>
-          </div>
-          <p class="card-text"><%= @product.description %></p>
-          <h5 class="card-text"> Prix TTC: <%= @product.price %></h5>
-          <%= button_to "Ajouter au panier", product_carts_path(:product_id => @product.id), class:"btn btn-outline4 btn-lg position-absolute bottom-0 start-0 mb-3 ml-3" %>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <img src=<%= @product.image_url %> alt="<%= @product.title %>" class="card-img">
-      </div>
-    </div>
-  </div>
-</div>
+<section class="items-section">
+	<div class="col-lg-6 col-md-6 col-sm-7 d-flex my-5 mx-auto">
+  	<div class="card w-100 my-2 shadow-2-strong">
+  		<img src=<%= @product.image_url %> alt="<%= @product.title %>" class="card-img">
+    		<div class="card-body d-flex flex-column ">
+    			<div class="bs-component">
+    				<h1 class="card-title" style="text-align: center"><%= @product.title.capitalize %></h1>
+    					<h3 class="card-text" style="text-align: center"> <%= @product.price %> € </h3>
+      					<h3 class="card-text" style="text-align: center"> <%= @product.category.title %></h3>
+      						<div class="container2">
+        						<div class="d-flex pt-5 px-0 pb-5">
+        					<%= button_to "Ajouter au panier", product_carts_path(:product_id => @product.id), class:"btn btn-outline"%>
+        						</div>
+       						</div>
+      		</div>
+    		</div>
+  	</div>
+	</div>
+</section>
 
 <% if @current_user != nil %>
   <% if @current_user.is_admin == true %>
