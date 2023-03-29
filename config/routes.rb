@@ -45,7 +45,8 @@ Rails.application.routes.draw do
   # Pour la barre de recherche
   get 'search', to: "search#index"
 
-  # Routes relatives aux wishlists
+  # Routes relatives aux wishlists et product_wishlists
   resources :wishlists, only: [:new, :create, :show, :update, :destroy]
+  resources :product_wishlists, only: [:destroy]
 end
 
