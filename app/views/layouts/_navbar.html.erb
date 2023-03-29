@@ -13,7 +13,7 @@
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="themes-nav-categories">Categories</a>
             <div class="dropdown-menu" aria-labelledby="themes">
               <% Category.all.each do |category| %>
-                <%= link_to category.title, category_path(category.id), class: "nav-item nav-link" %>
+                <%= link_to category.title, category_path(category.title), class: "nav-item nav-link" %>
               <% end %>            
             </div>
           </li>
