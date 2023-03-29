@@ -31,7 +31,7 @@
                 <% @cart.product_carts.sort.each do |product_cart| %>
                     <tbody class="align-middle">
                     <tr>
-                        <td class="align-middle"><img src= "" alt="" style="width: 50px;"><%= product_cart.product.title %></td>
+                        <td class="align-middle"><%= link_to product_cart.product.title, product_path(product_cart.product)%></td>
                         <td class="align-middle"><%= product_cart.product.price %> €</td>
                         <td class="align-middle"><%=product_cart.quantity%></td>
                         <td class="align-middle"><%= product_cart.total_price %> €</td>

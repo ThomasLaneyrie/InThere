@@ -2,9 +2,14 @@
 
 <%= render @comment %>
 
-<div>
-  <%= link_to "Edit this comment", edit_comment_path(@comment) %> |
-  <%= link_to "Back to comments", comments_path %>
-
-  <%= button_to "Destroy this comment", @comment, method: :delete %>
+<div class="d-flex  ms-3">
+<div class="comments-links d-flex justify-content-between ">
+  <%= link_to "Retour au produit", product_path(@comment.product), class: "me-3" %> 
+  <%= link_to "Voir tous", comments_path(@comment.product.id), class: "me-3"%>
+  <% if current_user == @comment.user %>
+    <%= button_to "Destroy this comment", @comment, method: :delete, class: "me-3" %>
+    <%= link_to "Edit this comment", edit_comment_path(@comment), class: "me-3" %>
+  <% end %>
+  </div>
 </div>
+

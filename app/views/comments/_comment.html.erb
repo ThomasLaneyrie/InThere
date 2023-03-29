@@ -1,17 +1,20 @@
 <div id="<%= dom_id comment %>">
-  <p>
-    <strong>Title:</strong>
-    <%= comment.title %>
-  </p>
+  <div class="row">
+    <div class="col-md-8"> 
+        <%= comment.title %>
+    </div>
+    <div class="col-md-4 text-right">
+      <small><%= comment.created_at.strftime('%d/%m/%Y %H:%M') %></small>
+    </div>
+  </div>
+    <%= comment.user.first_name %></br>
 
-  <p>
+
     <strong>Content:</strong>
-    <%= comment.content %>
-  </p>
-
-  <p>
+    <%= comment.content %></br>
+ 
     <strong>Note:</strong>
     <%= comment.note %>
-  </p>
 
 </div>
+

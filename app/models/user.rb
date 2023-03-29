@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :carts
   has_one_attached :avatar
+  has_many :comments
 
   after_create :welcome_email
   def welcome_email
@@ -20,6 +21,15 @@ class User < ApplicationRecord
         user.email = auth.info.email
         user.password = Devise.friendly_token[0,20]
     end
+  end
+
+  def ordered_products
+    Product.joins(product_carts: { cart: :order })
+           .where(orders: { user_id: self.id })
+  end
+
+  def has_ordered_product?(product)
+    ordered_products.include?(product)
   end
 
 end
