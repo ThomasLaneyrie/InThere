@@ -59,6 +59,6 @@ class ApplicationController < ActionController::Base
       flash[:info] = "Vous ne pouvez pas accéder à cette page, n'étant pas administrateur, désolé !"
     end
   end
-  
+
 
 end
