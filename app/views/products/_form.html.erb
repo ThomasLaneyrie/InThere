@@ -1,37 +1,25 @@
 <%= form_with(model: product) do |form| %>
-  <% if product.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+  
+  <div class="form-group" style="max-width:500px">
+    <%= form.label "Titre", style: "display: block" %>
+    <%= form.text_field :title, class: 'form-control' %>
 
-      <ul>
-        <% product.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= form.label "Categorie", style: "display: block" %>
+    Faire un f.select
+    
+    <%= form.label "Description", style: "display: block" %>
+    <%= form.text_area :description, class: 'form-control' %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+    <%= form.label "Prix (€)", style: "display: block" %>
+    <%= form.number_field :price, class: 'form-control' %>
+
+    <%= form.label "Couleur", style: "display: block" %>
+    <%= form.text_field :color, class: 'form-control' %>
+
+    <%= form.label "Marque", style: "display: block" %>
+    <%= form.text_field :color, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
-  </div>
-
-
-
-  <div>
-    <%= form.label :image_url, style: "display: block" %>
-    <%= form.text_field :image_url %>
-  </div>
 
   <div>
     <%= form.submit %>
