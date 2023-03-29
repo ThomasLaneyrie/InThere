@@ -3,7 +3,7 @@ IN THERE : TECH SHOPPING
 
 Ceci est un résumé de la présentation, la version complète se trouve en pdf dans un lien accessible en bas du readme.
 
-![On a transpiré, on a appris, nos claviers ont mouru ]
+![On a transpiré, on a appris, on en re-demande ](https://assets.rbl.ms/10712482/980x.gif "La team")
 
 ### 1)	Présentation : 
 

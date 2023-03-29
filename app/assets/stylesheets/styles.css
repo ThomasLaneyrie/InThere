@@ -107,7 +107,7 @@ a.nav-link{
 
 .btn-outline-4 {
   background: color #030303;
-  border:1px solid #fafbf9 !important;
+  border:1px solid #49c317 !important;
 }
 
 .btn-outline-5 {
@@ -276,3 +276,6 @@ background-color: #000000;
   padding: 10px;
 }
   
+.text-uppercase {
+  color : #49c317
+}
