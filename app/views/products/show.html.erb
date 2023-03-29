@@ -1,3 +1,5 @@
+
+
 <%= javascript_include_tag "main", "data-turbo-track": "reload", defer: true %>
 
 <div class="container-fluid py-5">
@@ -34,7 +36,7 @@
                 <div class="nav nav-tabs justify-content-center border-secondary mb-4">
                     <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Description</a>
                     <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Information</a>
-                    <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Commentaires (0)</a>
+                    <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Commentaires (<%= @comments.count%>)</a>
                 </div>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="tab-pane-1">
@@ -82,52 +84,52 @@
                     <div class="tab-pane fade" id="tab-pane-3">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4 class="mb-4">"n de commentaires" pour <%= @product.title.capitalize %> </h4>
+                                <h4 class="mb-4"><%= @comments.count%> commentaires pour <%= @product.title.capitalize %> </h4>
                                 <div class="media mb-4">
-                                    <img src="" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                                     <div class="media-body">
-                                        <h6>"utilizateur"<small> - <i>"date"</i></small></h6>
-                                        <div class="text-primary mb-2">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i>
-                                            <i class="far fa-star"></i>
+                                    <div id="comments">
+                                        <% @comments.each do |comment| %>
+                                         <%= render comment %>
+                                        <p>
+                                        <%= link_to "Plus", comment %>
+                                        </p>
+                                        <% end %>
                                         </div>
-                                        <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                <% if current_user %>
                                 <h4 class="mb-4">Dis nous, Qu'est- ce que tu penses ?</h4>
-                                <small>Ton email ne sera pas affiché. Ces champs sont necessaires *</small>
+                                <small>Ton email ne sera pas affiché </small>
                                 <div class="d-flex my-3">
-                                    <p class="mb-0 mr-2">ta note:  * :</p>
                                     <div class="text-primary">
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
                                     </div>
-                                </div>
-                                <form>
-                                    <div class="form-group">
-                                        <label for="message"> Commentaire *</label>
-                                        <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">Ton prenom :*</label>
-                                        <input type="text" class="form-control" id="name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">Ton mail: *</label>
-                                        <input type="email" class="form-control" id="email">
-                                    </div>
-                                    <div class="form-group mb-0">
-                                        <input type="submit" value="Leave Your Review" class="btn btn-outline4 btn-lg px-3">
-                                    </div>
-                                </form>
+                                </div>                               
+                                <%= render partial: 'comments/form' %>
+                                <% else %>
+                               
+                                <div class="half-width">
+                                <h4 class="mb-4"> Un commentaire?, Par ici: </h4>
+                                <ul class="navbar-nav me-auto">
+                                  <div class="d-flex">
+                                    <li class="nav-item flex-grow-1">
+                                      <%= button_to(image_tag("https://media.discordapp.net/attachments/1062665418621333504/1090248251833327676/AATXAJyinelXJOqRuDKmXAlUqielit-PXp4REWcRIQs900-c-k-c0xffffffff-no-rj-mo.png", alt: "panier", style: 'width: 24px; height: 24px; '), user_google_oauth2_omniauth_authorize_path, data: { turbo: false }, class: "button is-info button_nav", style: "background-color: transparent; border: none;") %>
+                                    </li>
+                                    <li class="nav-item flex-grow-1">
+                                      <%= link_to "Se Connecter", new_user_session_path, class: "nav-item nav-link" %>
+                                    </li>
+                                    <li class="nav-item flex-grow-1">
+                                      <%= link_to "S'inscrire", new_user_registration_path, class: "nav-item nav-link" %>
+                                    </li>
+                                  </div>
+                                </ul>
+                              </div>
+                                       
+                                <% end %>
+                    
+                            
+                                <i class="bi bi-star-fill"></i>
                             </div>
                         </div>
                     </div>

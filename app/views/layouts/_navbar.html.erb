@@ -17,6 +17,15 @@
           <% end %>            
           </div>
         </li>
+
+        <div class="my-2 my-sm-0">
+          <% if user_signed_in? %>
+            <span class="badge rounded-pill bg-success">Vous êtes connecté</span>
+          <% else %>
+            <span class="badge rounded-pill bg-success">"Vous n'êtes pas encore inscrit"</span>
+          <% end %>
+        </div>
+
       </ul>
       <ul class="navbar-nav ms-md-auto">
       <% if @current_user == nil %>
