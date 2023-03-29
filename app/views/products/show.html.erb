@@ -9,6 +9,19 @@
                     <h1 class="card-title" style="text-align: center"><%= @product.title.capitalize %></h1>
                     <h3 class="card-text" style="text-align: center"> <%= @product.price %> € </h3>
                     <h3 class="card-text" style="text-align: center"> <%= @product.category.title %></h3>
+                    <h5 class="card-text" style="text-align: center">
+                    <div class="notes">
+                      <% n = @average_note.ceil %>
+                      <% 5.times do |i| %>
+                        <% if (@average_note-i) > 1 %>
+                          <i class="fa fa-star rating-color" style="color: green;"></i>
+                        <% elsif (@average_note-i) < 1 && (@average_note-i) > 0 %>
+                          <i class="fa fa-star-half-o rating-color" style="color: green;"></i>
+                        <% elsif (@average_note-i) < 0 %>
+                          <i class="fa fa-star-o" style="color: green;"></i>
+                        <% end %>
+                      <% end %>
+                    </div>
                     <div class="container2">
                         <div class="text-center">     
                             <% if product_is_in_one_of_your_wishlist?(@product) == false %>
@@ -40,7 +53,7 @@
             <div class="col">
                 <div class="nav nav-tabs justify-content-center border-secondary mb-4">
                     <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Description</a>
-                    <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Information</a>
+  
                     <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Commentaires (<%= @comments.count%>)</a>
                 </div>
                 <div class="tab-content">
@@ -48,44 +61,7 @@
                         <h4 class="mb-3">Description du Produit</h4>
                         <p><%= @product.description %><p>
                     </div>
-                    <div class="tab-pane fade" id="tab-pane-2">
-                        <h4 class="mb-3">Additional Information</h4>
-                        <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam. Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item px-0">
-                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
-                                    </li>
-                                  </ul> 
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item px-0">
-                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
-                                    </li>
-                                  </ul> 
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="tab-pane fade" id="tab-pane-3">
                         <div class="row">
                             <div class="col-md-6">
@@ -93,14 +69,15 @@
                                 <div class="media mb-4">
                                     <div class="media-body">
                                     <div id="comments">
-                                        <% @comments.last(3).each do |comment| %>
-                                         <%= render comment %>
-                                        <p>
-                                        <%= link_to "Plus", comment %>
-                                        </p>
-                                        <% end %>
+                                        <div id= "live-comments"
+                                          <% @comments.order(created_at: :desc).limit(3).each do |comment| %>
+                                            <%= render comment %>
+                                            <p>
+                                            <%= link_to "Plus", comment %>
+                                            </p>
+                                          <% end %>
                                         </div>
-                                        <%= link_to "Voir tous", comments_path(@product.id) %>
+                                      <%= link_to "Voir tous", comments_path(@product.id) %>
                                     </div>
                                 </div>
                             </div>
@@ -127,16 +104,21 @@
 
                               <% elsif current_user.has_ordered_product?(@product) %>
 
-                                <h4 class="mb-4">Dis nous, Qu'est- ce que tu penses ?</h4>
-                                <small>Ton email ne sera pas affiché </small>
-                                <div class="d-flex my-3">
-                                    <div class="text-primary">
-                                    </div>
-                                </div>   
-
-                                <%= render partial: 'comments/form' %>
-
-                                <% else %>
+                              <h4 class="mb-4">Dis nous, Qu'est- ce que tu penses ?</h4>
+                              <div class="mx-auto" style="max-width: 300px;">
+                              <small>Ton email ne sera pas affiché </small>
+                              <div class="d-flex my-3">
+                                  <div class="text-primary">
+                                  </div>
+                              </div>   
+                          
+                              
+                                  <%= render partial: 'comments/form' %>
+                              </div>
+                          
+                          <% else %>
+                          
+                          
                                 <h4 class="mb-4"> Seuls les achats vérifiés peuvent commenter</h4>
                                 <% end %>                     
                             </div>
