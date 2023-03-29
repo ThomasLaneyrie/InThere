@@ -1,0 +1,2 @@
+class ProductWishlistsController < ApplicationController
+end

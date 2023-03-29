@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :carts
   has_one_attached :avatar
   has_many :comments
+  has_many :wishlists
 
   after_create :welcome_email
   def welcome_email
