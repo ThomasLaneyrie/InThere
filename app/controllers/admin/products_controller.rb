@@ -9,8 +9,4 @@ class Admin::ProductsController < ApplicationController
     flash[:success] = "Produit supprimé avec succès de la base de ventes"
   end
 
-  def update
-    @product = Product.find(params[:id])
-  end
-
 end
