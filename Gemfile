@@ -88,8 +88,9 @@ group :test do
   gem "webdrivers"
 end
 
-
-
 gem "omniauth-google-oauth2", "~> 1.1"
 
 gem "omniauth-rails_csrf_protection", "~> 1.0"
+
+gem 'friendly_id', '~> 5.4.0'
+

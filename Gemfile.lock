@@ -118,6 +118,8 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
@@ -315,6 +317,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails (~> 6.2)
   faker
+  friendly_id (~> 5.4.0)
   importmap-rails
   jbuilder
   omniauth-google-oauth2 (~> 1.1)
