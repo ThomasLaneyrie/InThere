@@ -3,11 +3,13 @@ class CommentsController < ApplicationController
 
   # GET /comments or /comments.json
   def index
-    @comments = Comment.all
+    @product = Product.find(params[:format])
+    @comments = @product.comments
   end
 
   # GET /comments/1 or /comments/1.json
   def show
+
   end
 
   # GET /comments/new
@@ -17,6 +19,8 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+    @comment = Comment.find(params[:id])
+    @product = @comment.product
   end
 
   # POST /comments or /comments.json

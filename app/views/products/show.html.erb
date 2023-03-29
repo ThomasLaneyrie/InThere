@@ -88,13 +88,14 @@
                                 <div class="media mb-4">
                                     <div class="media-body">
                                     <div id="comments">
-                                        <% @comments.each do |comment| %>
+                                        <% @comments.last(3).each do |comment| %>
                                          <%= render comment %>
                                         <p>
                                         <%= link_to "Plus", comment %>
                                         </p>
                                         <% end %>
                                         </div>
+                                        <%= link_to "Voir tous", comments_path(@product.id) %>
                                     </div>
                                 </div>
                             </div>
@@ -126,15 +127,13 @@
                                 <div class="d-flex my-3">
                                     <div class="text-primary">
                                     </div>
-                                </div>                               
+                                </div>   
+
                                 <%= render partial: 'comments/form' %>
 
                                 <% else %>
-                                <h4 class="mb-4"> Seulement les achats vérifiés peuvent commenter</h4>
-                                <% end %>
-                    
-                            
-                                <i class="bi bi-star-fill"></i>
+                                <h4 class="mb-4"> Seuls les achats vérifiés peuvent commenter</h4>
+                                <% end %>                     
                             </div>
                         </div>
                     </div>
