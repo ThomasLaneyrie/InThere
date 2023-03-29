@@ -113,7 +113,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_29_122955) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.text "title"
+    t.string "title"
     t.text "description"
     t.decimal "price", precision: 6, scale: 2
     t.string "image_url"
