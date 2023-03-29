@@ -1,68 +1,72 @@
-<div class="bs-component text-center">
-  <h1><%= @category.title %></h1><br>
-</div>
+<div class="m-3">
+  <div class="bs-component text-center">
+    <h1><%= @category.title %></h1><br>
+  </div>
 
-<div class="container-fluid text-center bs-component">
-  <div class="row">
-    <div class="col-2 flex-column align-items-start border-right">
-        <h3>Couleurs</h3>   
-        <%= search_form_for @q_filter, url: category_path(@category.id), data: {controller: "search", action: "input->search#submit"} do |f| %>                       
-            <% Product.where(category: @category).where.not(color:nil).each do |product| %> 
+  <div class="container-fluid text-center bs-component">
+    <div class="row">
+      <div class="col-2 flex-column align-items-start ">
+          <h3>Couleurs</h3>   
+          <%= search_form_for @q_filter, url: category_path(@category.id), data: {controller: "search", action: "input->search#submit"} do |f| %>                       
+              <% Product.where(category: @category).where.not(color:nil).each do |product| %> 
+                <div class="row justify-content:space-between">
+                  <div class="col text-start">
+                    <% if params['q'] != nil && params['q']['color_eq_any'] != nil && params['q']['color_eq_any'].include?(product.color)  %>
+                      <%= check_box_tag('q[color_eq_any][]', product.color, true) %>              
+                    <% else %> 
+                      <%= check_box_tag('q[color_eq_any][]', product.color, false) %>                
+                    <% end %>
+                    <%= product.color %>
+                  </div>
+                  <div class="col text-end"><%= Product.where(category: @category).where(color: product.color).count %></div>
+                </div>                                              
+              <% end %>  
+            <br>
+
+            <h3>Marques</h3>
+            <% Product.where(category: @category).where.not(brand:nil).each do |product| %> 
               <div class="row justify-content:space-between">
-                <div class="col text-start">
-                  <% if params['q'] != nil && params['q']['color_eq_any'] != nil && params['q']['color_eq_any'].include?(product.color)  %>
-                    <%= check_box_tag('q[color_eq_any][]', product.color, true) %>              
+                <div class="col text-start w-auto">
+                  <% if params['q'] != nil && params['q']['brand_eq_any'] != nil && params['q']['brand_eq_any'].include?(product.brand)  %>
+                    <%= check_box_tag('q[brand_eq_any][]', product.brand, true) %>               
                   <% else %> 
-                    <%= check_box_tag('q[color_eq_any][]', product.color, false) %>                
-                  <% end %>
-                  <%= product.color %>
+                    <%= check_box_tag('q[brand_eq_any][]', product.brand, false) %>               
+                  <% end %>      
+                  <%= product.brand %> 
                 </div>
                 <div class="col text-end"><%= Product.where(category: @category).where(color: product.color).count %></div>
-              </div>                                              
-            <% end %>  
-          <br>
-
-          <h3>Marques</h3>
-          <% Product.where(category: @category).where.not(brand:nil).each do |product| %> 
-            <div class="row justify-content:space-between">
-              <div class="col text-start w-auto">
-                <% if params['q'] != nil && params['q']['brand_eq_any'] != nil && params['q']['brand_eq_any'].include?(product.brand)  %>
-                  <%= check_box_tag('q[brand_eq_any][]', product.brand, true) %>               
-                <% else %> 
-                  <%= check_box_tag('q[brand_eq_any][]', product.brand, false) %>               
-                <% end %>      
-                <%= product.brand %> 
-              </div>
-              <div class="col text-end"><%= Product.where(category: @category).where(color: product.color).count %></div>
-            </div>                                          
-          <% end %>    
-          <br>
-        <% end %>
-
-        <h3>Prix</h3>
- 
-          <%= search_form_for @q_filter, url: category_path(@category.id) do |f| %>    
-          <div class="row align-items-end">  
-            <div class="col text-start">Min(€)<br> <%= f.number_field :price_gteq, style:"max-width:90px", class:"form-control" %></div>
-            <div class="col text-start">Max(€)<br> <%= f.number_field :price_lteq, style:"max-width:90px", class:"form-control"  %></div> 
-            <div class="col"><%= f.submit "Filter les prix", class:"btn btn-primary4" %></div>  
-          </div><br><br>
+              </div>                                          
+            <% end %>    
+            <br>
           <% end %>
-        
-        <div>   
-          <%= link_to "Supprimer les filtres", category_path(@category.id), class:"btn btn-outline4" %><br>
-        </div>
-    </div>
 
-    <div class="col-10">
-      <section style="margin:40px;">
-          <div class="row">
-          <%= render @products %>
-      </section>
+          <h3>Prix</h3>
+  
+            <%= search_form_for @q_filter, url: category_path(@category.id) do |f| %>    
+            <div class="row align-items-end">  
+              <div class="col text-start">Min(€)<br> <%= f.number_field :price_gteq, style:"max-width:90px", class:"form-control" %></div>
+              <div class="col text-start">Max(€)<br> <%= f.number_field :price_lteq, style:"max-width:90px", class:"form-control"  %></div> 
+              <div class="col"><%= f.submit "Filter les prix", class:"btn btn-primary4" %></div>  
+            </div><br><br>
+            <% end %>
+          
+          <div>   
+            <%= link_to "Supprimer les filtres", category_path(@category.id), class:"btn btn-outline4" %><br>
+          </div>
+      </div>
+
+      <div class="col-8">
+        <section style="margin-left:80px">
+            <div class="row">
+              <%= render @products %>
+        </section>
+      </div>
+
+      <div class="col-2">
+      </div>
     </div>
   </div>
 </div>
-
 
 
 
