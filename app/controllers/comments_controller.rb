@@ -3,11 +3,13 @@ class CommentsController < ApplicationController
 
   # GET /comments or /comments.json
   def index
-    @comments = Comment.all
+    @product = Product.find(params[:format])
+    @comments = @product.comments
   end
 
   # GET /comments/1 or /comments/1.json
   def show
+
   end
 
   # GET /comments/new
@@ -17,15 +19,20 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+    @comment = Comment.find(params[:id])
+    @product = @comment.product
   end
 
   # POST /comments or /comments.json
   def create
     @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
+    @product = Product.find(comment_params[:product_id])
+    @comment.product_id = @product.id
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to comment_url(@comment), notice: "Comment was successfully created." }
+        format.html { redirect_to product_path(@product.title), notice: "Comment was successfully created." }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -52,7 +59,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: "Comment was successfully destroyed." }
+      format.html { redirect_to products_path, notice: "Comment was successfully destroyed." }
       format.json { head :no_content }
     end
   end
