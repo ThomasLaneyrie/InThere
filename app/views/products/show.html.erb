@@ -20,16 +20,22 @@
                     <h5 class="card-text" style="text-align: center">
                     <div class="notes">
                       <% n = @average_note.ceil %>
-                      <% 5.times do |i| %>
-                        <% if (@average_note-i) > 1 %>
-                          <i class="fa fa-star rating-color" style="color: green;"></i>
-                        <% elsif (@average_note-i) < 1 && (@average_note-i) > 0 %>
-                          <i class="fa fa-star-half-o rating-color" style="color: green;"></i>
-                        <% elsif (@average_note-i) < 0 %>
-                          <i class="fa fa-star-o" style="color: green;"></i>
+                      <% if @average_note == 0 %>
+                        <% 5.times do |i| %>
+                        <i class="fa fa-star-o" style="color: green;"></i>
                         <% end %>
-                      <% end %>
-                    </div>
+                      <% else %>
+                        <% 5.times do |i| %>
+                          <% if (@average_note-i) > 1 %>
+                            <i class="fa fa-star rating-color" style="color: green;"></i>
+                          <% elsif (@average_note-i) < 1 && (@average_note-i) > 0 %>
+                            <i class="fa fa-star-half-o rating-color" style="color: green;"></i>
+                          <% elsif (@average_note-i) < 0 %>
+                            <i class="fa fa-star-o" style="color: green;"></i>
+                          <% end %>
+                        <% end %>
+                      <%end%>
+                      </div>
               
                     <div class="image-container">
                         <div class="text-center">     
