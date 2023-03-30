@@ -289,11 +289,6 @@ background-color: #000000;
 }
 
 
-.container2 {
-  position: relative;
-  align-items: stretch;
-}
-
 .half-width {
   width: 50%;
   margin: 0 auto; 
