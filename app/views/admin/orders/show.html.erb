@@ -1,0 +1,35 @@
+<section class="items-section">
+  <div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column justify-content-center" style="min-height: 200px">
+
+      <div class="row">
+        <div class="col-md-6">
+          <p>Order n° : <%= @order.id %></p>
+          
+        </div>
+        <div class="col-md-6">
+        <p > <%= @order.created_at.strftime("%d-%m-%Y") %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p >Nom: <%= @order.user.first_name %> <%= @order.user.last_name %></p>
+          <p>Email: <%= @order.user.email %></p>
+        </div>
+        <div class="col-md-6">
+          <p>Adresse: <%= @order.user.address %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<div class="text-center">
+  <section>
+    <%= render partial: 'orders/order', locals: {order: @order, cart: @cart} %>
+    <%= link_to "Orders", admin_orders_path, class:"btn btn-success btn-lg" %>
+  </section>
+</div>
+

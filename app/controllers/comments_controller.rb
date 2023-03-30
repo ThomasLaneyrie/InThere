@@ -59,6 +59,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
+      #format.turbo_stream { render turbo_stream: turbo_stream.append_to("live-comments", @comment) }
       format.html { redirect_to products_path, notice: "Comment was successfully destroyed." }
       format.json { head :no_content }
     end

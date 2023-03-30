@@ -14,19 +14,20 @@
   <% end %>
 
   <div>
-    <%= form.label :title, style: "display: block" %>
+    <%= form.label :title, "Titre :", style: "display: block" %>
     <%= form.text_field :title %>
   </div>
 
   <div>
-    <%= form.label :content, style: "display: block" %>
+    <%= form.label :content, "Commentaire :" ,style: "display: block" %>
     <%= form.text_area :content %>
   </div>
 
   <div>
     <%= form.label :note, style: "display: block" %>
-    <%= form.number_field :note %>
+    <%= form.number_field :note, in: 1..5, min: 1, max: 5 %>
   </div>
+
 
   <div>
   <%= form.submit "Commenter", class: "btn btn-outline4 btn-lg btn-commenter" %>

@@ -3,10 +3,10 @@
     <td class="align-middle"><%= product.title %></td>
     <td class="align-middle"><%= product.price %></td>
     <td class="align-middle">
-      <%= link_to "Editer", edit_admin_product_path(product.id) %>
+      <%= button_to "Editer", edit_product_path(product.id), method: :get  %>
     </td>
     <td class="align-middle">
-      <%= button_to 'Supprimer', {controller: 'admin/products', action: 'destroy', id: product.id}, method: :delete %> 
+      <%= button_to 'Supprimer', {controller: 'products', action: 'destroy', id: product.id}, method: :delete %> 
     </td>
   </tr>
 </tbody>

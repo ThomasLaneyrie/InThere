@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy ]
+  before_action :check_if_admin, only: %i[new edit update destroy ]
 
   # GET /products or /products.json
   def index
@@ -17,12 +18,13 @@ class ProductsController < ApplicationController
     @product = Product.find_by(title: params[:title])
     @comment = Comment.new
     @comments = @product.comments
-    product_is_in_one_of_your_wishlist?(@product)
+    @average_note = @product.average_note
   end
 
   # GET /products/new
   def new
     @product = Product.new
+    @categories = Category.all
   end
 
   # GET /products/1/edit
@@ -33,9 +35,9 @@ class ProductsController < ApplicationController
   def create
     product_params["category_id"] = product_params["category_id"].to_i
     @product = Product.new(product_params)
-
     respond_to do |format|
       if @product.save
+
         format.html { redirect_to product_url(@product), notice: "Product was successfully created." }
         format.json { render :show, status: :created, location: @product }
       else
@@ -60,6 +62,7 @@ class ProductsController < ApplicationController
 
   # DELETE /products/1 or /products/1.json
   def destroy
+    binding.pry
     @product.destroy
 
     respond_to do |format|

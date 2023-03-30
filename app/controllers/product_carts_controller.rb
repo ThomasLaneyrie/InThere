@@ -47,7 +47,6 @@ class ProductCartsController < ApplicationController
       @product_cart.cart = current_cart
       @product_cart.product = chosen_product
     end
-    
     respond_to do |format|
       if @product_cart.save 
         format.turbo_stream { render turbo_stream: turbo_stream.update("number_products_cart", @current_cart.number_products) } 

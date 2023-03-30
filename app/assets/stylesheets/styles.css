@@ -310,3 +310,33 @@ background-color: #000000;
 .text-uppercase {
   color : #49c317
 }
+
+.card-img-top {
+  position: relative;
+}
+
+.fa-regular {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color:#369113
+}
+
+.fa-solid {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color:#369113;
+}
+
+/* table hover */
+table.table-hover.bg-transparent tbody tr:hover {
+  background-color: rgba(255,255,255,.075);
+}
+
+
+
+
+
+
+
