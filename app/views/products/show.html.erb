@@ -1,10 +1,5 @@
 <%= javascript_include_tag "main", "data-turbo-track": "reload", defer: true %>
 
-<div class="bs-component text-center ">
-  <br>
-  <%= link_to "Retour page produits", products_path , class:"btn btn-secondary"%>
-</div>
-
 <section class="items-section">
 	<div class="col-lg-6 col-md-6 col-sm-7 d-flex my-5 mx-auto">
     <div class="card w-100 my-2 shadow-2-strong">
@@ -20,7 +15,7 @@
         <div class="card-body d-flex flex-column ">
           <div class="bs-component">
             <h1 class="card-title" style="text-align: center"><%= @product.title.capitalize %></h1>
-            <h3 class="card-text" style="text-align: center"> <%= @product.price %> € </h3>
+            <h3 class="card-text" style="text-align: center; color: white;"> <%= @product.price %> € </h3>
             <h3 class="card-text" style="text-align: center"> <%= @product.category.title %></h3>
             <h5 class="card-text" style="text-align: center">
             <%= render partial: "stars", locals: {product:@product} %>
@@ -33,9 +28,15 @@
                   <%= button_to "" , product_wishlist_path(find_associated_product_wishlist_id(@product).id), method: :delete, style: 'width: 24px; height: 24px; background-color: transparent; border: none;', class:"fa-solid fa-heart bs-component" %> 
               <% end %>
             </div>
-            <div class="pt-5 px-0 pb-5 text-center">
+            <div class="pt-5 px-0 pb-5 row">
+              <div class="col-md-6 text-center">
                 <%= button_to "Ajouter au panier", product_carts_path(:product_id => @product.id), class:"btn btn-outline"%>
+              </div>
+            <div class="col-md-6 text-center">
+              <%= link_to "Retour page produits", products_path , class:"btn btn-outline"%>
             </div>
+          </div>
+          
           </div>
         </div>
       </div>
