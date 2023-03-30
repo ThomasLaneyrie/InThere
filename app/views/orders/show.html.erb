@@ -1,52 +1,11 @@
 <!-- Page Header Start -->
 <section class="items-section">
-<div class="container-fluid bg-secondary mb-5">
+  <div class="container-fluid bg-secondary mb-5">
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 200px">
-        <h1 class="font-weight-semi-bold text-uppercase mb-3">Votre commande du <%= @order.created_at.strftime("%d-%m-%Y") %></h1>
-        <h4 class="font-weight-semi-bold text-uppercase mb-3">Numéro de référence de votre commande: <%= @order.id %></h4>
+      <h1 class="font-weight-semi-bold text-uppercase mb-3">Votre commande du <%= @order.created_at.strftime("%d-%m-%Y") %></h1>
+      <h4 class="font-weight-semi-bold text-uppercase mb-3">Numéro de référence de votre commande: <%= @order.id %></h4>
     </div>
-</div>
-</section>                
+  </div>
+</section>
 
-<!-- Page Header End -->
-<% products_cart = @current_cart.product_carts %>
-
-<!-- Cart Start -->
-<section class="items-section">
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12 table-responsive mb-5">
-            <table class="table table-bordered text-center mb-0">
-
-                <thead class="border-white text-white">
-                    <tr>
-                        <th>Produit</th>
-                        <th>Prix</th>
-                        <th>Quantité</th>
-                        <th>Total</th>
-                        <th>Image</th>
-                    </tr>
-                </thead>
-
-                <% @cart.product_carts.sort.each do |product_cart| %>
-                    <tbody class="align-middle">
-                    <tr>
-                        <td class="align-middle"><%= link_to product_cart.product.title, product_path(product_cart.product)%></td>
-                        <td class="align-middle"><%= product_cart.product.price %> €</td>
-                        <td class="align-middle"><%=product_cart.quantity%></td>
-                        <td class="align-middle"><%= product_cart.total_price %> €</td>
-                        <td>
-                        <img src=<%= product_cart.product.image_url %> class="card-img-top" style="max-width:100px; aspect-ratio: 1 / 1;" />
-                        </td>
-                    </tr>
-                    </tbody>
-                <% end %>
-</section>                
-            </table>
-        </div>
-    </div>
-</div>
-<!-- Cart End -->
-
-    
-    
+<%= render partial: 'orders/order', locals: {order: @order, cart: @cart} %>
