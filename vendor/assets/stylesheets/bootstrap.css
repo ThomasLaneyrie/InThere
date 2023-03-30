@@ -81,8 +81,8 @@
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
-  --bs-link-color: #00bc8c;
-  --bs-link-hover-color: #009670;
+  --bs-link-color: #fdfdfd;
+  --bs-link-hover-color: #49c317;
   --bs-code-color: #e83e8c;
   --bs-highlight-bg: #fdebd0;
 }
@@ -964,7 +964,7 @@ progress {
   }
   .col-sm-6 {
     flex: 0 0 auto;
-    width: 50%;
+    width: 2570%;
   }
   .col-sm-7 {
     flex: 0 0 auto;
@@ -2824,7 +2824,7 @@ textarea.form-control-lg {
   --bs-btn-line-height: 1.5;
   --bs-btn-color: #48b41d;
   --bs-btn-bg: transparent;
-  --bs-btn-border-width: 1px;
+  --bs-btn-border-width: 2px;
   --bs-btn-border-color: #38b606;
   --bs-btn-border-radius: 0.375rem;
   --bs-btn-hover-border-color: transparent;
@@ -3190,7 +3190,7 @@ textarea.form-control-lg {
 .btn-lg, .btn-group-lg > .btn {
   --bs-btn-padding-y: 0.5rem;
   --bs-btn-padding-x: 1rem;
-  --bs-btn-font-size: 1.25rem;
+  --bs-btn-font-size: 13px;
   --bs-btn-border-radius: 0.5rem;
 }
 
@@ -4324,7 +4324,7 @@ textarea.form-control-lg {
 .card-img,
 .card-img-top,
 .card-img-bottom {
-  width: 100%;
+  width: auto;
 }
 
 .card-img,

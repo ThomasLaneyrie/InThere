@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
   before_action :initialize_cart
+  before_action :set_q
+
+  def set_q
+    @q = Product.ransack(params[:q])
+  end
 
   def initialize_cart
     if current_user != nil
@@ -46,5 +51,14 @@ class ApplicationController < ActionController::Base
       redirect_to cart_path(@current_cart.id)
     end
   end
+
+  def check_if_admin
+    @user = User.find(current_user.id)
+    unless @user.is_admin == true
+      redirect_to root_path
+      flash[:info] = "Vous ne pouvez pas accéder à cette page, n'étant pas administrateur, désolé !"
+    end
+  end
+
 
 end

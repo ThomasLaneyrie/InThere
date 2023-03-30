@@ -1,0 +1,33 @@
+<h1>Users</h1>
+
+<%= form_tag admin_users_path, method: :get do %>
+  <%= label_tag :search, "Search for a user:" %>
+  <%= text_field_tag :search %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
+<table class="table table-hover bg-transparent">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Address</th>
+      <th scope="col">Actions</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.first_name %> <%= user.last_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.address %> <%= user.city %>, <%= user.zip_code %></td>
+        <td>
+        <%= button_to "Delete", admin_user_path(user), method: :delete, data: { confirm: "tu es sure de vouloir l'effaser ?" }, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
