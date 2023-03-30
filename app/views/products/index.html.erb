@@ -9,7 +9,7 @@
 			<% Category.all.each do |category| %>
 				<div class="col">
 				  <%= link_to category_path(category.title) do %>
-					<%= image_tag(category.link) %>
+					<%= image_tag(category.link, alt: "categories") %>
 					<div class="col"></div>
 					<br>
 					<span style="font-weight: bold;"><%= category.title.upcase %></span>

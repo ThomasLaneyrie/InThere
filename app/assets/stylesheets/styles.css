@@ -161,7 +161,7 @@ Police de caractère : FreeMono, monospace */
   text-shadow:
   0 0 10px #ffffff62,
   0 0 42px #c34e17;
-  font-family: 'Tilt Neon', cursive; */
+  font-family: 'Tilt Neon', cursive;
 }
 
 @keyframes neon-border {
@@ -313,6 +313,7 @@ background-color: #000000;
 
 .card-img-top {
   position: relative;
+
 }
 
 .fa-regular {

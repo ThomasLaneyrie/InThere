@@ -33,10 +33,14 @@
                         <%= render "product_carts/product_cart", product_cart: product_cart %>
                     <% end %>
 
+                  </div>
                 </table>
             </div>
             <%= render partial: "total_cart_to_pay", object: @cart %>
     </div>
+    <div class="bs-component text-center ">
+    <br>
+    <%= link_to "Retour page produits", products_path , class:"btn btn-secondary"%>
 </div>
 <!-- Cart End -->
 
