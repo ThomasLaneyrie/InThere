@@ -81,4 +81,9 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:title, :description, :price, :image_url, :category_id)
     end
+
+    def wishlist_button
+      binding.pry
+      @product = Product.find(params[:id])
+    end
 end
