@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-
   before_action :authenticate_user!, only: [:show, :edit]
   before_action :is_current_user?, only: [:show, :edit]
+  skip_before_action :protect_from_forgery, raise: false
   
   def show
     @user = User.find(params[:id])
