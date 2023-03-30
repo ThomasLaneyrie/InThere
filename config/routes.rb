@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:index]
     end
     resources :orders, only:  [:index, :show, :destroy]
+    resources :categories
   end
 
   # Routes relatives aux produits

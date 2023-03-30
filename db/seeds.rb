@@ -14,10 +14,10 @@ Order.destroy_all
 ProductCart.destroy_all
 
 category_title_create = ["Earbuds", "Montres", "Audio", "Drones"]
-category_link = ["https://i.postimg.cc/MGQfMm5v/cat4earbuds.png", 
-	"https://i.postimg.cc/XYWzDsG0/cat3.png", 
-	"https://i.postimg.cc/nL0Y2k7T/cat2.png", 
-	"https://i.postimg.cc/9f4vHrpd/cat1.png"]
+category_link = ["https://zupimages.net/up/23/13/3qo0.jpg", 
+	"https://zupimages.net/up/23/13/5t4g.jpg", 
+	"https://zupimages.net/up/23/13/vxz2.jpg", 
+	"https://zupimages.net/up/23/13/aori.jpg"]
 images_produits_create = [
 	"https://i.postimg.cc/90hKFPVH/700-x-470-earbud-1.jpg",
 	"https://i.postimg.cc/HsWvZkkz/700-x-470-earbud-2.jpg",

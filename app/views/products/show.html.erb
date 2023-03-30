@@ -1,9 +1,14 @@
 <%= javascript_include_tag "main", "data-turbo-track": "reload", defer: true %>
 
+<div class="bs-component text-center ">
+  <br>
+  <%= link_to "Retour page produits", products_path , class:"btn btn-secondary"%>
+</div>
+
 <section class="items-section">
 	<div class="col-lg-6 col-md-6 col-sm-7 d-flex my-5 mx-auto">
     <div class="card w-100 my-2 shadow-2-strong">
-        <img src=<%= @product.image_url %> alt="<%= @product.title %>" class="card-img-top">
+        <img src=<%= @product.image_url %> alt="produit" class="card-img-top">
         <div class="image-container">
         <div class="text-center">     
             <% if product_is_in_one_of_your_wishlist?(@product) == false %>

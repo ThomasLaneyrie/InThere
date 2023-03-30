@@ -1,5 +1,4 @@
 class ProductWishlistsController < ApplicationController
-
   def destroy
     @product_wishlist = ProductWishlist.find(params[:id])
     @product_wishlist.destroy

@@ -1,0 +1,35 @@
+<div class="bs-component">
+  <div class="container mt-4", style="max-width:600px">  
+    <%= form_for [:admin, @category] do |f| %>
+      <% if @category.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+  
+          <ul>
+          <% @category.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+       <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="form-label mt-3">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+  
+    <div class="form-label mt-3">
+      <%= f.label :link %>
+      <%= f.text_field :link, class: "form-control" %>
+    </div>
+  
+    <div class="form-label mt-3">
+      <%= f.label :slug %>
+      <%= f.text_field :slug, class: "form-control" %>
+    </div>
+  
+    <%= f.submit "Save", class:"btn btn-outline4 btn-lg mt-2 w-100" %>
+    <% end %>
+ </div>
+</div>
+  
