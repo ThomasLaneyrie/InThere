@@ -298,6 +298,11 @@ background-color: #000000;
   color:#369113;
 }
 
+/* table hover */
+table.table-hover.bg-transparent tbody tr:hover {
+  background-color: rgba(255,255,255,.075);
+}
+
 
 
 

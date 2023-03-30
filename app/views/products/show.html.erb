@@ -21,20 +21,21 @@
                     <div class="notes">
                       <% n = @average_note.ceil %>
                       <% if @average_note == 0 %>
-                        <% 5.times do |i| %>
+                      <% 5.times do |i| %>
                         <i class="fa fa-star-o" style="color: green;"></i>
+                      <% end %>
+                    <% else %>
+                      <% 5.times do |i| %>
+                        <% if (@average_note-i) >= 1 %>
+                          <i class="fa fa-star rating-color" style="color: green;"></i>
+                        <% elsif (@average_note-i) >= 0.5 %>
+                          <i class="fa fa-star-half-o rating-color" style="color: green;"></i>
+                        <% else %>
+                          <i class="fa fa-star-o" style="color: green;"></i>
                         <% end %>
-                      <% else %>
-                        <% 5.times do |i| %>
-                          <% if (@average_note-i) > 1 %>
-                            <i class="fa fa-star rating-color" style="color: green;"></i>
-                          <% elsif (@average_note-i) < 1 && (@average_note-i) > 0 %>
-                            <i class="fa fa-star-half-o rating-color" style="color: green;"></i>
-                          <% elsif (@average_note-i) < 0 %>
-                            <i class="fa fa-star-o" style="color: green;"></i>
-                          <% end %>
-                        <% end %>
-                      <%end%>
+                      <% end %>
+                    <% end %>
+                    
                       </div>
               
                     <div class="image-container">
@@ -88,11 +89,11 @@
                                           <% @comments.order(created_at: :desc).limit(3).each do |comment| %>
                                             <%= render comment %>
                                             <p>
-                                            <%= link_to "Plus", comment %>
+                                            <%= link_to "Plus", comment%>
                                             </p>
                                           <% end %>
                                         </div>
-                                      <%= link_to "Voir tous", comments_path(@product.id) %>
+                                      <%= link_to "Voir tous les commentaires", comments_path(@product.id) , class:"btn btn-outline"%>
                                     </div>
                                 </div>
                             </div>
@@ -133,8 +134,10 @@
                           
                           <% else %>
                           
-                          
-                                <h4 class="mb-4"> Seuls les achats vérifiés peuvent commenter</h4>
+                                <div class="container d-flex justify-content-center align-items-center"
+                                <h4 class="mb-4"> Vous ne pouvez commenter que des produits que vous avez achetés
+                                </h4>
+                                </div>
                                 <% end %>                     
                             </div>
                         </div>
