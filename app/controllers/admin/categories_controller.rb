@@ -5,6 +5,5 @@ class Admin::CategoriesController < ApplicationController
   def index
     @user = User.all
   end
-  private
 
 end

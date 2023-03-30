@@ -23,7 +23,9 @@
 
   <body>
     <%= render partial: 'layouts/navbar' %>
-    <%= render partial: 'layouts/flash' %>
+    <div id="flash">
+      <%= render partial: 'layouts/flash' %>
+    </div>
     <%= yield %>
   </body>
   <%= render partial: 'layouts/footer' %>

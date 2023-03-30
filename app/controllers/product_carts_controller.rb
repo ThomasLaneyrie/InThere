@@ -6,7 +6,6 @@ class ProductCartsController < ApplicationController
     @product_cart = ProductCart.find(params[:id])
     @product_cart.destroy
     redirect_to cart_path(@product_cart.cart)
-
   end
 
   def add_quantity
@@ -16,7 +15,9 @@ class ProductCartsController < ApplicationController
       if @product_cart.save 
         format.turbo_stream do 
           render turbo_stream: [turbo_stream.update("number_products_cart", @current_cart.number_products), 
-                                turbo_stream.replace("product_cart_#{@product_cart.id}", @product_cart)]
+                                turbo_stream.replace("product_cart_#{@product_cart.id}", @product_cart),
+                                turbo_stream.update("turbo_maj_total_cart", @current_cart.sub_total),
+                                turbo_stream.update("turbo_maj_total_cart2", @current_cart.sub_total)]
         end
       end 
     end
@@ -30,7 +31,12 @@ class ProductCartsController < ApplicationController
     end
     respond_to do |format| 
       if @product_cart.save 
-        format.turbo_stream { render turbo_stream: turbo_stream.replace("product_cart_#{@product_cart.id}", @product_cart) } 
+        format.turbo_stream do 
+          render turbo_stream: [turbo_stream.update("number_products_cart", @current_cart.number_products), 
+                                turbo_stream.replace("product_cart_#{@product_cart.id}", @product_cart),
+                                turbo_stream.update("turbo_maj_total_cart", @current_cart.sub_total),
+                                turbo_stream.update("turbo_maj_total_cart2", @current_cart.sub_total)]
+        end
       end 
     end
   end
@@ -49,7 +55,11 @@ class ProductCartsController < ApplicationController
     end
     respond_to do |format|
       if @product_cart.save 
-        format.turbo_stream { render turbo_stream: turbo_stream.update("number_products_cart", @current_cart.number_products) } 
+        format.turbo_stream do 
+          render turbo_stream: [turbo_stream.update("number_products_cart", @current_cart.number_products),
+                                flash.now[:success] = "Produit ajouté à votre panier",
+                                turbo_stream.prepend("flash", partial: "layouts/flash")]
+        end
       end 
     end
   end

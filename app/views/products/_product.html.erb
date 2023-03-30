@@ -3,16 +3,18 @@
     <img src=<%= product.image_url %> class="card-img-top" style="aspect-ratio: 16 / 9" />
     <div class="card-body d-flex flex-column">
       <h5 class="card-title" style="color: white"> <%= product.title %>
-      <div class="image-container">
-        <p class="card-text">     
-          <% if product_is_in_one_of_your_wishlist?(product) == false %>
-            <%= button_to "", wishlists_path(:product_id => product.id), style: 'width: 24px; height: 24px; background-color: transparent; border: none', class:"fa-regular fa-heart bs-component" %>
-          <% else %>
-            <%= button_to "" , product_wishlist_path(find_associated_product_wishlist_id(product).id), method: :delete, style: 'width: 24px; height: 24px; background-color: transparent; border: none;', class:"fa-solid fa-heart bs-component" %> 
+        <% if user_signed_in? %>
+          <%= turbo_frame_tag "#{dom_id(product)}" do %>
+            <% if product_is_in_one_of_your_wishlist?(product) == false %>
+              <%= button_to "", wishlists_path(:product_id => product.id), remote: true, style: 'width: 24px; height: 24px; background-color: transparent; border: none', class:"fa-regular fa-heart bs-component" %>
+            <% else %>
+              <%= button_to "" , product_wishlist_path(find_associated_product_wishlist_id(product).id), method: :delete, remote: true, style: 'width: 24px; height: 24px; background-color: transparent; border: none;', class:"fa-solid fa-heart bs-component" %> 
+            <% end %>
           <% end %>
-          </div>
-
-        </p>
+          
+          <%= turbo_frame_tag "#{dom_id(product)}" do %>
+          <% end %>
+        <% end %>
       </h5>
       <p class="card-text" > <%= product.price %> € </p>
       <p class="card-text" style="color: white"> <%= product.category.title %></p>
@@ -27,4 +29,3 @@
   </div>
 </div>
 
-      
