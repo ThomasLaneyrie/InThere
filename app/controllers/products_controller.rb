@@ -5,7 +5,6 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     @products = Product.all
-
   end
   # show of each Category
   def category
@@ -18,7 +17,6 @@ class ProductsController < ApplicationController
     @product = Product.find_by(title: params[:title])
     @comment = Comment.new
     @comments = @product.comments
-    @average_note = @product.average_note
   end
 
   # GET /products/new

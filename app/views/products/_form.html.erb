@@ -21,11 +21,9 @@
 
     <%= form.label "Top sell", style: "display: block" %>
     <%= form.select :top_sell, options_for_select([["True", true], ["False", false]], product.top_sell), {}, class: 'form-select' %>
-
   </div>
 
-
   <div>
-  <%= form.submit "Update", class: "btn btn-primary" %>
+  <%= form.submit "Mettre à jour", class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -3,9 +3,9 @@
   <%= @wishlist.title %>
   <br> <br>
   <div class="row items-section">
-      <% @wishlist.product_wishlists.each do |product_wishlist| %>
-        <%= render product_wishlist.product %> 
-      <% end %>
+    <% @wishlist.product_wishlists.each do |product_wishlist| %>
+      <%= render product_wishlist.product %> 
+    <% end %>
   </div>
 </div>
 

@@ -58,26 +58,7 @@
 </div>
 
 <br><br>
-
-<div class="container text-pop-delayed-16s">
-  <div class="row ">
-    <div class="col text-center">
-      <h3 class="bs-component">Vos wishlists</h3>
-     <hr>
-      <% @user.wishlists.reverse().each_with_index do |wishlist, index| %>
-        <div class="row">
-          <div class="col">Wishlist N°<br> <%= index + 1 %> </div>
-          <div class="col">Nombre d'items dans la wishlist<br> <%= wishlist.product_wishlists.count %></div>
-          <div class="col">Wishlist N°<br><%= link_to "Voir wishlist N°#{index + 1}", wishlist_path(wishlist.id) %> </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-<br>
-<div class="bs-component text-center ">
-<br>
-<%= link_to "Retour page produits", products_path , class:"btn btn-secondary"%>
-<br>
-<br>
+<div class="bs-component text-center text-pop-delayed-16s">
+  <%= link_to "Retour page produits", products_path , class:"btn btn-secondary"%>
+  <br><br>
 </div>
