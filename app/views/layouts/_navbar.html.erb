@@ -45,8 +45,16 @@
             </div>
           </div>
           <% if current_user.is_admin == true %>
-            <div><%= link_to "Espace admin", admin_root_path, class: "nav-item nav-link" %></div>
-          <% end %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="themes-admin">Espace admin</a>
+            <div class="dropdown-menu" aria-labelledby="themes">
+              <%= link_to "Dashboard", admin_root_path, class:"dropdown-item" %>
+              <%= link_to "Users", admin_users_path, class:"dropdown-item" %>
+              <%= link_to "Products", admin_products_path, class:"dropdown-item" %>
+              <%= link_to "Orders", admin_orders_path, class:"dropdown-item" %>
+            </div>
+          </li>
+        <% end %>
       <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="themes-account">Mon compte</a>
           <div class="dropdown-menu" aria-labelledby="themes">
