@@ -1,30 +1,33 @@
-<div id="<%= dom_id comment %>">
+<div>
   <div class="row">
     <div class="col-md-8">
       <% note = comment.note  %>
       <% 5.times do |i| %>
-        <% if i < note %>
-          <i class="fa fa-star rating-color" style="color: green;"></i>
-        <% else %>
-          <i class="fa fa-star-o" style="color: green;"></i>
-        <% end %>
-      <% end %>      
-    </div>
-    <div class="col-md-4 text-right">
-      <small><%= comment.created_at.strftime('%d/%m/%Y %H:%M') %></small>
+      <% if i < note %>
+        <i class="fa fa-star rating-color" style="color: green;"></i>
+      <% else %>
+        <i class="fa fa-star-o" style="color: green;"></i>
+      <% end %>
+      <% end %>   
+      <div class="col-md-8 text-right">
+        <small>Commentaire 
+          <% if comment.user.present? && comment.user.first_name.present? %>
+            de <%= comment.user.first_name %>
+          <% end %>
+          le <%= comment.created_at.strftime('%d/%m/%Y à %H:%M') %></small>
+      </div><br>   
+      <p><strong>Titre : </strong><%= comment.title %><br>
+      <strong>Commentaire : </strong><%= comment.content %></p>
+
+
+      <% if current_user == comment.user %>
+        <p><%= link_to "Modifier/Supprimer votre commentaire", comment%></p>
+      <% end %>
+      <hr>
+
+
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-8">
-      <%= comment.title %> 
-    </div>
-    <div class="col-md-4 text-right">
-    <% if comment.user.present? && comment.user.first_name.present? %>
-      <%= "fait par #{comment.user.first_name}" %>
-    <% end %>
-  </div>
-  </div>
-  <strong>Comment:</strong>
-  <%= comment.content %>
 </div>
+
 

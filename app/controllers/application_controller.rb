@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :initialize_cart
+  before_action :focus_wishlist
   before_action :set_q
 
   def set_q
@@ -8,11 +9,18 @@ class ApplicationController < ActionController::Base
 
   def initialize_cart
     if current_user != nil
-    @current_cart =	Cart.where(user_id: current_user.id).last
-              
-        if @current_cart == nil
-          @current_cart = Cart.create(user_id: current_user.id)
-        end
+      @current_cart =	Cart.where(user_id: current_user.id).last 
+      if @current_cart == nil
+        @current_cart = Cart.create(user_id: current_user.id)
+      end
+    end
+  end
+
+  def focus_wishlist
+    if current_user != nil
+      if current_user.wishlists != nil
+        @current_wishlist = current_user.wishlists.last
+      end
     end
   end
 

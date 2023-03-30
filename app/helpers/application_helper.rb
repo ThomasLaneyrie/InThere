@@ -15,5 +15,8 @@ module ApplicationHelper
     return product_wishlist
   end
 
+  def average_note(this_product)
+    return this_product.comments.average(:note).to_f.round(1)
+  end
 end
 

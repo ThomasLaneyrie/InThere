@@ -1,23 +1,27 @@
-<div class="bs-component mx-5" data-turbo="false">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <%= link_to "IN THERE", root_path, class: "nav-link active" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Produits", products_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="themes-nav-categories">Categories</a>
-            <div class="dropdown-menu" aria-labelledby="themes">
-              <% Category.all.each do |category| %>
-                <%= link_to category.title, category_path(category.title), class: "nav-item nav-link" %>
-              <% end %>            
-            </div>
-          </li>
-        </ul>
+<div class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <%= link_to "IN THERE", root_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Produits", products_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="themes-nav-categories">Categories</a>
+          <div class="dropdown-menu" aria-labelledby="themes">
+            <% Category.all.each do |category| %>
+              <%= link_to category.title, category_path(category.title), class: "nav-item nav-link" %>
+            <% end %>            
+          </div>
+        </li>
+      </ul>
 
         <!-- Move this ul outside of the above ul -->
         <ul class="nav justify-content-center">
@@ -38,12 +42,20 @@
           <%= link_to "Se Connecter", new_user_session_path, class: "nav-item nav-link" %>
           <%= link_to "S'inscrire", new_user_registration_path, class: "nav-item nav-link" %>
           <% else %>
-          <div class="logo">
+          <div class="logo me-4">
             <%= link_to(image_tag("https://zupimages.net/up/23/12/x5be.png", alt:"panier", style: 'width: 24px; height: 24px'), cart_path(@current_cart.id)) %>
             <div id="number_products_cart">
               <%= @current_cart.number_products %>
             </div>
           </div>
+          <% if current_user.wishlists != nil %>
+            <div class="logo me-4">
+              <%= link_to(image_tag("https://cdn.discordapp.com/attachments/1062665418621333504/1091031303119450192/821999ddd684f68b2686f9c3607fe217.jpg", alt:"wishlist", style: 'width: 24px; height: 24px'), wishlist_path(@current_wishlist.id)) %>
+              <div>
+                <%= link_to "Favoris", cart_path(@current_cart.id), class:"nav-item nav-link" %>
+              </div>
+            </div>
+          <% end %>
           <% if current_user.is_admin == true %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="themes-admin">Espace admin</a>
@@ -56,7 +68,7 @@
           </li>
         <% end %>
       <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="themes-account">Mon compte</a>
+          <a class="nav-link dropdown-toggle mx-auto" data-bs-toggle="dropdown" id="themes-account">Mon compte</a>
           <div class="dropdown-menu" aria-labelledby="themes">
               <%= link_to "Profil",user_path(current_user.id), class:"nav-item nav-link" %>
               <%= link_to "Mon Panier", cart_path(@current_cart.id), class:"nav-item nav-link" %>

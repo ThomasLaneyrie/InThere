@@ -1,0 +1,19 @@
+<div class="notes bs-component">
+  <% if average_note(product) == 0 %>
+    <% 5.times do |i| %>
+    <i class="fa fa-star-o" style="color: orange;"></i>
+    <% end %>
+    <small>Pas d'avis</small>
+  <% else %>
+    <% 5.times do |i| %>
+      <% if (average_note(product)-i) >= 1 %>
+        <i class="fa fa-star rating-color" style="color: orange;"></i>
+      <% elsif (average_note(product)-i) >= 0.5 %>
+        <i class="fa fa-star-half-o rating-color" style="color: orange;"></i>
+      <% else %>
+        <i class="fa fa-star-o" style="color: orange;"></i>
+      <% end %>
+    <% end %>
+    <small> <%= average_note(product) %></small>
+  <% end %>
+</div>

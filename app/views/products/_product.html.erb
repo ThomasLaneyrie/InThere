@@ -17,8 +17,10 @@
         <% end %>
       </h5>
       <p class="card-text" > <%= product.price %> € </p>
-      <p class="card-text" style="color: white"> <%= product.category.title %></p>
-  
+      <p class="card-text" style="color: green"> <%= product.category.title %></p>
+      <div style="color: white">
+        <%= render partial: "products/stars", locals: {product:product} %>
+      </div>
       <div class="container2">
         <div class="d-flex align-items-end justify-content-center pt-3 px-0 pb-0 mt-auto">
           <%= button_to "Acheter", product_carts_path(:product_id => product.id), class:"btn btn-outline" %></button>
@@ -28,4 +30,3 @@
     </div>
   </div>
 </div>
-
