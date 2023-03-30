@@ -1,5 +1,12 @@
-<h1>Ma Wishlist</h1>
-<%= @wishlist.title %>
-<% @wishlist.product_wishlists.each do |product_wishlist| %>
-  <%= render product_wishlist.product %>
-<% end %>
+<div class = "bs-component m-3">
+  <h1>Ma Wishlist</h1>
+  <%= @wishlist.title %>
+  <br> <br>
+  <div class="row items-section">
+      <% @wishlist.product_wishlists.each do |product_wishlist| %>
+        <%= render product_wishlist.product %> 
+      <% end %>
+  </div>
+</div>
+
+
