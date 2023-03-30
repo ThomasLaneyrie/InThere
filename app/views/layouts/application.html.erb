@@ -10,17 +10,22 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    
+    <%# CDN Font Awesome pour coeur on/off sur les wishlists %>
+    <script src="https://kit.fontawesome.com/12d7aeab5c.js" crossorigin="anonymous"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Tilt+Neon&display=swap" rel="stylesheet">
-       
+
   </head>
 
   <body>
     <%= render partial: 'layouts/navbar' %>
-    <%= render partial: 'layouts/flash' %>
+    <div id="flash">
+      <%= render partial: 'layouts/flash' %>
+    </div>
     <%= yield %>
   </body>
   <%= render partial: 'layouts/footer' %>
