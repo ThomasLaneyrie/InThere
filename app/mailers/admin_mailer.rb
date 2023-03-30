@@ -1,7 +1,7 @@
 class AdminMailer < ApplicationMailer
     default from: "zaritus3@hotmail.com"
 
-    def admin_order_email(order) 
+    def admin_order_mail(order) 
         @admin = User.find_by(email: "admininthere@yopmail.com")  
         @order = order
         @cart =  @order.cart           
