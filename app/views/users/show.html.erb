@@ -2,22 +2,23 @@
   <h3 class="bs-component">Mes informations</h3>
 <hr>
   <div class="row">
-    <div class="col-4", style="height:220px"> 
+    <div class="col-xs-6 col-sm-4", style="height-max:220px"> 
       <% if @user.avatar.attached? %>
-        <%= image_tag @user.avatar, alt: 'avatar', style: 'width: 200px; height: 200px;' %>
+        <%= image_tag @user.avatar, alt: 'avatar', style: 'max-width: 200px; max-width: 200px;' %>
       <% else %>
         <img src="https://static.vecteezy.com/system/resources/thumbnails/020/647/381/small/empty-face-icon-avatar-with-mustache-illustration-vector.jpg" alt="photo de profil">
       <%end%>
+    </div>
 
-</div>
-  <div class="col-8 d-flex flex-column justify-content-center align-items-start text-pop-delayed-08s">
+    <div class="col-xs-6 col-sm-8 flex-column justify-content-center align-items-start text-pop-delayed-08s">
       <p>Prénom : <%= @user.first_name%> </p>
       <p>Nom : <%= @user.last_name%> </p>
       <p>Email : <%= @user.email%> </p>
-      <%= link_to "Modifier mon profil", edit_user_path(@user.id) %>
-      <%= link_to "Modifier mon mot de passe",  edit_user_registration_path %>
+      <%= link_to "Modifier mon profil", edit_user_path(@user.id), class:"btn btn-outline-2" %><br>
+      <%= link_to "Modifier mon mot de passe",  edit_user_registration_path, class:"btn btn-outline-2" %>
     </div>
   </div>
+  
   <hr class="text-pop-delayed-08s">
 </div>
 
@@ -46,10 +47,10 @@
      <hr>
       <% @user.orders.reverse().each do |order| %>
         <div class="row">
-          <div class="col">Commande N°<br> <%= order.id %> </div>
-          <div class="col">Date de la commande<br> <%= order.created_at.strftime("%d-%m-%Y") %></div>
-          <div class="col">Montant total<br> <%= order.cart.sub_total %> €</div>
-          <div class="col">Commande N°<br><%= link_to "Voir commande N°#{order.id}", order_path(order.id) %> </div>
+          <div class="col-md-3 col-xs-4">Commande N° <%= order.id %> </div>
+          <div class="col-md-3 col-xs-2">Date de la commande : <%= order.created_at.strftime("%d-%m-%Y") %></div>
+          <div class="col-md-3 col-xs-4">Montant total : <%= order.cart.sub_total %> €</div>
+          <div class="col-md-3 col-xs-4"> <%= link_to "Voir commande N°#{order.id}", order_path(order.id) %> </div>
         </div>
         <hr>
       <% end %>
