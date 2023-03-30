@@ -48,7 +48,7 @@
               <%= @current_cart.number_products %>
             </div>
           </div>
-          <% if current_user.wishlists != nil %>
+          <% if current_user.wishlists != [] %>
             <div class="logo me-4">
               <%= link_to(image_tag("https://cdn.discordapp.com/attachments/1062665418621333504/1091031303119450192/821999ddd684f68b2686f9c3607fe217.jpg", alt:"wishlist", style: 'width: 24px; height: 24px'), wishlist_path(@current_wishlist.id)) %>
               <div>
