@@ -6,11 +6,9 @@ class Admin::ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def destroy
-    @product = Product.find(params[:id])
-    @product.destroy
-    redirect_to admin_root_path
-    flash[:success] = "Produit supprimé avec succès de la base de ventes"
+  def edit
+    @products = Product.all
   end
 
 end
+

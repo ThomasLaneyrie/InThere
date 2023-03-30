@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Comments</h1>
+<% if @comments.length > 0 %>
+<div id="comments">
+  <% @comments.each do |comment| %>
+    <%= render partial: 'comments/comment', locals: { comment: comment } %>   
+      <%= button_to "Destroy this comment", comment, method: :delete, class: "me-3" %>
+  <% end %>
+</div>
+<% else %>
+
+<p> Cet utilisateur n'as pas fait de commentaires pour l'instant </p>
+
+<% end %>
+
+
+

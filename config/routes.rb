@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   # Routes relatives aux administrateurs
   namespace :admin do
     root to: "static_pages#dashboard"
-    resources :products, only: [:index, :destroy]
-    resources :users
-    resources :orders
+    resources :products, only: [:index,:edit, :destroy]
+    resources :users do
+      resources :comments, only: [:index]
+    end
+    resources :orders, only:  [:index, :show, :destroy]
   end
 
   # Routes relatives aux produits

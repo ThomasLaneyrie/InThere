@@ -4,8 +4,10 @@
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 200px">
       <h1 class="font-weight-semi-bold text-uppercase mb-3">Votre commande du <%= @order.created_at.strftime("%d-%m-%Y") %></h1>
       <h4 class="font-weight-semi-bold text-uppercase mb-3">Numéro de référence de votre commande: <%= @order.id %></h4>
+      <h4 class="font-weight-semi-bold text-uppercase mb-3">Total : <%= @order.cart.sub_total %></h4>
     </div>
   </div>
 </section>
 
 <%= render partial: 'orders/order', locals: {order: @order, cart: @cart} %>
+

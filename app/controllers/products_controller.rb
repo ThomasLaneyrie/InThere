@@ -49,8 +49,11 @@ class ProductsController < ApplicationController
 
   # PATCH/PUT /products/1 or /products/1.json
   def update
+
     respond_to do |format|
+    
       if @product.update(product_params)
+
         format.html { redirect_to product_url(@product), notice: "Product was successfully updated." }
         format.json { render :show, status: :ok, location: @product }
       else
@@ -62,7 +65,7 @@ class ProductsController < ApplicationController
 
   # DELETE /products/1 or /products/1.json
   def destroy
-    binding.pry
+
     @product.destroy
 
     respond_to do |format|
@@ -79,7 +82,7 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:title, :description, :price, :image_url, :category_id)
+      params.require(:product).permit(:title, :description, :price, :image_url, :category_id, :top_sell, :color, :brand)
     end
 
     def wishlist_button
