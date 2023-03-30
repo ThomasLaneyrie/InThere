@@ -18,11 +18,11 @@
     <div class="col-md-8">
       <%= comment.title %> 
     </div>
-    <% if comment.user.first_name.present? %>
     <div class="col-md-4 text-right">
+    <% if comment.user.present? && comment.user.first_name.present? %>
       <%= "fait par #{comment.user.first_name}" %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
   </div>
   <strong>Comment:</strong>
   <%= comment.content %>

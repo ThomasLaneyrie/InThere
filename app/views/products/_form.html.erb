@@ -1,27 +1,31 @@
-<%= form_with(model: product) do |form| %>
+<%= form_for(product) do |form| %>
   
   <div class="form-group" style="max-width:500px">
-    <%= form.label "Titre", style: "display: block" %>
+    <%= form.label "Title", style: "display: block" %>
     <%= form.text_field :title, class: 'form-control' %>
 
-    <%= form.label "Categorie", style: "display: block" %>
-    Faire un f.select
+    <%= form.label "Category", style: "display: block" %>
+    <%= form.collection_select :category_id, Category.all, :id, :title, { prompt: "Select a category" }, class: 'form-control' %>
     
     <%= form.label "Description", style: "display: block" %>
     <%= form.text_area :description, class: 'form-control' %>
 
-    <%= form.label "Prix (€)", style: "display: block" %>
+    <%= form.label "Price (€)", style: "display: block" %>
     <%= form.number_field :price, class: 'form-control' %>
 
-    <%= form.label "Couleur", style: "display: block" %>
+    <%= form.label "Color", style: "display: block" %>
     <%= form.text_field :color, class: 'form-control' %>
 
-    <%= form.label "Marque", style: "display: block" %>
-    <%= form.text_field :color, class: 'form-control' %>
+    <%= form.label "Brand", style: "display: block" %>
+    <%= form.text_field :brand, class: 'form-control' %>
+
+    <%= form.label "Top sell", style: "display: block" %>
+    <%= form.select :top_sell, options_for_select([["True", true], ["False", false]], product.top_sell), {}, class: 'form-select' %>
+
   </div>
 
 
   <div>
-    <%= form.submit %>
+  <%= form.submit "Update", class: "btn btn-primary" %>
   </div>
 <% end %>
