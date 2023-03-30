@@ -47,10 +47,10 @@
      <hr>
       <% @user.orders.reverse().each do |order| %>
         <div class="row">
-          <div class="col-md-3 col-xs-4">Commande N° <%= order.id %> </div>
-          <div class="col-md-3 col-xs-2">Date de la commande : <%= order.created_at.strftime("%d-%m-%Y") %></div>
-          <div class="col-md-3 col-xs-4">Montant total : <%= order.cart.sub_total %> €</div>
-          <div class="col-md-3 col-xs-4"> <%= link_to "Voir commande N°#{order.id}", order_path(order.id) %> </div>
+          <div class="col-md-3">Commande N° <%= order.id %> </div>
+          <div class="col-md-3">Date de la commande : <%= order.created_at.strftime("%d-%m-%Y") %></div>
+          <div class="col-md-3">Montant total : <%= order.cart.sub_total %> €</div>
+          <div class="col-md-3"> <%= link_to "Voir commande N°#{order.id}", order_path(order.id) %> </div>
         </div>
         <hr>
       <% end %>
