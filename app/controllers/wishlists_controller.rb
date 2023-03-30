@@ -1,4 +1,9 @@
 class WishlistsController < ApplicationController
+
+before_action :authenticate_user!, only: [:show, :edit]
+before_action :is_current_user?, only: [:show, :edit]
+
+
   def show
     @wishlist = Wishlist.find(params[:id])
   end
