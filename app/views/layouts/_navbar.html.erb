@@ -27,26 +27,24 @@
 			</ul>
 			<ul class="navbar-nav ms-md-auto">
 				<% if @current_user == nil %>
-				<li><div class= "logo"><%= button_to(image_tag("https://zupimages.net/up/23/13/zk87.jpg", alt:"panier", style: 'width: 24px; height: 24px; '), user_google_oauth2_omniauth_authorize_path, data: { turbo: false }, class: "button is-info button_nav", style: "background-color: transparent; border: none;") %></div></li>
+				<li><div class= "logo"><%= button_to(image_tag("https://zupimages.net/up/23/13/zk87.jpg", alt:"google", style: 'width: 24px; height: 24px; '), user_google_oauth2_omniauth_authorize_path, data: { turbo: false }, class: "button is-info button_nav", style: "background-color: transparent; border: none;") %></div></li>
 				<%= link_to "Se Connecter", new_user_session_path, class: "nav-item nav-link" %>
 				<%= link_to "S'inscrire", new_user_registration_path, class: "nav-item nav-link" %>
 				<% else %>
 				<li>
-					<div class="logo me-4">
-						<%= link_to(image_tag("https://zupimages.net/up/23/12/x5be.png", alt:"panier", style: 'width: 24px; height: 24px'), cart_path(@current_cart.id)) %>
+					<div class="logo me-4" style="margin-top: 7px">
+						<%= link_to(image_tag("https://zupimages.net/up/23/12/x5be.png", alt:"panier", style: 'width: 24px; height: 24px;'), cart_path(@current_cart.id)) %>
 						<div id="number_products_cart">
 							<%= @current_cart.number_products %>
 						</div>
 					</div>
-				</li>
+          </li>
 				<% if current_user.wishlists != [] %>
-				<li>
+        <li>
 					<div class="logo me-4">
 						<%= link_to(image_tag("https://zupimages.net/up/23/13/dl4n.jpg", alt:"wishlist", style: 'width: 24px; height: 24px'), wishlist_path(@current_wishlist.id)) %>
-						<div>
-							<%= link_to "Favoris", cart_path(@current_cart.id), class:"nav-item nav-link" %>
+							<%= link_to "Favoris", wishlist_path(@current_wishlist.id), class:"nav-item nav-link" %>
 						</div>
-					</div>
 				</li>
 				<% end %>
 				<% if current_user.is_admin == true %>
