@@ -1,16 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Commentaires</h1>
+<div class="d-flex justify-content-between">
+  <h1>Commentaires</h1>
+  <span class="fs-5">
+    <%= link_to "Retour au produit", product_path(@product.title), class: "btn btn-outline" %>
+  </span>
+</div>
 
 <div id="comments">
   <% @comments.each do |comment| %>
     <%= render comment %>
-    <p>
-    <% if current_user == comment.user %>
-      <%= link_to "Modifier mon commentaire", comment %>
-    <% end %>
-    </p>
   <% end %>
-
-<%= link_to "Retour au produit", product_path(@product.title) %> 
 </div>
