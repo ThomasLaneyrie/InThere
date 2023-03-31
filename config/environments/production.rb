@@ -91,7 +91,16 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-
+  # Ajouts pour faire fonctionner les mailers de Devise sur Heroku
   config.action_mailer.default_url_options = { :host => 'inthere.herokuapp.com' }
+  ActionMailer::Base.smtp_settings = {
+    :address          => "smtp.sendgrid.net",
+    :port             => 587,
+    :authentication   => :plain,
+    :user_name        => ENV['SENDGRID_LOGIN'],
+    :password         => ENV['SENDGRID_PWD'],
+    :domain           => "heroku.com",
+  }
 
 end
+
