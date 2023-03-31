@@ -2,7 +2,7 @@
   <div class="container mt-4", style="max-width:600px">  
     <h2>Se connecter</h2>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
       <div class="form-label mt-3">
         <%= f.label :email %><br />
         <%= f.email_field :email, autocomplete: "email", class:"form-control" %>

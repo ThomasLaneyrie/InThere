@@ -1,7 +1,7 @@
 <%= javascript_include_tag "main", "data-turbo-track": "reload", defer: true %>
 
 <section class="items-section">
-	<div class="col-lg-6 col-md-6 col-sm-7 d-flex my-5 mx-auto">
+  <div class="col-lg-6 col-md-6 col-sm-7 d-flex my-5 mx-auto">
     <div class="card w-100 my-2 shadow-2-strong">
         <img src=<%= @product.image_url %> alt="produit" class="card-img-top">
         <div class="image-container">
@@ -41,7 +41,7 @@
         </div>
       </div>
     </div>
-	</div>
+  </div>
 </section>
 
 <% if @current_user != nil %>
