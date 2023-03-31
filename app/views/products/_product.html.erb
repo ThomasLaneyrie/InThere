@@ -1,7 +1,7 @@
 <div class="col-lg-3 col-md-6 col-sm-7 d-flex">
   <div class="card w-100 my-2 shadow-2-strong">
-  <img src="<%= product.image_url %>" alt="produit" class="card-img-top" width="230" height="130" />
-      <div class="card-body d-flex flex-column">
+    <img src="<%= product.image_url %>" alt="produit" class="card-img-top" width="230" height="130" />
+    <div class="card-body d-flex flex-column">
       <h5 class="card-title" style="color: white"> <%= product.title %>
         <% if user_signed_in? %>
           <%= turbo_frame_tag "#{dom_id(product)}" do %>
@@ -22,8 +22,8 @@
         <%= render partial: "products/stars", locals: {product:product} %>
       </div>
       <div class="container2">
-        <div class="d-flex align-items-end justify-content-center pt-3 px-0 pb-0 mt-auto">
-          <%= button_to "Acheter", product_carts_path(:product_id => product.id), class:"btn btn-outline" %></button>
+        <div class="d-flex align-items-end justify-content-center pt-3 px-0 pb-0 mt-auto" data-turbo="true">
+          <%= button_to "Acheter", product_carts_path(:product_id => product.id), class:"btn btn-outline" %>
           <%= link_to "infos", product_path(product), class:"btn btn-outline", style: "margin-left: 10px" %>
         </div>
       </div>
