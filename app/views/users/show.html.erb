@@ -1,22 +1,54 @@
 <div class="container text-center">
-  <h3 class="bs-component">Mes informations</h3>
-<hr>
+  <div class="text-start">
+    <h3 class="bs-component">Bonjour  
+    <% if @user.first_name.present? %><%= @user.first_name %>
+    <% end %> ! </h3>
+  </div>
+  <hr>
+
   <div class="row">
     <div class="col-xs-6 col-sm-4", style="height-max:220px"> 
       <% if @user.avatar.attached? %>
-        <%= image_tag @user.avatar, alt: 'avatar', style: 'max-width: 200px; max-width: 200px;' %>
+        <%= image_tag @user.avatar, alt: 'avatar', style: 'max-width: 200px; max-width: 200px;', class: 'rounded-circle shadow-1-strong me-3' %>
       <% else %>
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/020/647/381/small/empty-face-icon-avatar-with-mustache-illustration-vector.jpg" alt="photo de profil"/>
+        <img class="rounded-circle shadow-1-strong me-3" src="https://static.vecteezy.com/system/resources/thumbnails/020/647/381/small/empty-face-icon-avatar-with-mustache-illustration-vector.jpg" alt="photo de profil"/>
       <%end%>
     </div>
 
     <div class="col-xs-6 col-sm-8 flex-column justify-content-center align-items-start text-pop-delayed-08s">
-      <p>Prénom : <%= @user.first_name%> </p>
-      <p>Nom : <%= @user.last_name%> </p>
+    <% if @user.first_name.blank? && @user.last_name.blank?%>
+      <h3  class="bs-component"> Tu peux editer tes informations  ! </h3>
+    <%else %>
+      <% if @user.first_name.present? %>
+        <p>Prénom : <%= @user.first_name%> </p>
+      <% else %>
+      <p> Ajoute ton prénom  </p>
+      <% end %>
+      <% if @user.last_name.present? %>
+        <p>Nom : <%= @user.last_name%> </p>
+        <% else %>
+        <p> Ajoute ton nom de famille </p>
+      <% end %>
+      <% if @user.address.present? %>
+      <p>Nom : <%= @user.address%> </p>
+      <% else %>
+      <p> Ajoute ton adress </p>
+      <% end %>
+      <% if @user.city.present? %>
+      <p>Nom : <%= @user.city%> </p>
+      <% else %>
+      <p> Ajoute ta ville </p>
+      <% end %>
+      <% if @user.zip_code.present? %>
+      <p>Nom : <%= @user.zip_code%> </p>
+      <% else %>
+      <p> Ajoute ton CP </p>
+      <% end %>
+    <% end %>
       <p>Email : <%= @user.email%> </p>
-      <%= link_to "Modifier mon profil", edit_user_path(@user.id), class:"btn btn-outline-2" %><br>
-      <%= link_to "Modifier mon mot de passe",  edit_user_registration_path, class:"btn btn-outline-2" %>
     </div>
+    <%= link_to "Modifier mon profil", edit_user_path(@user.id) ,  data: { turbo: false }%><br>
+      <%= link_to "Modifier mon mot de passe",  edit_user_registration_path,  data: { turbo: false } %>
   </div>
   
   <hr class="text-pop-delayed-08s">
@@ -28,12 +60,12 @@
   <div class="row ">
     <div class="col text-center">
       <h3 class="bs-component">Changer mon avatar</h3>
-        <hr>
+        
         <br>
         <%= form_tag user_avatars_path(@user), multipart: true do %>
-        <%= file_field_tag :avatar %>
-        <%= submit_tag "mettre à jour" %>
-      <% end %>
+          <%= submit_tag "mettre à jour" %>
+          <%= file_field_tag :avatar%>
+        <% end %>        
     </div>
   </div>
 </div>
@@ -43,23 +75,29 @@
 <div class="container text-pop-delayed-16s">
   <div class="row ">
     <div class="col text-center">
-      <h3 class="bs-component">Vos commandes passées</h3>
-     <hr>
-      <% @user.orders.reverse().each do |order| %>
-        <div class="row">
+    <hr>
+     
+      <% if @user.orders.count > 0 %>
+        <h3 class="bs-component"> Vos commandes passées</h3>
+        <% @user.orders.reverse().each do |order| %>
+          <div class="row">
           <div class="col-md-3">Commande N° <%= order.id %> </div>
           <div class="col-md-3">Date de la commande : <%= order.created_at.strftime("%d-%m-%Y") %></div>
           <div class="col-md-3">Montant total : <%= order.cart.sub_total %> €</div>
           <div class="col-md-3"> <%= link_to "Voir commande N°#{order.id}", order_path(order.id) %> </div>
-        </div>
-        <hr>
+          </div>
+          <hr>
+        <% end %>
+      <%else %>
+      <h3 class="bs-component"> Tu n'as pas de commandes encore </h3>
       <% end %>
+
     </div>
   </div>
 </div>
 
 <br><br>
 <div class="bs-component text-center text-pop-delayed-16s">
-  <%= link_to "Retour page produits", products_path , class:"btn btn-secondary"%>
+  <%= link_to "Retour page produits", products_path , class: "btn btn-outline btn-outline-light" ,  data: { turbo: false }%>
   <br><br>
 </div>
