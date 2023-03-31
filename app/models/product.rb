@@ -10,6 +10,10 @@ class Product < ApplicationRecord
     ["description", "price", "title", "color", "brand"]
   end
 
+  def self.ransackable_associations(auth_object = nil)
+    ["description", "price", "brand"]
+  end
+
   def to_param
     title
   end

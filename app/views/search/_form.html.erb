@@ -1,4 +1,9 @@
-<%= search_form_for(@q, url: search_path, method: :get, class:"d-flex") do |f| %>
-  <%= f.search_field :description_cont, placeholder: "recherchez dans la description", class: "form-control me-2" %>
-  <%= f.submit "Ok !" %>
+<%= search_form_for(@q, url: search_path, method: :get) do |f| %>
+  <%= f.search_field :description_or_title_or_brand_cont, placeholder: "Recherchez un produit, une description", class: "form-control me-2" %>
+  <div style="display:flex; justify-content:center; padding-top:20px;">
+  <%= f.submit "Ok !", class:"btn btn-outline me-2" %>
 <% end %>
+    <% if params[:q] != nil %>
+      <%= link_to "Supprimer les filtres", products_path, class:"btn btn-outline4" %>
+    <% end %>
+  </div>
