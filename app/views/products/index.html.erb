@@ -1,54 +1,48 @@
-<body>
 	<br><br>
-  <center>
-  <section class="items-section">
-	<%= render "search/form" %>
-	<br>
-	<div class="container my-5">
-			<div class="row">
-			<% Category.all.each do |category| %>
-				<div class="col">
-				  <%= link_to category_path(category.title) do %>
-					<%= image_tag(category.link, alt: "categories") %>
-					<div class="col"></div>
-					<br>
-					<span style="font-weight: bold;"><%= category.title.upcase %></span>
-				  <% end %>
-				  </div>
-			  <% end %>
-			</div>
-		</div>
-	</div>
-	
-<br><br>
-	<center>
-		<div class="row">
-			<div class="bs-component">
-				<h2>NOS BONS PLANS DU MOMENT</h2>
-				<br>
-				<section class="items-section">
-				<br>
+  	<section class="items-section">
+			<%= render "search/form" %>
+		<br>
+				<div class="container my-5">
 					<div class="row">
-						<% Product.all.where(top_sell:true).sort.each do |product| %>
-							<%= render product %>
+						<% Category.all.each do |category| %>
+							<div class="col text-center">
+								<%= link_to category_path(category.title) do %>
+								<%= image_tag(category.link, alt: "categories") %>
+									<div class="col">
+									</div>
+									<br>
+									<span style="font-weight: bold;"><%= category.title.upcase %></span>
+									<% end %>
+							</div>
 						<% end %>
 					</div>
-				</section>
-			</div>
-		</div>
-		<div class="row">
-		<div class="bs-component">
-		<br><br><br>
-			<h2>TOUS LES PRODUITS</h2>
-			<br><br>
-				<div class="row">
-				<% Product.all.sort.each do |product| %>
-					<%= render product %>
-					<% end %>
 				</div>
-			</section>
-		</div>
-	</div>
-	</center>
-	
-</body>
+			<br><br>
+
+			<div class="row">
+				<div class="bs-component text-center">
+					<h2>NOS BONS PLANS DU MOMENT</h2>
+						<br>
+					<section class="items-section">
+						<br>
+							<div class="row">
+								<% Product.all.where(top_sell:true).sort.each do |product| %>
+									<%= render product %>
+								<% end %>
+							</div>
+					</section>
+				</div>
+			</div>
+				<div class="row">
+					<div class="bs-component">
+						<br><br><br>
+							<h2>TOUS LES PRODUITS</h2>
+						<br><br>
+							<div class="row">
+								<% Product.all.sort.each do |product| %>
+								<%= render product %>
+							<% end %>
+							</div>
+		</section>
+					</div>
+				</div>
