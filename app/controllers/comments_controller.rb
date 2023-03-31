@@ -29,11 +29,15 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @product = Product.find(comment_params[:product_id])
     @comment.product_id = @product.id
-
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to product_path(@product.title), notice: "Comment was successfully created." }
-        format.json { render :show, status: :created, location: @comment }
+        number_comments_for_this_product = Comment.all.where(product:@product).count
+        # format.html { redirect_to product_path(@product.title), notice: "Comment was successfully created." }
+        # format.json { render :show, status: :created, location: @comment }
+        format.turbo_stream do 
+          render turbo_stream: [turbo_stream.prepend("all_comments", @comment),
+                                turbo_stream.update("number_comments", number_comments_for_this_product)]
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @comment.errors, status: :unprocessable_entity }

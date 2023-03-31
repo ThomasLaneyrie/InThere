@@ -36,7 +36,6 @@ a.nav-link{
 }
 
 .logo {
-  padding-right: 10px;
   color: #49c317;
   font-family: 'Poppins', sans-serif;
   font-size:14px;
@@ -142,7 +141,7 @@ a.nav-link{
 Police de caractère : FreeMono, monospace */
 
 .col-sm-6{
-  background-image: url("https://images.samsung.com/is/image/samsung/assets/sk/smartphones/galaxy-s21-ultra-5g/images/galaxy-s21-ultra-5g_highlights_processor_bg.jpg?$ORIGIN_JPG$");  
+  background-image: url("https://zupimages.net/up/23/13/6yzz.jpg");  
   background-repeat: no-repeat; 
   background-size: cover;
   background-color: #141414;  
@@ -161,7 +160,7 @@ Police de caractère : FreeMono, monospace */
   text-shadow:
   0 0 10px #ffffff62,
   0 0 42px #c34e17;
-  font-family: 'Tilt Neon', cursive; */
+  font-family: 'Tilt Neon', cursive;
 }
 
 @keyframes neon-border {
@@ -289,11 +288,6 @@ background-color: #000000;
 }
 
 
-.container2 {
-  position: relative;
-  align-items: stretch;
-}
-
 .half-width {
   width: 50%;
   margin: 0 auto; 
@@ -313,6 +307,7 @@ background-color: #000000;
 
 .card-img-top {
   position: relative;
+
 }
 
 .fa-regular {

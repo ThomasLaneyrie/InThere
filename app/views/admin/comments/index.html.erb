@@ -1,16 +1,42 @@
-<p style="color: green"><%= notice %></p>
 
 <h1>Comments</h1>
 <% if @comments.length > 0 %>
-<div id="comments">
+<table class="table table-hover bg-transparent">
+<thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Crée</th>
+    <th scope="col">Titre</th>
+    <th scope="col">Contenu</th>
+    <th scope="col">Note</th>
+    <th scope="col">Utilisateur</th>
+    <th scope="col">Produit</th>
+    <th scope="col">Actions</th>
+  </tr>
+</thead>
+<tbody>
   <% @comments.each do |comment| %>
-    <%= render partial: 'comments/comment', locals: { comment: comment } %>   
-      <%= button_to "Destroy this comment", comment, method: :delete, class: "me-3" %>
+    <tr>
+      <td><%= comment.id %></td>
+      <td><%= comment.created_at.strftime("%B %d, %Y %I:%M %p") %></td>
+      <td><%= comment.title %></td>
+      <td><%= comment.content %></td>
+      <td><%= comment.note %></td>
+      <td><%= comment.user.email %></td>
+      <td><%= comment.product.title %></td>
+      <td>
+        <div class="d-flex">
+        <%= button_to "Effacer", comment, data: { confirm: "Tu es sur?" }, class: "btn btn-danger" %>
+        </div>
+      </td>
+    </tr>
   <% end %>
-</div>
+</tbody>
+</table>
 <% else %>
 
 <p> Cet utilisateur n'as pas fait de commentaires pour l'instant </p>
+
 
 <% end %>
 
