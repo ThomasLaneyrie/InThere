@@ -24,7 +24,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @products.each do |product| %>
+    <% @products.sort.each do |product| %>
       <tr>
         <td><%= product.id %></td>
         <td><%= image_tag(product.image_url, size: "50x50") %></td>
