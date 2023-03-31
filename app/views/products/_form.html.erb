@@ -36,7 +36,7 @@
         <%= form.select :top_sell, options_for_select([["True", true], ["False", false]], product.top_sell), {}, class: 'form-select' %>
       </div>
 
-      <%= form.submit "Mettre à jour", class:"btn btn-outline4 btn-lg mt-2 w-100" %>
+      <%= form.submit "Mettre à jour", class:"btn btn-outline4 btn-lg mt-2 w-100", data: { turbo: false } %>
       <% end %>
     </div>
   <div>
