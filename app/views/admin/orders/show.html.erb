@@ -30,7 +30,7 @@
 <div class="text-center">
   <section>
     <%= render partial: 'orders/order', locals: {order: @order, cart: @cart} %>
-    <%= link_to "Orders", admin_orders_path, class:"btn btn-success btn-lg" %>
+    <%= link_to "Commandes", admin_orders_path, class:"btn btn-outline ",  data: { turbo: false } %>
   </section>
 </div>
 

@@ -7,6 +7,6 @@
 <br>
 
 <div>
-  <%= link_to "Voir ce produit", @product %> |
-  <%= link_to "Produits", products_path %>
+  <%= link_to "Voir ce produit", @product,  data: { turbo: false }  %> |
+  <%= link_to "Produits", admin_products_path,  data: { turbo: false }  %>
 </div>

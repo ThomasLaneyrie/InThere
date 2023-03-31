@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-8">
-    <h1 class="fw-bold">Products</h1>
+    <h1 class="fw-bold">Produits</h1>
   </div>
   <div class="col-4 text-end">
-    <%= button_to "Ajouter un nouveau produit", new_product_path, method: :get, class: "btn btn-success btn-lg" %>
+    <%= button_to "Ajouter un nouveau produit", new_product_path, method: :get, class: "btn btn-outline ", data: {turbo: false} %>
   </div>
 </div>
 
@@ -11,7 +11,7 @@
 <table class="table table-hover bg-transparent">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">id</th>
       <th scope="col">Image</th>
       <th scope="col">Titre</th>
       <th scope="col">Description</th>
@@ -30,14 +30,14 @@
         <td><%= image_tag(product.image_url, size: "50x50") %></td>
         <td><%= product.title %></td>
         <td><%= product.description %></td>
-        <td><%= number_to_currency(product.price) %></td>
+        <td><%= product.price%>€</td>
         <td><%= product.category.title %></td>
         <td><%= product.top_sell%> </td>
         <td><%= product.color %></td>
         <td><%= product.brand %></td>
         <td>
           <div class="d-flex">
-            <%= button_to "Edit", edit_product_path(product), method: :get, class: "btn btn-warning me-2" %>
+            <%= button_to "Edit", edit_product_path(product), method: :get, class: "btn btn-warning me-2" , data: { turbo: false } %>
             <%= button_to "Delete", product_path(product), method: :delete, data: { confirm: "tu es sure ?" }, class: "btn btn-danger" %>
           </div>
         </td>

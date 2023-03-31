@@ -3,7 +3,7 @@
 <table class="table table-hover bg-transparent">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">id</th>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Address</th>
@@ -19,7 +19,7 @@
         <td><%= user.email %></td>
         <td><%= user.address %> <%= user.city %>, <%= user.zip_code %></td>
         <td>
-        <%= link_to "Comments",  admin_user_comments_path(user), class: "btn btn-lg btn-primary", style: "background-color: violet;" %>
+        <%= link_to "Comments",  admin_user_comments_path(user), class: "btn btn-outline " %>
         </td>
         <td>
         <%= button_to "Delete", admin_user_path(user), method: :delete, data: { confirm: "tu es sure de vouloir l'effaser ?" }, class: "btn btn-danger" %>
