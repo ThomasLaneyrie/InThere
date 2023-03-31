@@ -38,15 +38,13 @@
 							<%= @current_cart.number_products %>
 						</div>
 					</div>
-				</li>
+          </li>
 				<% if current_user.wishlists != [] %>
-				<li>
+        <li>
 					<div class="logo me-4">
 						<%= link_to(image_tag("https://zupimages.net/up/23/13/dl4n.jpg", alt:"wishlist", style: 'width: 24px; height: 24px'), wishlist_path(@current_wishlist.id)) %>
-						<div>
 							<%= link_to "Favoris", cart_path(@current_cart.id), class:"nav-item nav-link" %>
 						</div>
-					</div>
 				</li>
 				<% end %>
 				<% if current_user.is_admin == true %>
