@@ -13,11 +13,12 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <p >Nom: <%= @order.user.first_name %> <%= @order.user.last_name %></p>
+          <p >Prénom: <%= @order.user.first_name %> <%= @order.user.last_name %></p>
           <p>Email: <%= @order.user.email %></p>
         </div>
         <div class="col-md-6">
           <p>Adresse: <%= @order.user.address %></p>
+          <p> Total: <%= @order.cart.sub_total %></p>
         </div>
       </div>
     </div>

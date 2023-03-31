@@ -57,6 +57,6 @@ Le résumé complet avec en plus les descriptions des bases de données, le sch�
 
 résumé pdf : https://docdro.id/c2JO0gi
 
-Heroku : https://inthere.herokuapp.com/
+Heroku : https://inthere-prod.herokuapp.com/
 Lien Trello : https://trello.com/b/fVYLI9C2/projet-inthere
 Lien GITHUB : https://github.com/ThomasLaneyrie/InThere

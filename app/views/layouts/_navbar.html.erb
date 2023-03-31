@@ -1,72 +1,77 @@
-<div class="bs-component mx-5" data-turbo="false">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <%= link_to "IN THERE", root_path, class: "nav-link active" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Produits", products_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="themes-nav-categories">Categories</a>
-            <div class="dropdown-menu" aria-labelledby="themes">
-              <% Category.all.each do |category| %>
-                <%= link_to category.title, category_path(category.title), class: "nav-item nav-link" %>
-              <% end %>            
-            </div>
-          </li>
-        </ul>
-
-        <!-- Move this ul outside of the above ul -->
-        <ul class="nav justify-content-center">
-          <li class="nav-item">
-            <% if user_signed_in? %>
-              <span class="badge rounded-pill bg-success">Vous êtes connecté</span>
-            <% else %>
-              <span class="badge rounded-pill bg-success">"Vous n'êtes pas encore inscrit"</span>
-            <% end %>
-          </li>
-        </ul>
-
-        <ul class="navbar-nav ms-md-auto">
-          <% if @current_user == nil %>
-          <div class= "logo">
-            <%= button_to(image_tag("https://media.discordapp.net/attachments/1062665418621333504/1090248251833327676/AATXAJyinelXJOqRuDKmXAlUqielit-PXp4REWcRIQs900-c-k-c0xffffffff-no-rj-mo.png?width=673&height=673", alt:"panier", style: 'width: 24px; height: 24px; '), user_google_oauth2_omniauth_authorize_path, data: { turbo: false }, class: "button is-info button_nav", style: "background-color: transparent; border: none;") %>
-          </div>
-          <%= link_to "Se Connecter", new_user_session_path, class: "nav-item nav-link" %>
-          <%= link_to "S'inscrire", new_user_registration_path, class: "nav-item nav-link" %>
-          <% else %>
-          <div class="logo">
-            <%= link_to(image_tag("https://zupimages.net/up/23/12/x5be.png", alt:"panier", style: 'width: 24px; height: 24px'), cart_path(@current_cart.id)) %>
-            <div id="number_products_cart">
-              <%= @current_cart.number_products %>
-            </div>
-          </div>
-          <% if current_user.is_admin == true %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="themes-admin">Espace admin</a>
-            <div class="dropdown-menu" aria-labelledby="themes">
-              <%= link_to "Dashboard", admin_root_path, class:"dropdown-item" %>
-              <%= link_to "Users", admin_users_path, class:"dropdown-item" %>
-              <%= link_to "Products", admin_products_path, class:"dropdown-item" %>
-              <%= link_to "Orders", admin_orders_path, class:"dropdown-item" %>
-            </div>
-          </li>
-        <% end %>
-      <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="themes-account">Mon compte</a>
-          <div class="dropdown-menu" aria-labelledby="themes">
-              <%= link_to "Profil",user_path(current_user.id), class:"nav-item nav-link" %>
-              <%= link_to "Mon Panier", cart_path(@current_cart.id), class:"nav-item nav-link" %>
-              <%= link_to "Se deconnecter", destroy_user_session_path, class: "nav-item nav-link" %>
-          </div>
-        </li>
-        </ul>
-      <%end%>
-    </ul>
-    </div>
-  </div>
-</nav>
+<div class="navbar navbar-expand-lg navbar-dark bg-primary" data-turbo="false">
+	<div class="container">
+		<a class="navbar-brand"></a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav me-auto">
+				<li class="nav-item"><%= link_to "IN THERE", root_path, class: "nav-link active" %></li>
+				<li class="nav-item"><%= link_to "Produits", products_path, class: "nav-link" %></li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="themes-nav-categories">Categories</a>
+					<div class="dropdown-menu" aria-labelledby="themes" id="themes-nav-categories1">
+						<% Category.all.each do |category| %>
+						<%= link_to category.title, category_path(category.title), class: "nav-item nav-link" %>
+						<% end %>
+					</div>
+				</li>
+			</ul>
+			<!-- Move this ul outside of the above ul -->
+			<ul class="nav justify-content-center">
+				<li class="nav-item">
+					<% if user_signed_in? %>
+					<span class="badge rounded-pill bg-success">Vous êtes connecté</span>
+					<% else %>
+					<span class="badge rounded-pill bg-success">"Vous n'êtes pas encore inscrit"</span>
+					<% end %>
+				</li>
+			</ul>
+			<ul class="navbar-nav ms-md-auto">
+				<% if @current_user == nil %>
+				<li><div class= "logo"><%= button_to(image_tag("https://zupimages.net/up/23/13/zk87.jpg", alt:"panier", style: 'width: 24px; height: 24px; '), user_google_oauth2_omniauth_authorize_path, data: { turbo: false }, class: "button is-info button_nav", style: "background-color: transparent; border: none;") %></div></li>
+				<%= link_to "Se Connecter", new_user_session_path, class: "nav-item nav-link" %>
+				<%= link_to "S'inscrire", new_user_registration_path, class: "nav-item nav-link" %>
+				<% else %>
+				<li>
+					<div class="logo me-4">
+						<%= link_to(image_tag("https://zupimages.net/up/23/12/x5be.png", alt:"panier", style: 'width: 24px; height: 24px'), cart_path(@current_cart.id)) %>
+						<div id="number_products_cart">
+							<%= @current_cart.number_products %>
+						</div>
+					</div>
+				</li>
+				<% if current_user.wishlists != [] %>
+				<li>
+					<div class="logo me-4">
+						<%= link_to(image_tag("https://zupimages.net/up/23/13/dl4n.jpg", alt:"wishlist", style: 'width: 24px; height: 24px'), wishlist_path(@current_wishlist.id)) %>
+						<div>
+							<%= link_to "Favoris", cart_path(@current_cart.id), class:"nav-item nav-link" %>
+						</div>
+					</div>
+				</li>
+				<% end %>
+				<% if current_user.is_admin == true %>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="themes-admin">Espace admin</a>
+					<div class="dropdown-menu" aria-labelledby="themes" id="themes-admin1">
+						<%= link_to "Dashboard", admin_root_path, class:"dropdown-item", class: "nav-item nav-link"%>
+						<%= link_to "Users", admin_users_path, class:"dropdown-item", class: "nav-item nav-link" %>
+						<%= link_to "Categories", admin_categories_path, class:"dropdown-item", class: "nav-item nav-link" %>
+						<%= link_to "Products", admin_products_path, class:"dropdown-item", class: "nav-item nav-link" %>
+						<%= link_to "Orders", admin_orders_path, class:"dropdown-item", class: "nav-item nav-link" %>
+						<%= link_to "Se deconnecter", destroy_user_session_path, class: "nav-item nav-link" %>
+					</div>
+				</li>
+				<% end %>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle mx-auto" data-bs-toggle="dropdown" id="themes-account">Mon compte</a>
+					<div class="dropdown-menu" aria-labelledby="themes" id="themes-account1">
+						<%= link_to "Profil",user_path(current_user.id), class:"nav-item nav-link" %>
+						<%= link_to "Mon Panier", cart_path(@current_cart.id), class:"nav-item nav-link" %>
+						<%= link_to "Se deconnecter", destroy_user_session_path, class: "nav-item nav-link" %>
+					</div>
+				</li>
+			</ul>
+			<%end%>
+		</div>
+	</div>
 </div>

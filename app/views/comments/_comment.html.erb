@@ -1,30 +1,47 @@
-<div id="<%= dom_id comment %>">
-  <div class="row">
-    <div class="col-md-8">
-      <% note = comment.note  %>
-      <% 5.times do |i| %>
-        <% if i < note %>
-          <i class="fa fa-star rating-color" style="color: green;"></i>
-        <% else %>
-          <i class="fa fa-star-o" style="color: green;"></i>
-        <% end %>
-      <% end %>      
-    </div>
-    <div class="col-md-4 text-right">
-      <small><%= comment.created_at.strftime('%d/%m/%Y %H:%M') %></small>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8">
-      <%= comment.title %> 
-    </div>
-    <% if comment.user.first_name.present? %>
-    <div class="col-md-4 text-right">
-      <%= "fait par #{comment.user.first_name}" %>
-    </div>
-  <% end %>
-  </div>
-  <strong>Comment:</strong>
-  <%= comment.content %>
+<div class="my-4">
+  <% note = comment.note  %>
+  <% 5.times do |i| %>
+    <% if i < note %>
+      <i class="fa fa-star rating-color" style="color: green;"></i>
+    <% else %>
+      <i class="fa fa-star-o" style="color: green;"></i>
+    <% end %>
+  <% end %> 
 </div>
 
+<div class="row">
+  <div class="col">
+    <div class="d-flex flex-start">
+      <% if comment.user.avatar.attached? %>
+      <%= image_tag comment.user.avatar, alt: 'avatar', class: 'rounded-circle shadow-1-strong me-3', width:"60" ,height:"60" %>
+      <% else %>
+        <img class="rounded-circle shadow-1-strong me-3"src="https://static.vecteezy.com/system/resources/thumbnails/020/647/381/small/empty-face-icon-avatar-with-mustache-illustration-vector.jpg" alt="avatar par défaut" width="60" height="60" />
+      <%end%>
+        <div class="flex-grow-1 flex-shrink-1">
+          <div>
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="mb-1"> 
+              <% if comment.user.present? && comment.user.first_name.present? %>
+                <%= comment.user.first_name %>
+              <% else %>
+                Anonymous
+              <% end %>
+              : <%= comment.title %>
+              <span class="small"></span> </p>
+              <span class="small"><%= comment.created_at.strftime('%d/%m/%Y') %></span></a>
+            </div>
+              <p class="small mb-0"> <%= comment.content %> </p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="my-4">
+  <p>
+    <% if current_user == comment.user %>
+      <%= link_to "Modifier/Supprimer votre commentaire", comment %>
+    <% end %>
+  </p>
+</div>
+<hr>
