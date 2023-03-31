@@ -1,10 +1,19 @@
+<div class="row">
+  <div class="col-8 ">
+    <h1 class="fw-bold">Comments</h1>
+  </div>
+  <div class="col-4 text-end ">
 
-<h1>Comments</h1>
+  <%= link_to "Utilisateurs", admin_users_path, class:"btn btn-outline ",  data: { turbo: false }  %>
+  </div>
+</div>
+
+
 <% if @comments.length > 0 %>
 <table class="table table-hover bg-transparent">
 <thead>
   <tr>
-    <th scope="col">#</th>
+    <th scope="col">id</th>
     <th scope="col">Crée</th>
     <th scope="col">Titre</th>
     <th scope="col">Contenu</th>
@@ -36,6 +45,7 @@
 <% else %>
 
 <p> Cet utilisateur n'as pas fait de commentaires pour l'instant </p>
+
 
 
 <% end %>

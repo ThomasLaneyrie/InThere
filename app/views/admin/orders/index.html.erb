@@ -1,12 +1,12 @@
-<h1>Orders</h1>
+<h1>Commandes</h1>
 
 <table class="table table-hover bg-transparent">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">id</th>
       <th scope="col">Id</th>
       <th scope="col">Email</th>
-      <th scope="col">Ordre Date</th>
+      <th scope="col">Date</th>
       <th scope="col">Total</th>
       <th scope="col">Actions</th>
     </tr>
@@ -18,10 +18,10 @@
         <td><%= order.user.id %></td>
         <td><%= order.user.email %></td>
         <td><%= order.created_at.strftime('%d %b %Y') %></td>
-        <td>$<%= order.cart.sub_total %></td>
+        <td><%= order.cart.sub_total %>€</td>
         <td>
         <div class="d-flex">
-          <%= link_to "View", admin_order_path(order), class: "btn btn-warning mr-2" %>
+          <%= link_to "View", admin_order_path(order), class: "btn btn-warning mr-2",  data: { turbo: false } %>
           <%= button_to "Delete", admin_order_path(order), method: :delete, data: { confirm: "Tu es sur?" }, class: "btn btn-danger" %>
         </div>
         </td>
