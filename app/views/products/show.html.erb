@@ -74,7 +74,7 @@
             <div class="media mb-4">
               <div class="media-body">
                 <div id= "all_comments">
-                <% @comments.order(created_at: :desc).limit(3).each do |comment| %>
+                <% @comments.order(created_at: :desc).limit(2).each do |comment| %>
                   <%= render comment %>
                 <% end %>
                 </div>
