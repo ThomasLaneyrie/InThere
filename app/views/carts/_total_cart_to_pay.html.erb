@@ -18,12 +18,12 @@
     <div class="card-footer border-secondary bg-transparent">
         <div class="d-flex justify-content-between mt-2">
             <h5 class="font-weight-bold">Total</h5>
-                <div id="turbo_maj_total_cart2">
-                    <h5 class="font-weight-bold"><%= @cart.sub_total %> €</h5>
-                </div>
+            <div id="turbo_maj_total_cart2">
+                <h5 class="font-weight-bold"><%= @cart.sub_total %> €</h5>
+            </div>
         </div>
         <% if @cart.sub_total != 0 %>
-            <%= button_to "Paiement", cart_checkout_create_path(@cart.id, total: @cart.sub_total), class: "btn btn-outline4 btn-lg w-100 mt-2", remote: true, "data-turbo" => "false" %> 
+            <%= button_to "Paiement", cart_checkout_create_path(@cart.id, total: @cart.sub_total), class: "btn btn-outline4 btn-lg w-100", remote: true, "data-turbo" => "false" %> 
         <% end %>
     </div>
 </div>
