@@ -6,7 +6,7 @@
 				<div class="row">
 					<% Category.all.each do |category| %>
 						<div class="col text-center">
-							<%= link_to category_path(category.title) do %>
+							<%= link_to category_path(category.title),  data: { turbo: false }  do %>
 								<%= image_tag(category.link, alt: "categories") %>
 									<div class="col">
 									</div>

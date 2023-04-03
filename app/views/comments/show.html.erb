@@ -5,10 +5,10 @@
 <div class="d-flex ms-3 bs-component">
   <div class="comments-links d-flex justify-content-between ">
     <% if current_user == @comment.user %>
-      <%= button_to "Supprimer votre commentaire", @comment, method: :delete, class: "me-3 btn btn-outline-2" %>
-      <%= link_to "Modifier votre commentaire", edit_comment_path(@comment), class: "me-3 btn btn-outline" %>
+      <%= button_to "Supprimer votre commentaire", @comment, method: :delete, class: "me-3 btn btn-outline-2", data: { turbo: false } %>
+      <%= link_to "Modifier votre commentaire", edit_comment_path(@comment), class: "me-3 btn btn-outline", data: { turbo: false } %>
     <% end %>
-    <%= link_to "Retour au produit", product_path(@comment.product), class: "me-3 btn btn-outline" %> 
+    <%= link_to "Retour au produit", product_path(@comment.product), class: "me-3 btn btn-outline", data: { turbo: false } %> 
   </div>
 </div>
 
