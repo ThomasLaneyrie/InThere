@@ -6,5 +6,6 @@ class Admin::StaticPagesController < ApplicationController
     @products = Product.all
     @users = User.all
     @categories = Category.all
+    @orders = Order.all
   end
 end

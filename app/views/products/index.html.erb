@@ -6,7 +6,7 @@
 				<div class="row">
 					<% Category.all.each do |category| %>
 						<div class="col text-center">
-							<%= link_to category_path(category.title) do %>
+							<%= link_to category_path(category.title),  data: { turbo: false }  do %>
 								<%= image_tag(category.link, alt: "categories") %>
 									<div class="col">
 									</div>
@@ -25,7 +25,7 @@
 				<br>
 			<section class="items-section">
 				<br>
-					<div class="row">
+					<div class="row d-flex justify-content-center">
 						<% Product.all.where(top_sell:true).sort.each do |product| %>
 							<%= render product %>
 						<% end %>
@@ -34,7 +34,7 @@
 		</div>
 	</div>
 		<div class="row">
-			<div class="bs-component">
+			<div class="bs-component text-center">
 				<br><br><br>
 					<h2>TOUS LES PRODUITS</h2>
 				<br><br>

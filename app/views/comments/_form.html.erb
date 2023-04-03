@@ -15,13 +15,13 @@
 
     <div class="form-group" style="max-width:500px">
       <%= form.label :title, "Titre :", style: "display: block" %>
-      <%= form.text_field :title, class: 'form-control' %>
+      <%= form.text_field :title, :required => 'required', class: 'form-control' %>
 
       <%= form.label :content, "Commentaire :" ,style: "display: block" %>
-      <%= form.text_area :content, class: 'form-control' %>
+      <%= form.text_area :content, :required => 'required', class: 'form-control' %>
 
       <%= form.label :note,  "Note (1 à 5) :", style: "display: block" %>
-      <%= form.number_field :note, in: 1..5, min: 1, max: 5, class: 'form-control' %>
+      <%= form.number_field :note, in: 1..5, min: 1, max: 5, :required => 'required', class: 'form-control' %>
 
       <%= form.submit "Commenter", class: "btn btn-outline4 btn-lg btn-commenter" %>
     </div>

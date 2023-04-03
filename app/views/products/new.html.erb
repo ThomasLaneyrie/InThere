@@ -1,9 +1,10 @@
-<h1>Création d'un nouveau produit</h1>
+<div class="container">
+  <h3 class="text-center">Création d'un nouveau produit</h3>
+</div>
 
 <%= render "form", product: @product %>
-
 <br>
 
 <div>
-  <%= link_to "Back to products", products_path %>
+  <%= link_to "Produits", admin_products_path, data: {turbo: false} %>
 </div>
