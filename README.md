@@ -18,7 +18,7 @@ Le site reprend toutes les fonctionnalités nécessaires pour offrir à l’util
 -	Un panier, reprenant le ou les articles que l’utilisateur a ajouté
 -	La partie commande, qui permet à l’utilisateur d’avoir un récapitulatif et de confirmer sa commande
 -	Une interface de paiement avec plusieurs choix dans le type de paiement
--	Des mails de confirmation, et pour l’inscription, et pour la validation de la commande
+-	Des mails de confirmation, pour l’inscription et la validation de la commande
 
 ### 3). Parcours d'un utilisateur :
 
@@ -39,7 +39,7 @@ Le site reprend toutes les fonctionnalités nécessaires pour offrir à l’util
 ### 5)	Notre objectif :
 
 Proposer une expérience utilisateur simple avec une navigation fluide, non polluée par le marketing intrusif.
-Mettre en avant une sélection de produits ciblés, choisit par nos soins, pour éviter le côté « usine à gaz » de certains sites de E-commerce.
+Mettre en avant une sélection de produits ciblés, pour éviter le côté « usine à gaz » de certains sites de E-commerce.
 
 ### 6)	Design :
 
@@ -53,7 +53,7 @@ De plus, nous avons décidé d’avoir des pages simples, sans trop d’élémen
 
 ### 8)	Les liens :
 
-Le résumé complet avec en plus les descriptions des bases de données, le schéma Lucid chart qui nous à permis de coder ensuite les bases, une copie du kit ui décidé et des frames prévue qui nous ont guidé pour la création de l'environnement graphique codé en HTML et CSS.
+Le résumé complet avec en plus les descriptions des bases de données, le schéma Lucid chart qui nous à permis de coder ensuite les bases, une copie du kit ui décidé et des frames prévues qui nous ont guidés pour la création de l'environnement graphique codé en HTML et CSS.
 
 résumé pdf : https://docdro.id/c2JO0gi
 
