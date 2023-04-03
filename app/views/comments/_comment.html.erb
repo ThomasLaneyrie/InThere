@@ -40,7 +40,7 @@
 <div class="my-4">
   <p>
     <% if current_user == comment.user %>
-      <%= link_to "Modifier/Supprimer votre commentaire", comment %>
+      <%= link_to "Modifier/Supprimer votre commentaire", comment, data: { turbo: false } %>
     <% end %>
   </p>
 </div>
