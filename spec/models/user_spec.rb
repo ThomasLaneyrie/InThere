@@ -37,6 +37,7 @@ RSpec.describe User, type: :model do
     describe "carts" do
       it "should have_many carts and many orders" do
         cart = Cart.create(user: @user)
+        User.create(email: 'admininthere@yopmail.com', password: '123456')
         expect(@user.carts.include?(cart)).to eq(true)
         order = Order.create(user: @user, cart: cart)
         expect(@user.orders.include?(order)).to eq(true)
