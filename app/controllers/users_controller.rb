@@ -15,6 +15,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.first_name = user_edit[:first_name]
     @user.last_name = user_edit[:last_name]
+    @user.address = user_edit[:address]
+    @user.city = user_edit[:city]
+    @user.zip_code = user_edit[:zip_code]
     if @user.save
       redirect_to user_path(@user.id)
       flash[:success] = "Profil modifié avec succès !"
@@ -26,7 +29,7 @@ class UsersController < ApplicationController
 
   private
   def user_edit 
-    params.require(:user).permit(:first_name, :last_name) 
+    params.require(:user).permit(:first_name, :last_name, :address, :city, :zip_code) 
   end
 
 end

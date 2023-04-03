@@ -47,7 +47,7 @@
     <% end %>
       <p>Email : <%= @user.email%> </p>
     </div>
-    <%= link_to "Modifier mon profil", edit_user_path(@user.id) ,  data: { turbo: false }%><br>
+    <%= link_to "Modifier mon profil", edit_user_path(@user.id) ,  data: { turbo: false }%> <br>
       <%= link_to "Modifier mon mot de passe",  edit_user_registration_path,  data: { turbo: false } %>
   </div>
   
